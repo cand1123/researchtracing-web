@@ -32,6 +32,508 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+        
+        /* Fixed table layout untuk ukuran yang paten */
+        .fixed-table {
+            table-layout: fixed;
+            width: 100%;
+        }
+        
+        .fixed-table th,
+        .fixed-table td {
+            overflow: visible;
+            text-overflow: clip;
+            white-space: normal;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Khusus untuk kolom title agar bisa wrap */
+        .col-title {
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+        
+        /* Header kolom title yang bisa wrap */
+        .col-title.text-wrap {
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            line-height: 1.3 !important;
+            padding: 8px 12px !important;
+        }
+        
+        /* Kolom dengan ukuran tetap */
+        .col-no {
+            width: 48px !important;
+            min-width: 48px !important;
+            max-width: 48px !important;
+        }
+        
+        .col-title {
+            width: 320px !important;
+            min-width: 320px !important;
+            max-width: 320px !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+        
+        .col-accreditation {
+            width: 128px !important;
+            min-width: 128px !important;
+            max-width: 128px !important;
+        }
+        
+        .col-status {
+            width: 128px !important;
+            min-width: 128px !important;
+            max-width: 128px !important;
+        }
+        
+        .col-year {
+            width: 96px !important;
+            min-width: 96px !important;
+            max-width: 96px !important;
+        }
+        
+        .col-actions {
+            width: 128px !important;
+            min-width: 128px !important;
+            max-width: 128px !important;
+        }
+        
+        /* Fresh UI Styling */
+        .fresh-table {
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .fresh-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+        
+        .fresh-header th {
+            color: white;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 8px 6px;
+            border: none;
+            position: relative;
+        }
+        
+        @media (min-width: 640px) {
+            .fresh-header th {
+                padding: 12px 8px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .fresh-header th {
+                padding: 16px 12px;
+            }
+        }
+        
+        .fresh-header th:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .fresh-body tr {
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .fresh-body tr:hover {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+        
+        .fresh-body td {
+            padding: 8px 6px;
+            border: none;
+            vertical-align: middle;
+        }
+        
+        @media (min-width: 640px) {
+            .fresh-body td {
+                padding: 12px 8px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .fresh-body td {
+                padding: 16px 12px;
+            }
+        }
+        
+        .fresh-badge {
+            padding: 4px 8px;
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        
+        @media (min-width: 640px) {
+            .fresh-badge {
+                padding: 5px 10px;
+                font-size: 11px;
+                letter-spacing: 0.3px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .fresh-badge {
+                padding: 6px 12px;
+                font-size: 12px;
+                letter-spacing: 0.3px;
+            }
+        }
+        
+        .fresh-badge.published {
+            background: #f0fdf4;
+            color: #166534;
+        }
+        
+        .fresh-badge.draft {
+            background: #f9fafb;
+            color: #374151;
+        }
+        
+        .fresh-badge.review {
+            background: #fffbeb;
+            color: #92400e;
+        }
+        
+        .fresh-badge.submit {
+            background: #eff6ff;
+            color: #1e40af;
+        }
+        
+        .fresh-badge.accepted {
+            background: #ecfeff;
+            color: #0e7490;
+        }
+        
+        .fresh-badge.declined {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+        
+        .fresh-button {
+            padding: 5px;
+            border-radius: 9px;
+            border: none;
+            transition: all 0.2s ease;
+            background: transparent;
+        }
+        
+        @media (min-width: 640px) {
+            .fresh-button {
+                padding: 6px;
+                border-radius: 10px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .fresh-button {
+                padding: 8px;
+                border-radius: 12px;
+            }
+        }
+        
+        .fresh-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .fresh-button.view-btn:hover {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+        
+        .fresh-button.delete-btn:hover {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+        }
+        
+        .fresh-collapse {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 6px;
+            margin: 3px 4px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .fresh-card {
+            background: white;
+            border-radius: 6px;
+            padding: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f3f4f6;
+        }
+        
+        @media (min-width: 640px) {
+            .fresh-collapse {
+                border-radius: 8px;
+                margin: 4px 6px;
+            }
+            
+            .fresh-card {
+                border-radius: 8px;
+                padding: 12px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .fresh-collapse {
+                border-radius: 10px;
+                margin: 6px 8px;
+            }
+            
+            .fresh-card {
+                border-radius: 10px;
+                padding: 16px;
+            }
+        }
+        
+        .fresh-input {
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 6px 8px;
+            transition: all 0.2s ease;
+            background: white;
+        }
+        
+        .fresh-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+        
+        .fresh-modal {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+        
+        .fresh-modal-content {
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+        
+        @media (min-width: 640px) {
+            .fresh-input {
+                border-radius: 8px;
+                padding: 8px 10px;
+            }
+            
+            .fresh-modal-content {
+                border-radius: 14px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .fresh-input {
+                border-radius: 10px;
+                padding: 10px 12px;
+            }
+            
+            .fresh-modal-content {
+                border-radius: 16px;
+            }
+        }
+        
+        /* Styling untuk text wrap */
+        .text-wrap {
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            line-height: 1.4 !important;
+        }
+        
+        /* Memastikan semua kolom title bisa wrap */
+        .w-80 .text-wrap,
+        .col-title .text-wrap {
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            line-height: 1.4 !important;
+            max-width: 100% !important;
+        }
+        
+        /* Override untuk data yang di-generate */
+        .w-80 div.text-xs {
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+        
+        /* Memastikan kolom Accreditation tidak wrap */
+        .col-accreditation,
+        .col-accreditation * {
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+        
+        /* Memastikan tinggi baris menyesuaikan */
+        .fixed-table tr {
+            height: auto !important;
+            min-height: 40px !important;
+        }
+        
+        @media (min-width: 640px) {
+            .fixed-table tr {
+                min-height: 44px !important;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .fixed-table tr {
+                min-height: 48px !important;
+            }
+        }
+        
+        /* Pagination Styles */
+        .fresh-pagination-btn {
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            background: white;
+            color: #374151;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .fresh-pagination-btn:hover:not(:disabled) {
+            background: #f3f4f6;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
+        }
+        
+        .fresh-pagination-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .fresh-pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .fresh-select {
+            padding: 6px 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            font-size: 13px;
+            color: #374151;
+            cursor: pointer;
+        }
+        
+        .fresh-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+        }
+        
+        @media (min-width: 640px) {
+            .fresh-pagination-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .fresh-select {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .fresh-pagination-btn {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+            
+            .fresh-select {
+                padding: 10px 16px;
+                font-size: 15px;
+            }
+        }
+        
+        /* Extra small breakpoint for very small screens */
+        @media (max-width: 475px) {
+            .fresh-header th {
+                padding: 6px 4px;
+                font-size: 10px;
+                letter-spacing: 0.2px;
+            }
+            
+            .fresh-body td {
+                padding: 6px 4px;
+            }
+            
+            .fresh-badge {
+                padding: 3px 6px;
+                font-size: 9px;
+                letter-spacing: 0.1px;
+            }
+            
+            .fresh-button {
+                padding: 4px;
+                border-radius: 7px;
+            }
+            
+            .fresh-collapse {
+                border-radius: 5px;
+                margin: 3px 4px;
+            }
+            
+            .fresh-card {
+                border-radius: 5px;
+                padding: 8px;
+            }
+            
+            .fresh-input {
+                border-radius: 5px;
+                padding: 5px 7px;
+            }
+            
+            .fresh-modal-content {
+                border-radius: 10px;
+            }
+            
+            .fixed-table tr {
+                min-height: 36px !important;
+            }
+            
+            .fresh-pagination-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .fresh-select {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+        }
                          /* Modal transition */
         .modal {
             transition: opacity 0.3s ease-in-out;
@@ -210,30 +712,31 @@
 
         <!-- Main Content: Table -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div class="p-3 sm:p-4 md:p-6">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
-                    <h2 class="text-base sm:text-lg font-semibold">Research List</h2>
-                    <button id="add-research-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 sm:py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <i class="fas fa-plus mr-1.5 text-xs"></i>
-                        Tambah Penelitian Baru
+            <div class="p-1 sm:p-2 md:p-3 lg:p-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-2 mb-2 sm:mb-3">
+                    <h2 class="text-sm sm:text-base md:text-lg font-semibold">Research List</h2>
+                    <button id="add-research-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-1.5 py-1 sm:px-2 sm:py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <i class="fas fa-plus mr-1 sm:mr-1.5 text-xs"></i>
+                        <span class="hidden xs:inline">Tambah Penelitian Baru</span>
+                        <span class="xs:hidden">Tambah</span>
                     </button>
                 </div>
             </div>
             
-            <div class="px-3 sm:px-4 md:px-6 pb-3 sm:pb-4 md:pb-6">
+            <div class="px-1 sm:px-2 md:px-3 lg:px-4 pb-1 sm:pb-2 md:pb-3 lg:pb-4">
                 <div class="overflow-x-auto">
-                    <table class="w-full border-2 border-indigo-200 rounded-lg overflow-hidden">
-                        <thead class="bg-indigo-50 border-b-2 border-indigo-300">
+                    <table class="w-full fresh-table fixed-table">
+                        <thead class="fresh-header">
                             <tr>
-                                <th scope="col" class="min-w-[40px] px-2 sm:px-3 py-2 sm:py-3 text-center text-xs font-semibold text-indigo-800 uppercase tracking-wider border-r border-indigo-200">No</th>
-                                <th scope="col" class="min-w-[200px] sm:min-w-[300px] px-2 sm:px-3 py-2 sm:py-3 text-center text-xs font-semibold text-indigo-800 uppercase tracking-wider border-r border-indigo-200">Title</th>
-                                <th scope="col" class="min-w-[100px] sm:min-w-[120px] px-2 sm:px-3 py-2 sm:py-3 text-center text-xs font-semibold text-indigo-800 uppercase tracking-wider border-r border-indigo-200">Accreditation</th>
-                                <th scope="col" class="min-w-[100px] sm:min-w-[120px] px-2 sm:px-3 py-2 sm:py-3 text-center text-xs font-semibold text-indigo-800 uppercase tracking-wider border-r border-indigo-200">Status</th>
-                                <th scope="col" class="min-w-[80px] sm:min-w-[100px] px-2 sm:px-3 py-2 sm:py-3 text-center text-xs font-semibold text-indigo-800 uppercase tracking-wider border-r border-indigo-200">Year</th>
-                                <th scope="col" class="min-w-[80px] px-2 sm:px-3 py-2 sm:py-3 text-center text-xs font-semibold text-indigo-800 uppercase tracking-wider">Aksi</th>
+                                <th scope="col" class="col-no text-center text-xs font-semibold uppercase tracking-wider">No</th>
+                                <th scope="col" class="col-title text-center text-xs font-semibold uppercase tracking-wider text-wrap">Title</th>
+                                <th scope="col" class="col-accreditation text-center text-xs font-semibold uppercase tracking-wider">Accreditation</th>
+                                <th scope="col" class="col-status text-center text-xs font-semibold uppercase tracking-wider">Status</th>
+                                <th scope="col" class="col-year text-center text-xs font-semibold uppercase tracking-wider">Year</th>
+                                <th scope="col" class="col-actions text-center text-xs font-semibold uppercase tracking-wider">Aksi</th>
                             </tr>
                         </thead>
-                                             <tbody id="research-table-body" class="bg-white divide-y divide-indigo-100">
+                                             <tbody id="research-table-body" class="fresh-body">
                          <!-- Data akan diisi oleh JavaScript -->
                          <tr class="table-row">
                              <td colspan="6" class="px-6 py-8 text-center text-gray-400">
@@ -249,6 +752,45 @@
                          </tr>
                      </tbody>
                     </table>
+                </div>
+                
+                <!-- Pagination Navigation -->
+                <div id="pagination-container" class="mt-3 sm:mt-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
+                    <!-- Info Halaman -->
+                    <div class="text-xs sm:text-sm text-gray-600">
+                        <span id="page-info">Menampilkan 1-8 dari 0 data</span>
+                    </div>
+                    
+                    <!-- Navigasi Halaman -->
+                    <div class="flex items-center gap-1 sm:gap-2">
+                        <!-- Tombol Previous -->
+                        <button id="prev-page" class="fresh-pagination-btn disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <i class="fas fa-chevron-left text-xs"></i>
+                            <span class="hidden sm:inline ml-1">Previous</span>
+                        </button>
+                        
+                        <!-- Nomor Halaman -->
+                        <div id="page-numbers" class="flex items-center gap-1">
+                            <!-- Nomor halaman akan di-generate di sini -->
+                        </div>
+                        
+                        <!-- Tombol Next -->
+                        <button id="next-page" class="fresh-pagination-btn disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <span class="hidden sm:inline mr-1">Next</span>
+                            <i class="fas fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Dropdown Items per Page -->
+                    <div class="flex items-center gap-2">
+                        <label class="text-xs sm:text-sm text-gray-600">Per halaman:</label>
+                        <select id="items-per-page" class="fresh-select">
+                            <option value="8">8</option>
+                            <option value="16">16</option>
+                            <option value="24">24</option>
+                            <option value="32">32</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -495,29 +1037,38 @@
         let pendingAction = null; // To store pending action after PIN verification
         let pendingActionData = null; // To store data for pending action
         
+        // Pagination variables
+        let currentPage = 1;
+        let itemsPerPage = 8;
+        let filteredData = [];
+        
 
 
         // --- Data Fetching and Table Population ---
         onValue(researchRef, (snapshot) => {
-            tableBody.innerHTML = ''; // Clear existing table data
             const data = snapshot.val();
             allData = data; // Store data for later use (edit/delete)
-
-            if (data) {
+            
+            // Reset to first page when data changes
+            currentPage = 1;
+            
+            // Render table with pagination
+            renderTableWithPagination(data);
+            return;
                 let counter = 1;
                 Object.entries(data).forEach(([key, value]) => {
                     const row = document.createElement('tr');
                     row.classList.add('hover:bg-gray-50', 'table-row');
                     
                     row.innerHTML = `
-                        <td class="w-16 px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200">${counter++}</td>
-                        <td class="w-80 px-3 py-3 whitespace-nowrap border-r border-indigo-200">
-                            <div class="text-xs font-medium text-gray-800 truncate">${value.title || 'N/A'}</div>
-                        </td>
+                        <td class="w-12 px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200">${counter++}</td>
+                                            <td class="w-80 px-3 py-3 border-r border-indigo-200">
+                        <div class="text-xs font-medium text-gray-800 text-wrap">${value.title || 'N/A'}</div>
+                    </td>
                         <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-indigo-200">
-                            <span class="px-2 py-1 inline-flex text-xs font-medium rounded-md bg-gray-100 text-gray-700">
-                                ${value.accreditation || 'N/A'}
-                            </span>
+                                                    <span class="fresh-badge accreditation">
+                            ${value.accreditation || 'N/A'}
+                        </span>
                         </td>
                         <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-indigo-200">
                             <span class="px-2 py-1 inline-flex text-xs font-medium rounded-md ${getStatusColor(value.status)}">
@@ -526,8 +1077,8 @@
                         </td>
                         <td class="w-24 px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200">${value.implementation_year || 'N/A'}</td>
                         <td class="w-32 px-3 py-3 whitespace-nowrap text-center text-xs font-medium space-x-1">
-                            <button data-key="${key}" class="btn-transition view-btn p-1.5 text-gray-500 hover:text-green-600 hover:bg-green-50 rounded transition-colors" title="View"><i class="fas fa-eye"></i></button>
-                            <button data-key="${key}" class="btn-transition delete-btn p-1.5 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded transition-colors" title="Delete"><i class="fas fa-trash"></i></button>
+                            <button data-key="${key}" class="fresh-button view-btn text-gray-500" title="View"><i class="fas fa-eye"></i></button>
+                            <button data-key="${key}" class="fresh-button delete-btn text-gray-500" title="Delete"><i class="fas fa-trash"></i></button>
                         </td>
                     `;
                     tableBody.appendChild(row);
@@ -576,13 +1127,7 @@
                     `;
                     tableBody.appendChild(collapseRow);
                 });
-            } else {
-                // Show "Tidak ada data" when no data exists
-                const emptyRow = `<tr><td colspan="6" class="px-6 py-8 text-center text-gray-400">
-                    <div class="text-sm text-gray-400">Tidak ada data</div>
-                </td></tr>`;
-                tableBody.innerHTML = emptyRow;
-            }
+
         });
 
         // --- Event Delegation for Table Actions ---
@@ -664,6 +1209,13 @@
 
         // PIN Form Submit
         pinForm.addEventListener('submit', handlePinSubmit);
+        
+        // --- Pagination Event Listeners ---
+        document.getElementById('prev-page').addEventListener('click', goToPreviousPage);
+        document.getElementById('next-page').addEventListener('click', goToNextPage);
+        document.getElementById('items-per-page').addEventListener('change', (e) => {
+            changeItemsPerPage(e.target.value);
+        });
         
         // --- PIN Authentication Functions ---
         function requirePinAuth(action, key = null, data = null) {
@@ -870,13 +1422,13 @@
         // --- Helper Functions ---
         function getStatusColor(status) {
             switch (status) {
-                case 'Draft': return 'bg-gray-50 text-gray-700';
-                case 'Submit': return 'bg-blue-50 text-blue-700';
-                case 'Review': return 'bg-amber-50 text-amber-700';
-                case 'Declined': return 'bg-red-50 text-red-700';
-                case 'Accepted': return 'bg-emerald-50 text-emerald-700';
-                case 'Published': return 'bg-purple-50 text-purple-700';
-                default: return 'bg-gray-50 text-gray-700';
+                case 'Draft': return 'fresh-badge draft';
+                case 'Submit': return 'fresh-badge submit';
+                case 'Review': return 'fresh-badge review';
+                case 'Declined': return 'fresh-badge declined';
+                case 'Accepted': return 'fresh-badge accepted';
+                case 'Published': return 'fresh-badge published';
+                default: return 'fresh-badge draft';
             }
         }
 
@@ -1008,24 +1560,24 @@
                 row.classList.add('hover:bg-gray-50', 'table-row');
                 
                 row.innerHTML = `
-                    <td class="w-16 px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200">${counter++}</td>
-                    <td class="w-80 px-3 py-3 whitespace-nowrap border-r border-indigo-200">
-                        <div class="text-xs font-medium text-gray-800 truncate">${value.title || 'N/A'}</div>
+                    <td class="w-12 min-w-[48px] max-w-[48px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200 text-center">${counter++}</td>
+                    <td class="w-80 min-w-[320px] max-w-[320px] px-3 py-3 border-r border-indigo-200">
+                        <div class="text-xs font-medium text-gray-800 text-wrap" title="${value.title || 'N/A'}">${value.title || 'N/A'}</div>
                     </td>
-                    <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-indigo-200">
-                        <span class="px-2 py-1 inline-flex text-xs font-medium rounded-md bg-gray-100 text-gray-700">
+                    <td class="w-32 min-w-[128px] max-w-[128px] px-3 py-3 whitespace-nowrap border-r border-indigo-200 text-center">
+                        <span class="fresh-badge accreditation w-20 justify-center">
                             ${value.accreditation || 'N/A'}
                         </span>
                     </td>
-                    <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-indigo-200">
-                        <span class="px-2 py-1 inline-flex text-xs font-medium rounded-md ${getStatusColor(value.status)}">
+                    <td class="w-32 min-w-[128px] max-w-[128px] px-3 py-3 whitespace-nowrap border-r border-indigo-200 text-center">
+                        <span class="${getStatusColor(value.status)} w-24 justify-center">
                             ${value.status || 'N/A'}
                         </span>
                     </td>
-                    <td class="w-24 px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200">${value.implementation_year || 'N/A'}</td>
-                    <td class="w-32 px-3 py-3 whitespace-nowrap text-center text-xs font-medium space-x-1">
-                        <button data-key="${key}" class="btn-transition view-btn p-1.5 text-gray-500 hover:text-green-600 hover:bg-green-50 rounded transition-colors" title="View"><i class="fas fa-eye"></i></button>
-                        <button data-key="${key}" class="btn-transition delete-btn p-1.5 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded transition-colors" title="Delete"><i class="fas fa-trash"></i></button>
+                    <td class="w-24 min-w-[96px] max-w-[96px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200 text-center">${value.implementation_year || 'N/A'}</td>
+                    <td class="w-32 min-w-[128px] max-w-[128px] px-3 py-3 whitespace-nowrap text-center text-xs font-medium space-x-1">
+                        <button data-key="${key}" class="fresh-button view-btn text-gray-500" title="View"><i class="fas fa-eye"></i></button>
+                        <button data-key="${key}" class="fresh-button delete-btn text-gray-500" title="Delete"><i class="fas fa-trash"></i></button>
                     </td>
                 `;
                 tableBody.appendChild(row);
@@ -1089,6 +1641,212 @@
             setTimeout(() => {
                 toast.classList.add('hidden');
             }, 3000);
+        }
+        
+        // --- Pagination Functions ---
+        function renderTableWithPagination(data) {
+            if (!data || Object.keys(data).length === 0) {
+                const emptyRow = `<tr><td colspan="6" class="px-6 py-8 text-center text-gray-400">
+                    <div class="text-sm text-gray-400">Tidak ada data</div>
+                </td></tr>`;
+                tableBody.innerHTML = emptyRow;
+                updatePaginationInfo(0, 0, 0);
+                return;
+            }
+            
+            // Convert data to array and filter if needed
+            filteredData = Object.entries(data);
+            const totalItems = filteredData.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            
+            // Ensure current page is valid
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+            if (currentPage < 1) {
+                currentPage = 1;
+            }
+            
+            // Get current page data
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentPageData = filteredData.slice(startIndex, endIndex);
+            
+            // Clear table
+            tableBody.innerHTML = '';
+            
+            // Render current page data
+            let counter = startIndex + 1;
+            currentPageData.forEach(([key, value]) => {
+                const row = document.createElement('tr');
+                row.classList.add('hover:bg-gray-50', 'table-row');
+                
+                row.innerHTML = `
+                    <td class="w-12 min-w-[48px] max-w-[48px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200 text-center">${counter++}</td>
+                    <td class="w-80 min-w-[320px] max-w-[320px] px-3 py-3 border-r border-indigo-200">
+                        <div class="text-xs font-medium text-gray-800 text-wrap" title="${value.title || 'N/A'}">${value.title || 'N/A'}</div>
+                    </td>
+                    <td class="w-32 min-w-[128px] max-w-[128px] px-3 py-3 whitespace-nowrap border-r border-indigo-200 text-center">
+                        <span class="fresh-badge accreditation w-20 justify-center">
+                            ${value.accreditation || 'N/A'}
+                        </span>
+                    </td>
+                    <td class="w-32 min-w-[128px] max-w-[128px] px-3 py-3 whitespace-nowrap border-r border-indigo-200 text-center">
+                        <span class="${getStatusColor(value.status)} w-24 justify-center">
+                            ${value.status || 'N/A'}
+                        </span>
+                    </td>
+                    <td class="w-24 min-w-[96px] max-w-[96px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-indigo-200 text-center">${value.implementation_year || 'N/A'}</td>
+                    <td class="w-32 min-w-[128px] max-w-[128px] px-3 py-3 whitespace-nowrap text-center text-xs font-medium space-x-1">
+                        <button data-key="${key}" class="fresh-button view-btn text-gray-500" title="View"><i class="fas fa-eye"></i></button>
+                        <button data-key="${key}" class="fresh-button delete-btn text-gray-500" title="Delete"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+                
+                // Add collapse row for details
+                const collapseRow = document.createElement('tr');
+                collapseRow.id = `collapse-${key}`;
+                collapseRow.classList.add('hidden', 'bg-gray-50', 'collapse-transition');
+                collapseRow.innerHTML = `
+                    <td colspan="6" class="px-6 py-4">
+                        <div class="border-2 border-indigo-200 rounded-lg p-4 bg-white shadow-sm">
+                            <div class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="border border-gray-200 rounded-lg p-3 bg-gray-50">
+                                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Detail Penelitian</h4>
+                                        <div class="space-y-2 text-xs">
+                                            <div class="border-b border-gray-100 pb-1"><span class="font-medium text-gray-600">Judul:</span> <span class="text-gray-800">${value.title || 'N/A'}</span></div>
+                                            <div class="border-b border-gray-100 pb-1"><span class="font-medium text-gray-600">Akreditasi:</span> <span class="text-gray-800">${value.accreditation || 'N/A'}</span></div>
+                                            <div class="border-b border-gray-100 pb-1"><span class="font-medium text-gray-600">Status:</span> <span class="px-2 py-1 inline-flex text-xs font-medium rounded-md ${getStatusColor(value.status)}">${value.status || 'N/A'}</span></div>
+                                            <div><span class="border-b border-gray-100 pb-1"><span class="font-medium text-gray-600">Tahun Implementasi:</span> <span class="text-gray-800">${value.implementation_year || 'N/A'}</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-lg p-3 bg-gray-50">
+                                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Link & Publikasi</h4>
+                                        <div class="space-y-2 text-xs">
+                                            <div class="border-b border-gray-100 pb-1"><span class="font-medium text-gray-600">Link Jurnal:</span> <a href="${value.journal_link || '#'}" target="_blank" class="text-blue-600 hover:underline">${value.journal_link || 'Tidak ada'}</a></div>
+                                            <div class="border-b border-gray-100 pb-1"><span class="font-medium text-gray-600">Link Dokumen:</span> <a href="${value.doc_link || '#'}" target="_blank" class="text-blue-600 hover:underline">${value.doc_link || 'Tidak ada'}</a></div>
+                                            ${value.published?.year_published ? `<div class="border-b border-gray-100 pb-1"><span class="font-medium text-gray-600">Tahun Publikasi:</span> <span class="text-gray-800">${value.published.year_published}</span></div>` : ''}
+                                            ${value.published?.published_link ? `<div><span class="border-b border-gray-100 pb-1"><span class="font-medium text-gray-600">Link Publikasi:</span> <a href="${value.published.published_link}" target="_blank" class="text-blue-600 hover:underline">${value.published.published_link}</a></span></div>` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-end space-x-2 pt-3 border-t border-gray-200">
+                                    <button data-key="${key}" class="btn-transition edit-inline-btn inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                        <i class="fas fa-pencil-alt mr-1.5 text-xs"></i>
+                                        Edit
+                                    </button>
+                                    <button data-key="${key}" class="btn-transition close-collapse-btn inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 border border-gray-300 text-gray-700">
+                                        <i class="fas fa-times mr-1.5 text-xs"></i>
+                                        Tutup
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(collapseRow);
+            });
+            
+            // Update pagination
+            updatePaginationInfo(startIndex + 1, endIndex, totalItems);
+            renderPageNumbers(totalPages);
+            updateNavigationButtons(totalPages);
+        }
+        
+        function updatePaginationInfo(start, end, total) {
+            const pageInfo = document.getElementById('page-info');
+            if (total === 0) {
+                pageInfo.textContent = 'Tidak ada data';
+            } else {
+                pageInfo.textContent = `Menampilkan ${start}-${Math.min(end, total)} dari ${total} data`;
+            }
+        }
+        
+        function renderPageNumbers(totalPages) {
+            const pageNumbersContainer = document.getElementById('page-numbers');
+            pageNumbersContainer.innerHTML = '';
+            
+            if (totalPages <= 1) {
+                return;
+            }
+            
+            // Always show first page
+            if (currentPage > 1) {
+                addPageNumber(1);
+            }
+            
+            // Show ellipsis if there's a gap
+            if (currentPage > 3) {
+                addPageNumber('...', 'ellipsis');
+            }
+            
+            // Show current page and surrounding pages
+            for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
+                if (i !== 1 && i !== totalPages) {
+                    addPageNumber(i);
+                }
+            }
+            
+            // Show ellipsis if there's a gap
+            if (currentPage < totalPages - 2) {
+                addPageNumber('...', 'ellipsis');
+            }
+            
+            // Always show last page
+            if (currentPage < totalPages) {
+                addPageNumber(totalPages);
+            }
+        }
+        
+        function addPageNumber(pageNum, type = 'number') {
+            const pageNumbersContainer = document.getElementById('page-numbers');
+            const pageBtn = document.createElement('button');
+            
+            if (type === 'ellipsis') {
+                pageBtn.textContent = pageNum;
+                pageBtn.className = 'fresh-pagination-btn px-2 py-1 cursor-default';
+                pageBtn.disabled = true;
+            } else {
+                pageBtn.textContent = pageNum;
+                pageBtn.className = `fresh-pagination-btn ${pageNum === currentPage ? 'active' : ''}`;
+                pageBtn.addEventListener('click', () => goToPage(pageNum));
+            }
+            
+            pageNumbersContainer.appendChild(pageBtn);
+        }
+        
+        function updateNavigationButtons(totalPages) {
+            const prevBtn = document.getElementById('prev-page');
+            const nextBtn = document.getElementById('next-page');
+            
+            prevBtn.disabled = currentPage <= 1;
+            nextBtn.disabled = currentPage >= totalPages;
+        }
+        
+        function goToPage(page) {
+            currentPage = page;
+            renderTableWithPagination(allData);
+        }
+        
+        function goToPreviousPage() {
+            if (currentPage > 1) {
+                goToPage(currentPage - 1);
+            }
+        }
+        
+        function goToNextPage() {
+            const totalPages = Math.ceil(Object.keys(allData).length / itemsPerPage);
+            if (currentPage < totalPages) {
+                goToPage(currentPage + 1);
+            }
+        }
+        
+        function changeItemsPerPage(newItemsPerPage) {
+            itemsPerPage = parseInt(newItemsPerPage);
+            currentPage = 1; // Reset to first page
+            renderTableWithPagination(allData);
         }
 
     </script>
