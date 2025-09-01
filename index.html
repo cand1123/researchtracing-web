@@ -1,0 +1,2869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pustakana</title>
+    <!-- Tempel gambar img.png di tampilan -->
+    <link rel="icon" type="image/png" href="img.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+                background-color: #f3f4f6;
+        }
+            
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+            /* Table layout */
+        .fixed-table {
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .fixed-table th,
+        .fixed-table td {
+            overflow: visible;
+            text-overflow: clip;
+            white-space: normal;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Column sizing */
+        .col-no {
+            width: 64px !important;
+            min-width: 64px !important;
+            max-width: 64px !important;
+            text-align: center;
+        }
+        
+        .col-title {
+            width: 320px !important;
+            min-width: 320px !important;
+            max-width: 320px !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+            text-transform: capitalize !important;
+            text-align: left;
+        }
+        
+        .col-accreditation {
+            width: 128px !important;
+            min-width: 128px !important;
+            max-width: 128px !important;
+            text-align: center;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+        
+        .col-status {
+            width: 128px !important;
+            min-width: 128px !important;
+            max-width: 128px !important;
+            text-align: center;
+        }
+        
+        .col-year {
+            width: 96px !important;
+            min-width: 96px !important;
+            max-width: 96px !important;
+            text-align: center;
+        }
+        
+        .col-actions {
+            width: 128px !important;
+            min-width: 128px !important;
+            max-width: 128px !important;
+            text-align: center;
+        }
+            
+            /* Table styling */
+        .table_component {
+            width: 100%;
+            overflow-x: visible !important;
+            overflow-y: visible !important;
+}
+        
+        .fresh-table {
+            border: 1px solid #dededf;
+            height: 100%;
+            width: 100%;
+            table-layout: auto;
+        }
+        
+        /* Sticky positioning for first column */
+        .sticky {
+            position: sticky;
+            left: 0;
+            z-index: 10;
+        }
+        
+        /* Ensure sticky columns have proper background */
+        .sticky.bg-gray-50 {
+            background-color: #f9fafb !important;
+        }
+        
+        .sticky.bg-white {
+            background-color: #ffffff !important;
+        }
+        
+        .fresh-table {
+            border-collapse: collapse;
+            border-spacing: 1px;
+            text-align: left;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+            
+            /* Body styling */
+        .fresh-body tr {
+            border: 1px solid #e5e7eb;
+        }
+        
+        .fresh-body tr:hover {
+                background: #f8fafb;
+            }
+            
+            .fresh-body td {
+                padding: 6px 6px;
+                border: none;
+                vertical-align: middle;
+                font-size: 12px;
+                height: 50px;
+                min-height: 50px;
+                background-color: #ffffff;
+                color: #000000;
+                border: 1px solid #e5e7eb;
+                box-sizing: border-box;
+            }
+            
+            /* Row styling */
+        .table-row {
+            background: #ffffff;
+            margin: 2px 0;
+            border: 1px solid #e5e7eb;
+                height: 3.5rem;
+                min-height: 3.5rem;
+                max-height: 3.5rem;
+        }
+        
+        .table-row:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .table-row:nth-child(odd) {
+            background: #ffffff;
+            }
+            
+            .table-row:hover {
+                background-color: #f9fafb;
+            }
+            
+        .table-row td {
+                padding: 0.75rem 1.5rem;
+            background-color: transparent;
+            color: #374151;
+            font-weight: 600;
+            border: none;
+                height: 3.5rem;
+                min-height: 3.5rem;
+                max-height: 3.5rem;
+                box-sizing: border-box;
+                border-bottom: 1px solid #f3f4f6;
+            }
+            
+
+        
+            /* Collapse styling */
+        .collapse-transition {
+                background-color: #f8fafc;
+            height: auto;
+            min-height: 0;
+            transition: all 0.3s ease;
+                overflow: hidden;
+                margin: 3px 4px;
+                border: 1px solid #e5e7eb;
+        }
+        
+        .collapse-transition.hidden {
+            height: 0;
+            min-height: 0;
+            overflow: hidden;
+        }
+        
+            .collapse-transition.expanded {
+                background-color: #f1f5f9;
+                max-height: 500px;
+                opacity: 1;
+            }
+            
+        .collapse-transition td {
+            padding: 0.75rem 1.5rem;
+            box-sizing: border-box;
+                height: auto;
+                min-height: auto;
+            }
+            
+            /* Badge styling */
+            .fresh-badge {
+                padding: 4px 8px;
+                font-size: 12px;
+                font-weight: 500;
+                letter-spacing: 0.2px;
+                text-transform: uppercase;
+                border: none;
+                transition: all 0.2s ease;
+                display: inline-block;
+                line-height: 1.4;
+                border-radius: 12px;
+                margin: 0;
+            }
+            
+            .fresh-badge.published {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            color: #166534;
+            border: 2px solid #86efac;
+            box-shadow: 0 4px 8px rgba(34, 197, 94, 0.2);
+        }
+        
+            .fresh-badge.review {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+            border: 2px solid #fcd34d;
+            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2);
+        }
+        
+            .fresh-badge.submit {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #1e40af;
+            border: 2px solid #93c5fd;
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+            .fresh-badge.declined {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #991b1b;
+            border: 2px solid #fca5a5;
+            box-shadow: 0 4px 8px rgba(239, 68, 68, 0.2);
+        }
+        
+            /* Accreditation badges */
+            .accreditation-badge {
+                color: #374151;
+                font-size: 12px;
+                font-weight: 500;
+                text-transform: capitalize !important;
+                text-align: center;
+            }
+            
+        .accreditation-sinta1 {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+            border: 2px solid #fcd34d;
+            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2);
+        }
+        
+        .accreditation-sinta2 {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #1e40af;
+            border: 2px solid #93c5fd;
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        .accreditation-sinta3 {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            color: #166534;
+            border: 2px solid #86efac;
+            box-shadow: 0 4px 8px rgba(34, 197, 94, 0.2);
+        }
+        
+        .accreditation-sinta4 {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            color: #7c3aed;
+            border: 2px solid #c4b5fd;
+            box-shadow: 0 4px 8px rgba(139, 92, 246, 0.2);
+        }
+        
+        .accreditation-q1 {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+            border: 2px solid #fcd34d;
+            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2);
+        }
+        
+        .accreditation-q2 {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #1e40af;
+            border: 2px solid #93c5fd;
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        .accreditation-q3 {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            color: #166534;
+            border: 2px solid #86efac;
+            box-shadow: 0 4px 8px rgba(34, 197, 94, 0.2);
+        }
+        
+        .accreditation-q4 {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            color: #7c3aed;
+            border: 2px solid #c4b5fd;
+            box-shadow: 0 4px 8px rgba(139, 92, 246, 0.2);
+        }
+        
+            /* Button styling */
+        .fresh-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+                padding: 3px;
+            border: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            min-width: 1.5rem;
+            height: 1.5rem;
+                background: transparent;
+                color: #6b7280;
+                transition: all 0.2s ease;
+            }
+            
+            .fresh-button:hover {
+                background: transparent;
+                color: #374151;
+            }
+            
+            .fresh-button.view-btn i {
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .fresh-button.view-btn.expanded i {
+                transform: rotate(180deg);
+            }
+            
+            /* Pagination styling */
+        .fresh-pagination-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+                padding: 6px 12px;
+            border: 1px solid #e5e7eb;
+                background: white;
+            color: #374151;
+                font-size: 11px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            min-width: 1.5rem;
+            height: 1.5rem;
+                transition: all 0.2s ease;
+        }
+        
+        .fresh-pagination-btn:hover:not(:disabled) {
+                background: #f3f4f6;
+                border-color: #d1d5db;
+        }
+        
+        .fresh-pagination-btn.active {
+                background: #667eea;
+                color: white;
+                border-color: #667eea;
+        }
+        
+        .fresh-pagination-btn.active:hover {
+                background: #5a67d8;
+            color: #000000;
+        }
+        
+            .fresh-pagination-btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+            
+            /* Select styling */
+        .fresh-select {
+                padding: 2px 6px;
+                border: 1px solid #e5e7eb;
+                background: white;
+                font-size: 11px;
+            color: #374151;
+                cursor: pointer;
+                border-radius: 0 !important;
+        }
+        
+        .fresh-select:focus {
+            outline: none;
+                border-color: #667eea;
+                box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+            }
+            
+            /* Filter styling */
+        .filter-select, .filter-button {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            font-size: 0.75rem;
+            outline: none;
+            height: 2.5rem;
+            min-height: 2.5rem;
+            box-sizing: border-box;
+            line-height: 1.5;
+                border-radius: 0 !important;
+        }
+        
+        .filter-select:focus, .filter-button:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+        }
+        
+        .filter-button {
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .filter-button:hover {
+            background-color: #f9fafb;
+        }
+        
+        .filter-dropdown {
+            position: absolute;
+            z-index: 10;
+            margin-top: 0.25rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            max-height: 12rem;
+            overflow-y: auto;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 0;
+        }
+        
+            /* Text styling */
+            .text-wrap {
+                white-space: normal !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                line-height: 1.4 !important;
+            text-transform: capitalize !important;
+        }
+
+        .status-text {
+            color: #374151;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: capitalize !important;
+            text-align: center;
+        }
+
+            /* Input styling */
+        .fresh-input {
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 6px 8px;
+            transition: all 0.2s ease;
+            background: white;
+        }
+        
+        .fresh-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+        
+        .border-red-300 {
+            border-color: #fca5a5 !important;
+        }
+        
+        .border-red-300:focus {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+        }
+        
+            /* Modal styling */
+        .fresh-modal {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+        
+        .fresh-modal-content {
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+        
+            /* Card styling */
+                    .fresh-card {
+                background: white;
+                border-radius: 6px;
+            padding: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+                border: 1px solid #f3f4f6;
+            }
+            
+            /* Header banner styling */
+        .full-width-header {
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            width: 100vw;
+        }
+        
+        .header-banner {
+            background: #1e3a8a;
+            min-height: 200px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 2rem 4rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .logo-container {
+            flex-shrink: 0;
+        }
+        
+        .hexagon-logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        
+        .brand-text {
+            color: white;
+        }
+        
+        .brand-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        
+        .brand-tagline {
+            font-size: 0.9rem;
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+        
+        .header-right {
+            flex-shrink: 0;
+        }
+        
+        .brain-graphic {
+            width: 200px;
+            height: 120px;
+        }
+        
+        .brain-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+        
+        .city-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+            clip-path: polygon(
+                0% 100%, 5% 80%, 10% 90%, 15% 70%, 20% 85%, 25% 60%, 30% 75%, 35% 50%, 
+                40% 65%, 45% 40%, 50% 55%, 55% 30%, 60% 45%, 65% 20%, 70% 35%, 75% 10%, 
+                80% 25%, 85% 5%, 90% 15%, 95% 0%, 100% 10%, 100% 100%
+            );
+        }
+        
+        /* Responsive styles */
+            @media (min-width: 640px) {
+                .fresh-body td {
+                    padding: 8px 8px;
+                    height: 54px;
+                    min-height: 54px;
+                }
+                
+                .fresh-badge {
+                    padding: 5px 10px;
+                    letter-spacing: 0.3px;
+                }
+                
+                .fresh-button {
+                    padding: 4px;
+                }
+                
+                .fresh-pagination-btn {
+                    padding: 8px 16px;
+                    font-size: 12px;
+                }
+                
+                .fresh-select {
+                    padding: 4px 8px;
+                    font-size: 12px;
+                }
+                
+                .fresh-input {
+                    border-radius: 8px;
+                    padding: 8px 10px;
+                }
+                
+                .fresh-modal-content {
+                    border-radius: 14px;
+                }
+                
+                .fresh-collapse {
+                    border-radius: 8px;
+                    margin: 4px 6px;
+                }
+                
+                .fresh-card {
+                    border-radius: 8px;
+                    padding: 12px;
+                }
+            }
+            
+            @media (min-width: 768px) {
+                .fresh-body td {
+                    padding: 10px 12px;
+                    height: 58px;
+                    min-height: 58px;
+                }
+                
+                .fresh-badge {
+                    padding: 6px 12px;
+                    letter-spacing: 0.3px;
+                }
+                
+                .fresh-button {
+                    padding: 5px;
+                }
+                
+                .fresh-pagination-btn {
+                    padding: 10px 20px;
+                    font-size: 12px;
+                }
+                
+                .fresh-select {
+                    padding: 6px 10px;
+                    font-size: 12px;
+                }
+                
+                .fresh-input {
+                    border-radius: 10px;
+                    padding: 10px 12px;
+                }
+                
+                .fresh-modal-content {
+                    border-radius: 16px;
+                }
+                
+                .fresh-collapse {
+                    border-radius: 10px;
+                    margin: 6px 8px;
+                }
+                
+                .fresh-card {
+                    border-radius: 10px;
+                    padding: 16px;
+                }
+            }
+            
+        @media (max-width: 768px) {
+            .header-banner {
+                padding: 1.5rem 2rem;
+                min-height: 150px;
+            }
+            
+            .brand-title {
+                font-size: 1.8rem;
+            }
+            
+            .brand-tagline {
+                font-size: 0.8rem;
+            }
+            
+            .hexagon-logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .brain-graphic {
+                width: 150px;
+                height: 90px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .header-banner {
+                padding: 1rem;
+                min-height: 120px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .header-left {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .brand-title {
+                font-size: 1.5rem;
+            }
+            
+            .brain-graphic {
+                width: 120px;
+                height: 72px;
+        }
+        
+            .container {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            
+            .overflow-x-auto {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .text-xs {
+                font-size: 0.75rem;
+            }
+            
+            .btn-transition {
+                    min-height: 44px;
+            }
+            
+            .modal-content {
+                margin: 1rem;
+                max-height: calc(100vh - 2rem);
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: 1fr;
+            }
+            
+            .space-y-2 > * + * {
+                margin-top: 0.5rem;
+            }
+            
+            th, td {
+                padding: 8px 4px;
+                font-size: 0.75rem;
+            }
+            
+            .px-2.py-1 {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+        }
+            
+            @media (max-width: 475px) {
+                .fresh-body td {
+                    padding: 4px 4px;
+                    height: 44px;
+                    min-height: 44px;
+                }
+                
+                .fresh-badge {
+                    padding: 3px 6px;
+                    letter-spacing: 0.1px;
+                }
+                
+                .fresh-button {
+                    padding: 4px;
+                    width: 28px;
+                    height: 28px;
+                }
+                
+                .fresh-collapse {
+                    margin: 3px 4px;
+                }
+                
+                .fresh-card {
+                    padding: 8px;
+                }
+                
+                .fresh-input {
+                    padding: 5px 7px;
+                }
+                
+                .fresh-pagination-btn {
+                    padding: 6px 12px;
+                    font-size: 12px;
+                }
+                
+                .fresh-select {
+                    padding: 4px 8px;
+                    font-size: 12px;
+                }
+                
+                .fixed-table tr {
+                    height: 44px;
+                    min-height: 44px;
+                }
+            }
+            
+            /* Remove border radius from all elements */
+            select, input {
+                border-radius: 0 !important;
+            }
+            
+
+    </style>
+</head>
+<body class="antialiased text-gray-800" style="max-width: 1600px; margin: 0 auto;">
+
+
+
+    <div class="container mx-auto p-2 sm:p-4 md:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="text-center py-8 bg-white border-b border-gray-200">
+            <div class="container mx-auto px-4">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 tracking-wider text-gray-800">
+                    Pustakana Research Tracing
+                </h1>
+            </div>
+        </header>
+
+        <!-- Filter Section -->
+        <div class="bg-gray-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 border border-gray-200">
+            <!-- Desktop Filter (hidden on mobile) -->
+            <div class="hidden sm:flex flex-col gap-3 sm:gap-4">
+                <!-- Search Fields -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div>
+                        <label for="id-search" class="block text-xs font-medium text-gray-700 mb-1">Search ID</label>
+                        <input type="text" id="id-search" placeholder="Cari berdasarkan ID..." class="filter-select">
+                    </div>
+                    <div>
+                        <label for="title-search" class="block text-xs font-medium text-gray-700 mb-1">Search Judul</label>
+                        <input type="text" id="title-search" placeholder="Cari berdasarkan judul..." class="filter-select">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                    <div>
+                        <label for="year-filter" class="block text-xs font-medium text-gray-700 mb-1">Filter Tahun</label>
+                        <select id="year-filter" class="filter-select">
+                            <option value="">Semua Tahun</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Filter Status</label>
+                        <div class="relative">
+                            <button id="status-filter-btn" type="button" class="filter-button">
+                                <span id="status-filter-text" class="status-text">Semua Status</span>
+                                <i class="fas fa-chevron-down text-xs text-gray-400"></i>
+                            </button>
+                            <div id="status-filter-dropdown" class="filter-dropdown hidden">
+                                <div class="p-2 space-y-1">
+                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                        <input type="checkbox" value="" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
+                                        <span class="text-xs text-gray-700">Semua Status</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                        <input type="checkbox" value="Draft" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="text-xs text-gray-700">Draft</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                        <input type="checkbox" value="Submit" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="text-xs text-gray-700">Submit</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                        <input type="checkbox" value="Review" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="text-xs text-gray-700">Review</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                        <input type="checkbox" value="Declined" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="text-xs text-gray-700">Declined</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                        <input type="checkbox" value="Accepted" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="text-xs text-gray-700">Accepted</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                        <input type="checkbox" value="Published" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="text-xs text-gray-700">Published</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="accreditation-filter" class="block text-xs font-medium text-gray-700 mb-1">Filter Akreditasi</label>
+                        <select id="accreditation-filter" class="filter-select">
+                            <option value="">Semua Akreditasi</option>
+                            <option value="SINTA 1">Sinta 1</option>
+                            <option value="SINTA 2">Sinta 2</option>
+                            <option value="SINTA 3">Sinta 3</option>
+                            <option value="SINTA 4">Sinta 4</option>
+                            <option value="Q1">Q1</option>
+                            <option value="Q2">Q2</option>
+                            <option value="Q3">Q3</option>
+                            <option value="Q4">Q4</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Filter Toggle Button (visible only on mobile) -->
+        <div class="sm:hidden mb-4">
+            <button id="mobile-filter-toggle" class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors">
+                <i class="fas fa-filter"></i>
+                <span>Filter & Search</span>
+                <i class="fas fa-chevron-right transition-transform" id="mobile-filter-icon"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Filter Sidebar -->
+        <div id="mobile-filter-sidebar" class="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 sm:hidden">
+            <div class="flex flex-col h-full">
+                <!-- Header -->
+                <div class="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
+                    <h3 class="text-lg font-semibold text-gray-800">Filter & Search</h3>
+                    <button id="mobile-filter-close" class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+                </div>
+                
+                <!-- Filter Content -->
+                <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                    <!-- Search Fields -->
+                    <div class="space-y-3">
+                        <h4 class="text-sm font-medium text-gray-700 border-b border-gray-200 pb-2">Search</h4>
+                        <div>
+                            <label for="mobile-id-search" class="block text-xs font-medium text-gray-700 mb-1">Search ID</label>
+                            <input type="text" id="mobile-id-search" placeholder="Cari berdasarkan ID..." class="filter-select w-full">
+                        </div>
+                        <div>
+                            <label for="mobile-title-search" class="block text-xs font-medium text-gray-700 mb-1">Search Judul</label>
+                            <input type="text" id="mobile-title-search" placeholder="Cari berdasarkan judul..." class="filter-select w-full">
+                        </div>
+                    </div>
+                    
+                    <!-- Year Filter -->
+                    <div class="space-y-3">
+                        <h4 class="text-sm font-medium text-gray-700 border-b border-gray-200 pb-2">Filter Tahun</h4>
+                        <div>
+                            <label for="mobile-year-filter" class="block text-xs font-medium text-gray-700 mb-1">Tahun</label>
+                            <select id="mobile-year-filter" class="filter-select w-full">
+                                <option value="">Semua Tahun</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Status Filter -->
+                    <div class="space-y-3">
+                        <h4 class="text-sm font-medium text-gray-700 border-b border-gray-200 pb-2">Filter Status</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
+                                <input type="checkbox" value="" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
+                                <span class="text-sm text-gray-700">Semua Status</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
+                                <input type="checkbox" value="Draft" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-sm text-gray-700">Draft</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
+                                <input type="checkbox" value="Submit" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-sm text-gray-700">Submit</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
+                                <input type="checkbox" value="Review" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-sm text-gray-700">Review</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
+                                <input type="checkbox" value="Declined" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-sm text-gray-700">Declined</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
+                                <input type="checkbox" value="Accepted" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-sm text-gray-700">Accepted</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
+                                <input type="checkbox" value="Published" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-sm text-gray-700">Published</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Accreditation Filter -->
+                    <div class="space-y-3">
+                        <h4 class="text-sm font-medium text-gray-700 border-b border-gray-200 pb-2">Filter Akreditasi</h4>
+                        <div>
+                            <label for="mobile-accreditation-filter" class="block text-xs font-medium text-gray-700 mb-1">Akreditasi</label>
+                            <select id="mobile-accreditation-filter" class="filter-select w-full">
+                                <option value="">Semua Akreditasi</option>
+                                <option value="SINTA 1">Sinta 1</option>
+                                <option value="SINTA 2">Sinta 2</option>
+                                <option value="SINTA 3">Sinta 3</option>
+                                <option value="SINTA 4">Sinta 4</option>
+                                <option value="Q1">Q1</option>
+                                <option value="Q2">Q2</option>
+                                <option value="Q3">Q3</option>
+                                <option value="Q4">Q4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Actions -->
+                <div class="p-4 border-t border-gray-200 bg-gray-50">
+                    <button id="mobile-filter-apply" class="w-full bg-gray-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-gray-600 transition-colors">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Filter Overlay -->
+        <div id="mobile-filter-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 sm:hidden hidden"></div>
+
+        <!-- Main Content: Table -->
+        </div>
+        
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+            
+                    <div class="p-2">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-2 mb-2 sm:mb-3">
+                            <h2 class="text-sm sm:text-base md:text-lg font-semibold">Research List</h2>
+                            <div class="flex gap-2">
+                                <button id="add-research-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-1.5 py-1 sm:px-2 sm:py-1.5 border border-transparent text-xs font-medium shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    <i class="fas fa-plus mr-1 sm:mr-1.5 text-xs"></i>
+                                    <span class="hidden xs:inline">Tambah Penelitian Baru</span>
+                                    <span class="xs:hidden">Tambah</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pb-2">
+                <div class="table_component relative">
+                    <table class="w-full table-fixed">
+                        <thead>
+                          <tr>
+                            <th class="w-12 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50 sticky left-0">ID</th>
+                            <th class="px-3 py-2 text-xs font-bold text-gray-600 bg-gray-50">Judul Penelitian</th>
+                            <th class="w-20 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50">Akreditasi</th>
+                            <th class="w-20 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50">Status</th>
+                            <th class="w-20 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50">Tahun</th>
+                            <th class="w-20 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50">Aksi</th>
+                          </tr>
+                        </thead>
+                                             <tbody id="research-table-body" class="fresh-body">
+                         <!-- Data akan diisi oleh JavaScript -->
+                         <tr class="table-row">
+                             <td colspan="6" class="px-6 py-8 text-center text-gray-400">
+                                 <div id="loading-spinner" role="status">
+                                     <svg aria-hidden="true" class="inline w-5 h-5 text-gray-200 animate-spin fill-gray-400" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                         <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                         <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0492C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                                     </svg>
+                                     <span class="sr-only">Loading...</span>
+                                 </div>
+                                 <p id="no-data-message" class="hidden text-xs text-gray-400">Data penelitian tidak ditemukan. Tambahkan data baru menggunakan form di bawah.</p>
+                             </td>
+                         </tr>
+                     </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination Navigation -->
+                <div id="pagination-container" class="mt-3 sm:mt-4 p-3 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
+                    <!-- Info Halaman -->
+                    <div class="text-xs text-gray-600 px-2 py-1">
+                        <span id="page-info">Menampilkan 1-8 dari 0 data</span>
+                    </div>
+                    
+                    <!-- Navigasi Halaman -->
+                    <div class="flex items-center gap-2">
+                        <!-- Tombol Previous -->
+                        <button id="prev-page" class="fresh-pagination-btn disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2" disabled>
+                            <i class="fas fa-chevron-left text-xs"></i>
+                            <span class="hidden sm:inline ml-1 text-xs">Prev</span>
+                        </button>
+                        
+                        <!-- Nomor Halaman -->
+                        <div id="page-numbers" class="flex items-center gap-2">
+                            <!-- Nomor halaman akan di-generate di sini -->
+                        </div>
+                        
+                        <!-- Tombol Next -->
+                        <button id="next-page" class="fresh-pagination-btn disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2" disabled>
+                            <span class="hidden sm:inline mr-1 text-xs">Next</span>
+                            <i class="fas fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Dropdown Items per Page -->
+                    <div class="flex items-center gap-2 px-2 py-1">
+                        <label class="text-xs text-gray-600">Per halaman:</label>
+                        <select id="items-per-page" class="fresh-select">
+                            <option value="8">8</option>
+                            <option value="16">16</option>
+                            <option value="24">24</option>
+                            <option value="32">32</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add/Edit Research Modal -->
+        <div id="researchModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden" style="z-index: 9999;">
+            <div class="flex items-center justify-center min-h-screen p-2 sm:p-4">
+                <div class="relative w-full max-w-3xl p-3 sm:p-4 border shadow-lg rounded-md bg-white modal-content">
+                    <div class="flex justify-between items-center pb-2 border-b">
+                        <h3 id="modal-title" class="text-base sm:text-lg font-semibold text-gray-900">Tambah Penelitian Baru</h3>
+                        <button id="closeResearchModal" class="btn-transition text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <form id="research-form" class="space-y-3">
+                            <input type="hidden" id="edit-key" name="edit-key">
+                            <div class="grid grid-cols-1 gap-3 sm:gap-3 md:grid-cols-2 md:gap-3">
+                                <div>
+                                    <label for="research_id" class="block text-xs font-medium text-gray-700">ID Penelitian</label>
+                                    <input type="text" id="research_id" name="research_id" required class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="4453" maxlength="4" pattern="[0-9]{4}">
+                                </div>
+                                <div>
+                                 <label for="title" class="block text-xs font-medium text-gray-700">Judul Penelitian</label>
+                                 <input type="text" id="title" name="title" required class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+                                                                                            <div>
+                                    <label for="status" class="block text-xs font-medium text-gray-700">Status</label>
+                                    <select id="status" name="status" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                        <option value="">Pilih Status</option>
+                                        <option value="Draft">Draft</option>
+                                        <option value="Submit">Submit</option>
+                                        <option value="Review">Review</option>
+                                        <option value="Declined">Declined</option>
+                                        <option value="Accepted">Accepted</option>
+                                        <option
+                                        value="Published">Published</option>
+                                    </select>
+                             </div>
+                                                                                          <div>
+                                    <label for="accreditation" class="block text-xs font-medium text-gray-700">Akreditasi</label>
+                                    <select id="accreditation" name="accreditation" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                        <option value="">Pilih Akreditasi</option>
+                                        <optgroup label="Sinta">
+                            <option value="SINTA 1">Sinta 1</option>
+                            <option value="SINTA 2">Sinta 2</option>
+                            <option value="SINTA 3">Sinta 3</option>
+                            <option value="SINTA 4">Sinta 4</option>
+                        </optgroup>
+                                        <optgroup label="Quartile">
+                                            <option value="Q1">Q1</option>
+                                            <option value="Q2">Q2</option>
+                                            <option value="Q3">Q3</option>
+                                            <option value="Q4">Q4</option>
+                                        </optgroup>
+                                  </select>
+                              </div>
+                                                          <div>
+                                  <label for="implementation_year" class="block text-xs font-medium text-gray-700">Tahun Implementasi</label>
+                                  <select id="implementation_year" name="implementation_year" required class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                     <option value="">Pilih Tahun</option>
+                                     <option value="2025">2025</option>
+                                     <option value="2024">2024</option>
+                                     <option value="2023">2023</option>
+                                     <option value="2022">2022</option>
+                                     <option value="2021">2021</option>
+                                 </select>
+                             </div>
+                            <div id="journal-link-container">
+                                <label for="journal_link" class="block text-xs font-medium text-gray-700">Link Jurnal</label>
+                                <input type="url" id="journal_link" name="journal_link" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="https://...">
+                            </div>
+                            <div>
+                                <label for="doc_link" class="block text-xs font-medium text-gray-700">Link Dokumen</label>
+                                <input type="url" id="doc_link" name="doc_link" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="https://drive.google.com/...">
+                            </div>
+                                                         <div id="year-published-container" class="hidden">
+                                 <label for="year_published" class="block text-xs font-medium text-gray-700">Tahun Publikasi</label>
+                                 <select id="year_published" name="year_published" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                     <option value="">Pilih Tahun</option>
+                                     <option value="2025">2025</option>
+                                     <option value="2024">2024</option>
+                                     <option value="2023">2023</option>
+                                     <option value="2022">2022</option>
+                                     <option value="2021">2021</option>
+                                     <option value="2020">2020</option>
+                                 </select>
+                             </div>
+                            <div id="published-link-container" class="hidden">
+                                <label for="published_link" class="block text-xs font-medium text-gray-700">Link Publikasi</label>
+                                <input type="url" id="published_link" name="published_link" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="https://journal.com/...">
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row justify-end gap-2 sm:gap-3 pt-3 border-t">
+                            <button type="button" id="cancel-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 sm:py-1.5 border border-red-300 text-xs font-medium text-red-700 bg-red-50 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                Batal
+                            </button>
+                            <button type="submit" id="submit-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 sm:py-1.5 border border-transparent text-xs font-medium shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Tambah Penelitian
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- Modal for Details -->
+    <div id="detailModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-10 sm:top-20 mx-auto p-3 sm:p-5 border w-full max-w-2xl shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center pb-3 border-b">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Research Details</h3>
+                <button id="closeDetailModal" class="btn-transition text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times fa-lg"></i>
+                </button>
+            </div>
+            <div class="mt-3">
+                <pre id="modal-content" class="bg-gray-100 p-3 sm:p-4 rounded-lg text-xs sm:text-sm whitespace-pre-wrap break-all"></pre>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+    <!-- PIN Authentication Modal -->
+    <div id="pinModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-2 sm:p-4">
+            <div class="relative w-full max-w-md p-3 sm:p-4 border shadow-lg rounded-md bg-white modal-content">
+                <div class="flex justify-between items-center pb-2 border-b">
+                    <h3 id="pin-modal-title" class="text-sm sm:text-base font-semibold text-gray-900">Verifikasi PIN</h3>
+                    <button id="closePinModal" class="btn-transition text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="mt-4">
+                    <form id="pin-form" class="space-y-4">
+                        <div>
+                            <label for="pin-input" class="block text-xs font-medium text-gray-700 mb-2">Masukkan PIN untuk melanjutkan</label>
+                            <input type="password" id="pin-input" name="pin" required maxlength="8" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Masukkan PIN">
+                        </div>
+                        <div class="flex flex-col sm:flex-row justify-end gap-2 sm:gap-3 pt-3 border-t">
+                            <button type="button" id="cancel-pin-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 sm:py-1.5 border border-red-300 text-xs font-medium text-red-700 bg-red-50 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                Batal
+                            </button>
+                            <button type="submit" id="submit-pin-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 sm:py-1.5 border border-transparent text-xs font-medium shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Verifikasi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import functions from the Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getDatabase, ref, onValue, push, set, update, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCmrsyqCNysU9Y3wGb8hyzPV8kkByzLD5Q",
+            authDomain: "data-pustakana.firebaseapp.com",
+            databaseURL: "https://data-pustakana-default-rtdb.firebaseio.com",
+            projectId: "data-pustakana",
+            storageBucket: "data-pustakana.firebasestorage.app",
+            messagingSenderId: "1053039020771",
+            appId: "1:1053039020771:web:0a90f51f16268e458553d6",
+            measurementId: "G-VXVY2WD4HX"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const researchRef = ref(database, 'research');
+
+        // DOM Elements
+        const tableBody = document.getElementById('research-table-body');
+        
+        // Filter elements
+        const yearFilter = document.getElementById('year-filter');
+        const accreditationFilter = document.getElementById('accreditation-filter');
+        const statusFilterBtn = document.getElementById('status-filter-btn');
+        const statusFilterDropdown = document.getElementById('status-filter-dropdown');
+        const statusFilterText = document.getElementById('status-filter-text');
+        const statusCheckboxes = document.querySelectorAll('.status-checkbox');
+        
+        // Modal elements
+        const researchModal = document.getElementById('researchModal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeResearchModal = document.getElementById('closeResearchModal');
+        const addResearchBtn = document.getElementById('add-research-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        
+
+
+
+        
+        // PIN Modal elements
+        const pinModal = document.getElementById('pinModal');
+        const pinModalTitle = document.getElementById('pin-modal-title');
+        const closePinModal = document.getElementById('closePinModal');
+        const cancelPinBtn = document.getElementById('cancel-pin-btn');
+        const pinForm = document.getElementById('pin-form');
+        const pinInput = document.getElementById('pin-input');
+        
+                 const researchForm = document.getElementById('research-form');
+         const submitBtn = document.getElementById('submit-btn');
+         const statusSelect = document.getElementById('status');
+         const yearPublishedContainer = document.getElementById('year-published-container');
+         const publishedLinkContainer = document.getElementById('published-link-container');
+         
+         const toast = document.getElementById('toast');
+         const toastMessage = document.getElementById('toast-message');
+
+        let allData = {}; // To store the fetched data globally
+
+        let pendingAction = null; // To store pending action after PIN verification
+        let pendingActionData = null; // To store data for pending action
+        
+        // Pagination variables
+        let currentPage = 1;
+        let itemsPerPage = 8;
+        let filteredData = [];
+        
+        // Function to generate random 4-digit research ID
+        function generateResearchId() {
+            if (!allData || Object.keys(allData).length === 0) {
+                return Math.floor(1000 + Math.random() * 9000).toString();
+            }
+            
+            const existingIds = Object.values(allData)
+                .filter(item => item && item.research_id)
+                .map(item => item.research_id);
+            
+            // Generate random ID until we find one that doesn't exist
+            let newId;
+            let attempts = 0;
+            const maxAttempts = 100; // Prevent infinite loop
+            
+            do {
+                newId = Math.floor(1000 + Math.random() * 9000).toString();
+                attempts++;
+            } while (existingIds.includes(newId) && attempts < maxAttempts);
+            
+            // If we couldn't find a unique ID after max attempts, use timestamp-based ID
+            if (attempts >= maxAttempts) {
+                const timestamp = Date.now();
+                newId = (timestamp % 9000 + 1000).toString();
+            }
+            
+            return newId;
+        }
+        
+
+
+        // --- Data Fetching and Table Population ---
+        onValue(researchRef, (snapshot) => {
+            const data = snapshot.val();
+            allData = data; // Store data for later use (edit/delete)
+            
+            // Reset to first page when data changes
+            currentPage = 1;
+            
+            // Ensure status checkboxes are in valid state
+            ensureValidStatusCheckboxState();
+            
+            // Render table with pagination
+            renderTableWithPagination(data);
+            return;
+                let counter = 1;
+                Object.entries(data).forEach(([key, value]) => {
+                    const row = document.createElement('tr');
+                    row.classList.add('hover:bg-gray-50', 'table-row');
+                    
+                    row.innerHTML = `
+                        <td class="w-12 px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300">${counter++}</td>
+                                            <td class="w-80 px-3 py-3 border-r border-gray-300">
+                        <div class="text-xs font-medium text-gray-800 text-wrap">${value.title || 'N/A'}</div>
+                    </td>
+                        <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-gray-300">
+                                                    <span class="accreditation-badge">
+                            ${value.status === 'Draft' ? '-' : capitalizeAccreditation(value.accreditation)}
+                        </span>
+                        </td>
+                        <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-gray-300">
+                            <span class="status-text">
+                                ${value.status || 'N/A'}
+                            </span>
+                        </td>
+                        <td class="w-24 px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300">${value.implementation_year || 'N/A'}</td>
+                                            <td class="w-32 px-3 py-3 whitespace-nowrap text-xs font-medium">
+                        <div class="flex items-center justify-center space-x-2">
+                            <button data-key="${key}" class="fresh-button view-btn text-gray-500" title="View"><i class="fas fa-eye"></i></button>
+                            <button data-key="${key}" class="fresh-button edit-btn text-gray-500" title="Edit"><i class="fas fa-pencil-alt"></i></button>
+                            <button data-key="${key}" class="fresh-button delete-btn text-gray-500" title="Delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                    
+                    // Add collapse row for details
+                    const collapseRow = document.createElement('tr');
+                    collapseRow.id = `collapse-${key}`;
+                    collapseRow.classList.add('hidden', 'bg-gray-50', 'collapse-transition');
+                    collapseRow.innerHTML = `
+                        <td colspan="6" class="px-6 py-4">
+                        <div class="border border-gray-300 p-4 bg-gray-100">
+                                <div class="space-y-4">
+                                <div class="border border-gray-300 p-3 bg-gray-50">
+                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Detail Penelitian</h4>
+                                            <div class="space-y-2 text-xs">
+                                                                    <div class="flex flex-wrap gap-2">
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Akreditasi:</span>
+                                        <span class="text-gray-700 ml-2">${value.accreditation || '-'}</span>
+                                            </div>
+                                        </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Jurnal:</span>
+                                        ${value.journal_link ? `<a href="${value.journal_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                    </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Dokumen:</span>
+                                        ${value.doc_link ? `<a href="${value.doc_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                    </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Tahun Publikasi:</span>
+                                        <span class="text-gray-700 ml-2">${value.published?.year_published || '-'}</span>
+                                    </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Publikasi:</span>
+                                        ${value.published?.published_link ? `<a href="${value.published.published_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                    </div>
+                                </div>
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    `;
+                    tableBody.appendChild(collapseRow);
+                });
+
+        });
+
+        // --- Event Delegation for Table Actions ---
+        
+        // Initialize status checkboxes on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            ensureValidStatusCheckboxState();
+        });
+        
+        tableBody.addEventListener('click', (e) => {
+            const targetButton = e.target.closest('button');
+            if (!targetButton) return;
+
+            const key = targetButton.dataset.key;
+            if (targetButton.classList.contains('view-btn')) {
+                toggleCollapse(key);
+            } else if (targetButton.classList.contains('edit-btn') || targetButton.classList.contains('edit-inline-btn')) {
+                requirePinAuth('edit', key, allData[key]);
+            } else if (targetButton.classList.contains('delete-btn')) {
+                requirePinAuth('delete', key);
+            } else if (targetButton.classList.contains('close-collapse-btn')) {
+                hideCollapse(key);
+            }
+        });
+
+        // --- Filter Event Listeners ---
+        yearFilter.addEventListener('change', applyFilters);
+        accreditationFilter.addEventListener('change', applyFilters);
+        statusFilterBtn.addEventListener('click', toggleStatusDropdown);
+        
+        // Status filter dropdown functionality - Sederhana dan efektif
+        statusCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                // Sync to mobile filter first
+                const mobileCheckbox = document.querySelector(`.mobile-status-checkbox[value="${e.target.value}"]`);
+                if (mobileCheckbox) {
+                    mobileCheckbox.checked = e.target.checked;
+                }
+                
+                // Then handle the change
+                handleStatusCheckboxChange.call(e.target);
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!statusFilterBtn.contains(e.target) && !statusFilterDropdown.contains(e.target)) {
+                statusFilterDropdown.classList.add('hidden');
+            }
+        });
+
+                 // --- Modal Functionality ---
+         
+                 // Status change handler for year published, published link, and journal link visibility
+        statusSelect.addEventListener('change', function() {
+            const journalLinkContainer = document.getElementById('journal-link-container');
+            const accreditationField = document.getElementById('accreditation');
+            
+            if (this.value === 'Published') {
+                yearPublishedContainer.classList.remove('hidden');
+                publishedLinkContainer.classList.remove('hidden');
+                journalLinkContainer.classList.remove('hidden');
+                    // Tampilkan field Akreditasi jika status Published
+                    accreditationField.parentElement.classList.remove('hidden');
+                // Akreditasi wajib jika status Published
+                accreditationField.required = true;
+                accreditationField.classList.add('border-red-300');
+            } else if (this.value === 'Draft' || this.value === 'Declined') {
+                yearPublishedContainer.classList.add('hidden');
+                publishedLinkContainer.classList.add('hidden');
+                journalLinkContainer.classList.add('hidden');
+                    // Sembunyikan field Akreditasi jika status Draft atau Declined
+                    accreditationField.parentElement.classList.add('hidden');
+                // Akreditasi tidak wajib jika status Draft atau Declined
+                accreditationField.required = false;
+                accreditationField.classList.remove('border-red-300');
+                    // Reset values when status is Draft atau Declined
+                document.getElementById('year_published').value = '';
+                document.getElementById('published_link').value = '';
+                document.getElementById('journal_link').value = '';
+                document.getElementById('accreditation').value = '';
+            } else {
+                yearPublishedContainer.classList.add('hidden');
+                publishedLinkContainer.classList.add('hidden');
+                journalLinkContainer.classList.remove('hidden');
+                    // Tampilkan field Akreditasi untuk status lain (Submit, Review, Accepted)
+                    accreditationField.parentElement.classList.remove('hidden');
+                // Akreditasi wajib untuk status lain (Submit, Review, Accepted)
+                accreditationField.required = true;
+                accreditationField.classList.add('border-red-300');
+                // Reset year published and published link values when status is not Published
+                document.getElementById('year_published').value = '';
+                document.getElementById('published_link').value = '';
+            }
+        });
+        
+
+         
+                           // Add Research Modal
+        addResearchBtn.addEventListener('click', () => {
+            requirePinAuth('add');
+        });
+        
+
+        
+
+        
+        closeResearchModal.addEventListener('click', hideResearchModal);
+        cancelBtn.addEventListener('click', hideResearchModal);
+        
+        // Close modal when clicking outside
+        researchModal.addEventListener('click', (e) => {
+            if (e.target === researchModal) {
+                hideResearchModal();
+            }
+        });
+
+        // PIN Modal Event Listeners
+        closePinModal.addEventListener('click', hidePinModal);
+        cancelPinBtn.addEventListener('click', hidePinModal);
+        
+        // Close PIN modal when clicking outside
+        pinModal.addEventListener('click', (e) => {
+            if (e.target === pinModal) {
+                hidePinModal();
+            }
+        });
+        
+
+
+        // PIN Form Submit
+        pinForm.addEventListener('submit', handlePinSubmit);
+        
+        // --- Pagination Event Listeners ---
+        document.getElementById('prev-page').addEventListener('click', goToPreviousPage);
+        document.getElementById('next-page').addEventListener('click', goToNextPage);
+        document.getElementById('items-per-page').addEventListener('change', (e) => {
+            changeItemsPerPage(e.target.value);
+        });
+        
+        // --- Search Event Listeners ---
+        setupSearchListeners();
+        
+        // --- Mobile Filter Event Listeners ---
+        setupMobileFilterListeners();
+        
+        // --- PIN Authentication Functions ---
+        function requirePinAuth(action, key = null, data = null) {
+            // Set pending action BEFORE showing modal
+            pendingAction = action;
+            pendingActionData = { key, data };
+            
+            // Set modal title based on action
+            switch (action) {
+                case 'add':
+                    pinModalTitle.textContent = 'Verifikasi PIN';
+                    break;
+                case 'edit':
+                    pinModalTitle.textContent = 'Verifikasi PIN';
+                    break;
+                case 'delete':
+                    pinModalTitle.textContent = 'Verifikasi PIN';
+                    break;
+
+            }
+            
+            // Show PIN modal
+            pinModal.classList.remove('hidden');
+            pinInput.focus();
+            pinInput.value = '';
+        }
+
+        function hidePinModal() {
+            pinModal.classList.add('hidden');
+            
+            // DON'T reset these variables here - they're needed for executePendingAction
+            // pendingAction = null;
+            // pendingActionData = null;
+            
+            pinInput.value = '';
+        }
+
+        function handlePinSubmit(e) {
+            e.preventDefault();
+            const enteredPin = pinInput.value;
+            
+            // Check if PIN is correct (direct comparison for now)
+            if (enteredPin === '27071997') {
+                // PIN is correct, proceed with action
+                hidePinModal();
+                executePendingAction();
+            } else {
+                // PIN is incorrect
+                                        console.log('PIN salah! Silakan coba lagi.');
+                pinInput.value = '';
+                pinInput.focus();
+            }
+        }
+
+
+
+        function executePendingAction() {
+            if (!pendingAction) {
+                return;
+            }
+            
+            switch (pendingAction) {
+                case 'add':
+                    showResearchModal('add');
+                    break;
+                case 'edit':
+                    showResearchModal('edit', pendingActionData.key, pendingActionData.data);
+                    break;
+                case 'delete':
+                    // Langsung hapus data tanpa konfirmasi
+                    const itemRef = ref(database, 'research/' + pendingActionData.key);
+                    remove(itemRef)
+                        .then(() => {
+                            showToast('Research deleted successfully.', 'success');
+                            loadResearchData();
+                        })
+                        .catch((error) => {
+                            console.error("Error deleting document: ", error);
+                            showToast('Error deleting research.', 'error');
+                        });
+                    break;
+
+            }
+            
+            // Clear pending action
+            pendingAction = null;
+            pendingActionData = null;
+        }
+
+        function showResearchModal(mode, key = null, data = null) {
+            if (mode === 'add') {
+                modalTitle.textContent = 'Tambah Penelitian Baru';
+                submitBtn.textContent = 'Tambah Penelitian';
+                submitBtn.className = 'inline-flex justify-center py-1.5 px-3 border border-transparent shadow-sm text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500';
+                resetFormToDefault();
+                // Auto-fill research_id for new research
+                document.getElementById('research_id').value = generateResearchId();
+            } else if (mode === 'edit') {
+                modalTitle.textContent = 'Edit Penelitian';
+                submitBtn.textContent = 'Update Penelitian';
+                submitBtn.className = 'inline-flex justify-center py-1.5 px-3 border border-transparent shadow-sm text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500';
+                setupEditForm(key, data);
+            }
+            
+            if (researchModal) {
+                researchModal.classList.remove('hidden');
+            }
+        }
+        
+        function hideResearchModal() {
+            if (researchModal) {
+                researchModal.classList.add('hidden');
+            }
+            resetFormToDefault();
+        }
+
+
+
+
+
+        // --- Form and CRUD Logic ---
+                 function setupEditForm(key, data) {
+             researchForm.querySelector('#edit-key').value = key;
+             researchForm.querySelector('#research_id').value = data.research_id || '';
+             researchForm.querySelector('#title').value = data.title || '';
+             researchForm.querySelector('#accreditation').value = data.accreditation || '';
+             researchForm.querySelector('#status').value = data.status || 'Draft';
+             researchForm.querySelector('#implementation_year').value = data.implementation_year || '';
+             researchForm.querySelector('#journal_link').value = data.journal_link || '';
+             researchForm.querySelector('#doc_link').value = data.doc_link || '';
+             researchForm.querySelector('#year_published').value = data.published?.year_published || '';
+             researchForm.querySelector('#published_link').value = data.published?.published_link || '';
+             
+             // Show/hide year published, published link, and journal link fields based on status
+             const journalLinkContainer = document.getElementById('journal-link-container');
+             const accreditationField = document.getElementById('accreditation');
+             
+             if (data.status === 'Published') {
+                 yearPublishedContainer.classList.remove('hidden');
+                 publishedLinkContainer.classList.remove('hidden');
+                 journalLinkContainer.classList.remove('hidden');
+                    // Tampilkan field Akreditasi jika status Published
+                    accreditationField.parentElement.classList.remove('hidden');
+                 accreditationField.required = true;
+                 accreditationField.classList.add('border-red-300');
+             } else if (data.status === 'Draft' || data.status === 'Declined') {
+                 yearPublishedContainer.classList.add('hidden');
+                 publishedLinkContainer.classList.add('hidden');
+                 journalLinkContainer.classList.add('hidden');
+                    // Sembunyikan field Akreditasi jika status Draft atau Declined
+                    accreditationField.parentElement.classList.add('hidden');
+                 accreditationField.required = false;
+                 accreditationField.classList.remove('border-red-300');
+             } else {
+                 yearPublishedContainer.classList.add('hidden');
+                 publishedLinkContainer.classList.add('hidden');
+                 journalLinkContainer.classList.remove('hidden');
+                    // Tampilkan field Akreditasi untuk status lain (Submit, Review, Accepted)
+                    accreditationField.parentElement.classList.remove('hidden');
+                 accreditationField.required = true;
+                 accreditationField.classList.add('border-red-300');
+             }
+         }
+
+                         function resetFormToDefault() {
+            researchForm.reset();
+            researchForm.querySelector('#edit-key').value = '';
+            researchForm.querySelector('#research_id').value = '';
+            // Hide year published and published link fields by default
+            yearPublishedContainer.classList.add('hidden');
+            publishedLinkContainer.classList.add('hidden');
+            // Show journal link field by default (for new research)
+            document.getElementById('journal-link-container').classList.remove('hidden');
+            
+            // Set default status to Draft and make accreditation not required
+            const statusField = document.getElementById('status');
+            const accreditationField = document.getElementById('accreditation');
+            statusField.value = 'Draft';
+                // Sembunyikan field Akreditasi untuk status Draft
+                accreditationField.parentElement.classList.add('hidden');
+            accreditationField.required = false;
+            accreditationField.classList.remove('border-red-300');
+            
+            // Trigger status change event to update form
+            statusField.dispatchEvent(new Event('change'));
+        }
+        
+        researchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(researchForm);
+            const key = formData.get('edit-key');
+            const researchId = formData.get('research_id');
+            
+            // Validate research_id format
+            if (researchId && !/^\d{4}$/.test(researchId)) {
+                                        console.log('ID Penelitian harus berupa 4 digit angka!');
+                return;
+            }
+            
+            // Check for duplicate research_id (except current item when editing)
+            if (researchId && allData) {
+                const duplicateKey = Object.keys(allData).find(k => 
+                    allData[k].research_id === researchId && k !== key
+                );
+                if (duplicateKey) {
+                                            console.log('ID Penelitian sudah digunakan!');
+                    return;
+                }
+            }
+            
+            const status = formData.get('status');
+            const researchData = {
+                research_id: formData.get('research_id') || (key ? allData[key].research_id : generateResearchId()),
+                title: formData.get('title'),
+                accreditation: formData.get('accreditation'),
+                status: status,
+                journal_link: (status === 'Draft' || status === 'Declined') ? '' : formData.get('journal_link'),
+                doc_link: formData.get('doc_link'),
+                implementation_year: parseInt(formData.get('implementation_year')),
+                published: {
+                    year_published: parseInt(formData.get('year_published')) || null,
+                    published_link: formData.get('published_link') || ''
+                }
+            };
+
+            if (key) { // Update existing data
+                const itemRef = ref(database, 'research/' + key);
+                update(itemRef, researchData)
+                    .then(() => {
+                        console.log('Penelitian berhasil diperbarui!');
+                        hideResearchModal();
+                        // Refresh tabel setelah update
+                        loadResearchData();
+                    })
+                    .catch((error) => {
+                        console.error("Error updating document: ", error);
+                        console.log('Error memperbarui penelitian.');
+                    });
+            } else { // Add new data
+                const newResearchRef = push(researchRef);
+                set(newResearchRef, researchData)
+                    .then(() => {
+                        console.log('Penelitian berhasil ditambahkan!');
+                        hideResearchModal();
+                        // Refresh tabel setelah tambah data baru
+                        loadResearchData();
+                    })
+                    .catch((error) => {
+                        console.error("Error adding document: ", error);
+                        console.log('Error menambahkan penelitian.');
+                    });
+            }
+        });
+
+
+        
+        // --- Helper Functions ---
+        function getStatusColor(status) {
+            switch (status) {
+                case 'Draft': return 'fresh-badge draft';
+                case 'Submit': return 'fresh-badge submit';
+                case 'Review': return 'fresh-badge review';
+                case 'Declined': return 'fresh-badge declined';
+                case 'Accepted': return 'fresh-badge accepted';
+                case 'Published': return 'fresh-badge published';
+                default: return 'fresh-badge draft';
+            }
+        }
+
+        function capitalizeAccreditation(accreditation) {
+            if (!accreditation || accreditation === 'N/A') return 'N/A';
+            
+            // Handle SINTA format
+            if (accreditation.startsWith('SINTA')) {
+                return 'Sinta ' + accreditation.substring(6);
+            }
+            
+            // Handle other formats (Q1, Q2, Q3, Q4, A, B, C)
+            return accreditation.charAt(0) + accreditation.substring(1).toLowerCase();
+        }
+        
+
+        
+
+
+        // --- Filter Functions ---
+        
+        // Function to ensure status checkboxes are in a reasonable initial state
+        function ensureValidStatusCheckboxState() {
+            const allCheckbox = document.querySelector('.status-checkbox[value=""]');
+            const otherCheckboxes = document.querySelectorAll('.status-checkbox:not([value=""])');
+            const mobileAllCheckbox = document.querySelector('.mobile-status-checkbox[value=""]');
+            const mobileOtherCheckboxes = document.querySelectorAll('.mobile-status-checkbox:not([value=""])');
+            
+            // Only set initial state if no checkbox is selected
+            const hasSelectedStatus = Array.from(otherCheckboxes).some(cb => cb.checked);
+            const mobileHasSelectedStatus = Array.from(mobileOtherCheckboxes).some(cb => cb.checked);
+            
+            // If no individual status is selected and "Semua Status" is not checked, check "Semua Status"
+            if (!hasSelectedStatus && allCheckbox && !allCheckbox.checked) {
+                allCheckbox.checked = true;
+            }
+            
+            if (!mobileHasSelectedStatus && mobileAllCheckbox && !mobileAllCheckbox.checked) {
+                mobileAllCheckbox.checked = true;
+            }
+            
+            // Update filter text
+            updateStatusFilterText();
+        }
+        
+        function applyFilters() {
+            // Reset to first page when filtering
+            currentPage = 1;
+            
+            // Get current search terms
+            const idSearchTerm = document.getElementById('id-search').value.toLowerCase().trim();
+            const titleSearchTerm = document.getElementById('title-search').value.toLowerCase().trim();
+            
+            // Get filter values
+            const yearFilter = document.getElementById('year-filter').value;
+            const accreditationFilter = document.getElementById('accreditation-filter').value;
+            const selectedStatuses = getSelectedStatuses();
+            
+            // Ensure we have valid data to filter
+            if (!allData || Object.keys(allData).length === 0) {
+                renderTableWithPagination({});
+                return;
+            }
+            
+            // Apply all filters and search
+            let filteredData = {};
+            
+            Object.entries(allData).forEach(([key, value]) => {
+                if (!value) return; // Skip invalid entries
+                
+                let matches = true;
+                
+                // Search by ID
+                if (idSearchTerm && !value.research_id?.toString().toLowerCase().includes(idSearchTerm)) {
+                    matches = false;
+                }
+                
+                // Search by Title
+                if (titleSearchTerm && !value.title?.toLowerCase().includes(titleSearchTerm)) {
+                    matches = false;
+                }
+                
+                // Filter by Year
+                if (yearFilter && value.implementation_year?.toString() !== yearFilter) {
+                    matches = false;
+                }
+                
+                // Filter by Accreditation
+                if (accreditationFilter && value.accreditation !== accreditationFilter) {
+                    matches = false;
+                }
+                
+                // Filter by Status - if no status selected, show all data
+                if (selectedStatuses.length > 0 && !selectedStatuses.includes(value.status)) {
+                    matches = false;
+                }
+                
+                if (matches) {
+                    filteredData[key] = value;
+                }
+            });
+            
+            // Update table with filtered data
+            renderTableWithPagination(filteredData);
+            
+            // Update search info
+            updateSearchInfo(idSearchTerm || titleSearchTerm, 'combined', Object.keys(filteredData).length);
+        }
+        
+        function toggleStatusDropdown() {
+            statusFilterDropdown.classList.toggle('hidden');
+        }
+        
+        function handleStatusCheckboxChange() {
+            const allCheckbox = document.querySelector('.status-checkbox[value=""]');
+            const otherCheckboxes = document.querySelectorAll('.status-checkbox:not([value=""])');
+            
+            if (this.value === '') {
+                // "Semua Status" checkbox clicked
+                if (this.checked) {
+                    // Check all other checkboxes when "Semua Status" is selected
+                    otherCheckboxes.forEach(cb => {
+                        cb.checked = true;
+                        // Sync to mobile
+                        const mobileCheckbox = document.querySelector(`.mobile-status-checkbox[value="${cb.value}"]`);
+                        if (mobileCheckbox) {
+                            mobileCheckbox.checked = true;
+                        }
+                    });
+                } else {
+                    // When "Semua Status" is unchecked, uncheck all other checkboxes
+                    otherCheckboxes.forEach(cb => {
+                        cb.checked = false;
+                        // Sync to mobile
+                        const mobileCheckbox = document.querySelector(`.mobile-status-checkbox[value="${cb.value}"]`);
+                        if (mobileCheckbox) {
+                            mobileCheckbox.checked = false;
+                        }
+                    });
+                }
+            } else {
+                // Other checkbox clicked
+                if (this.checked) {
+                    // Uncheck "Semua Status" when individual status is selected
+                    if (allCheckbox) {
+                        allCheckbox.checked = false;
+                        // Sync to mobile
+                        const mobileAllCheckbox = document.querySelector('.mobile-status-checkbox[value=""]');
+                        if (mobileAllCheckbox) {
+                            mobileAllCheckbox.checked = false;
+                        }
+                    }
+                } else {
+                    // Don't automatically check "Semua Status" when unchecking
+                    // Let user control which statuses they want to see
+                }
+            }
+            
+            // Update teks filter
+            updateStatusFilterText();
+            
+            // Apply filters immediately
+            applyFilters();
+        }
+        
+        function getSelectedStatuses() {
+            const selectedStatuses = [];
+            const allCheckbox = document.querySelector('.status-checkbox[value=""]');
+            const otherCheckboxes = document.querySelectorAll('.status-checkbox:not([value=""])');
+            
+            // Jika "Semua Status" dicentang, return array kosong (tidak ada filter)
+            if (allCheckbox && allCheckbox.checked) {
+                return [];
+            }
+            
+            // Jika "Semua Status" tidak dicentang, ambil status yang dicentang
+            otherCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    selectedStatuses.push(checkbox.value);
+                }
+            });
+            
+            return selectedStatuses;
+        }
+        
+        function updateStatusFilterText() {
+            const allCheckbox = document.querySelector('.status-checkbox[value=""]');
+            const selectedStatuses = getSelectedStatuses();
+            
+            if (allCheckbox.checked) {
+                statusFilterText.textContent = 'Semua Status';
+            } else if (selectedStatuses.length === 0) {
+                statusFilterText.textContent = 'Tidak Ada Status Dipilih';
+            } else if (selectedStatuses.length === 1) {
+                statusFilterText.textContent = selectedStatuses[0];
+            } else {
+                statusFilterText.textContent = `${selectedStatuses.length} Status Dipilih`;
+            }
+        }
+        
+
+        
+        // --- Collapse Functions ---
+        function toggleCollapse(key) {
+            const collapseRow = document.getElementById(`collapse-${key}`);
+            const viewBtn = document.querySelector(`[data-key="${key}"].view-btn`);
+            
+            if (collapseRow) {
+                // Hide all other collapse rows first with smooth transition
+                document.querySelectorAll('[id^="collapse-"]').forEach(row => {
+                    if (row.id !== `collapse-${key}`) {
+                        if (!row.classList.contains('hidden')) {
+                            hideCollapseSmooth(row);
+                        }
+                    }
+                });
+                
+                // Toggle current collapse row with smooth transition
+                if (collapseRow.classList.contains('hidden')) {
+                    showCollapseSmooth(collapseRow, viewBtn);
+                } else {
+                    hideCollapseSmooth(collapseRow, viewBtn);
+                }
+            }
+        }
+        
+        function showCollapseSmooth(collapseRow, viewBtn) {
+            collapseRow.classList.remove('hidden');
+            collapseRow.classList.add('expanded');
+            collapseRow.classList.remove('collapsing');
+            
+            if (viewBtn) {
+                viewBtn.classList.add('expanded');
+            }
+            
+            // Trigger reflow for smooth animation
+            collapseRow.offsetHeight;
+        }
+        
+        function hideCollapseSmooth(collapseRow, viewBtn) {
+            collapseRow.classList.add('collapsing');
+            collapseRow.classList.remove('expanded');
+            
+            if (viewBtn) {
+                viewBtn.classList.remove('expanded');
+            }
+            
+            // Wait for transition to complete then hide
+            setTimeout(() => {
+                collapseRow.classList.add('hidden');
+                collapseRow.classList.remove('collapsing');
+            }, 300);
+        }
+        
+        function hideCollapse(key) {
+            const collapseRow = document.getElementById(`collapse-${key}`);
+            const viewBtn = document.querySelector(`[data-key="${key}"].view-btn`);
+            if (collapseRow) {
+                hideCollapseSmooth(collapseRow, viewBtn);
+            }
+        }
+        
+
+        
+        function updateTableDisplay(data) {
+            tableBody.innerHTML = '';
+            
+            if (Object.keys(data).length === 0) {
+                const noResultsRow = `<tr><td colspan="6" class="px-6 py-12 text-center text-gray-500">
+                    <div class="text-sm text-gray-400">Tidak ada data yang sesuai dengan filter yang dipilih.</div>
+                </td></tr>`;
+                tableBody.innerHTML = noResultsRow;
+                return;
+            }
+            
+            // Reset to first page when filtering
+            currentPage = 1;
+            
+                            Object.entries(data).forEach(([key, value]) => {
+                const row = document.createElement('tr');
+                row.classList.add('hover:bg-gray-50', 'table-row');
+                
+                row.innerHTML = `
+                    <td class="w-16 min-w-[64px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center bg-white sticky left-0 z-10">${value.research_id || 'N/A'}</td>
+                    <td class="w-96 min-w-[384px] px-3 py-3 border-r border-gray-300">
+                        <div class="text-xs font-medium text-gray-800 text-wrap" title="${value.title || 'N/A'}">${value.title || 'N/A'}</div>
+                    </td>
+                    <td class="w-20 min-w-[80px] px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
+                        <span class="accreditation-badge">
+                            ${value.status === 'Draft' ? '-' : capitalizeAccreditation(value.accreditation)}
+                        </span>
+                    </td>
+                    <td class="w-20 min-w-[80px] px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
+                        <span class="status-text">
+                            ${value.status || 'N/A'}
+                        </span>
+                    </td>
+                    <td class="w-24 min-w-[96px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center">${value.implementation_year || 'N/A'}</td>
+                    <td class="w-24 min-w-[96px] px-3 py-3 whitespace-nowrap text-center text-xs font-medium">
+                        <div class="flex items-center justify-center space-x-1">
+                            <button data-key="${key}" class="fresh-button view-btn text-gray-500" title="View"><i class="fas fa-eye"></i></button>
+                            <button data-key="${key}" class="fresh-button edit-btn text-gray-500" title="Edit"><i class="fas fa-pencil-alt"></i></button>
+                            <button data-key="${key}" class="fresh-button delete-btn text-gray-500" title="Delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+                
+                // Add collapse row for details
+                const collapseRow = document.createElement('tr');
+                collapseRow.id = `collapse-${key}`;
+                collapseRow.classList.add('hidden', 'bg-gray-50', 'collapse-transition');
+                collapseRow.innerHTML = `
+                    <td colspan="6" class="px-8 py-6">
+                        <div class="border-2 border-blue-200 rounded-2xl p-6 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg">
+                            <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-info-circle text-blue-600 mr-3"></i>
+                                Detail Penelitian
+                            </h4>
+
+                            <div class="flex flex-wrap gap-2">
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Akreditasi:</span>
+                                        <span class="text-gray-700 ml-2">${value.accreditation || '-'}</span>
+                                        </div>
+                                    </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Jurnal:</span>
+                                        ${value.journal_link ? `<a href="${value.journal_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Dokumen:</span>
+                                        ${value.doc_link ? `<a href="${value.doc_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                    </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Tahun Publikasi:</span>
+                                        <span class="text-gray-700 ml-2">${value.published?.year_published || '-'}</span>
+                                    </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Publikasi:</span>
+                                        ${value.published?.published_link ? `<a href="${value.published.published_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(collapseRow);
+            });
+        }
+        
+
+        
+        function loadResearchData() {
+            // Firebase onValue listener akan otomatis update tabel
+            // Jadi kita tidak perlu manual refresh
+            console.log('Research data updated - table will refresh automatically');
+        }
+        
+        function showToast(message, type = 'success') {
+            // Log ke console untuk debugging
+            console.log(`${type.toUpperCase()}: ${message}`);
+            
+            // Tampilkan alert hanya untuk operasi delete
+            if (type === 'success' && message.includes('deleted')) {
+                alert(`${message}`);
+            }
+        }
+        
+        // --- Pagination Functions ---
+        function renderTableWithPagination(data) {
+            if (!data || Object.keys(data).length === 0) {
+                const emptyRow = `<tr><td colspan="6" class="px-6 py-8 text-center text-gray-400">
+                    <div class="text-sm text-gray-400">Tidak ada data</div>
+                </td></tr>`;
+                tableBody.innerHTML = emptyRow;
+                updatePaginationInfo(0, 0, 0);
+                return;
+            }
+            
+            // Apply filters if any are set
+            filteredData = Object.entries(data);
+            
+            // Filter by year if selected
+            if (yearFilter.value) {
+                filteredData = filteredData.filter(([key, value]) => 
+                    value.implementation_year == yearFilter.value
+                );
+            }
+            
+            // Filter by accreditation if selected
+            if (accreditationFilter.value) {
+                filteredData = filteredData.filter(([key, value]) => 
+                    value.accreditation === accreditationFilter.value
+                );
+            }
+            
+            // Filter by status if selected
+            const selectedStatuses = getSelectedStatuses();
+            
+            // Jika ada status yang dipilih (tidak kosong), terapkan filter
+            if (selectedStatuses.length > 0) {
+                filteredData = filteredData.filter(([key, value]) => 
+                    selectedStatuses.includes(value.status)
+                );
+            }
+            // Jika tidak ada status yang dipilih (semua status), tampilkan semua data
+            
+            const totalItems = filteredData.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            
+            // Ensure current page is valid
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+            if (currentPage < 1) {
+                currentPage = 1;
+            }
+            
+            // Get current page data
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentPageData = filteredData.slice(startIndex, endIndex);
+            
+            // Clear table
+            tableBody.innerHTML = '';
+            
+            // Render current page data
+            currentPageData.forEach(([key, value]) => {
+                const row = document.createElement('tr');
+                row.classList.add('hover:bg-gray-50', 'table-row');
+                
+                row.innerHTML = `
+                    <td class="w-16 min-w-[64px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center bg-white sticky left-0 z-10">${value.research_id || 'N/A'}</td>
+                    <td class="w-96 min-w-[384px] px-3 py-3 border-r border-gray-300">
+                        <div class="text-xs font-medium text-gray-800 text-wrap" title="${value.title || 'N/A'}">${value.title || 'N/A'}</div>
+                    </td>
+                    <td class="w-20 min-w-[80px] px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
+                        <span class="accreditation-badge">
+                            ${value.status === 'Draft' ? '-' : capitalizeAccreditation(value.accreditation)}
+                        </span>
+                    </td>
+                    <td class="w-20 min-w-[80px] px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
+                        <span class="status-text">${value.status || 'N/A'}</span>
+                    </td>
+                    <td class="w-24 min-w-[96px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center">${value.implementation_year || 'N/A'}</td>
+                    <td class="w-24 min-w-[96px] px-3 py-3 whitespace-nowrap text-xs font-medium action-column">
+                        <div class="flex items-center justify-center space-x-1">
+                            <button data-key="${key}" class="fresh-button view-btn text-gray-500" title="View"><i class="fas fa-eye"></i></button>
+                            <button data-key="${key}" class="fresh-button edit-btn text-gray-500" title="Edit"><i class="fas fa-pencil-alt"></i></button>
+                            <button data-key="${key}" class="fresh-button delete-btn text-gray-500" title="Delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+                
+                // Add collapse row for details
+                const collapseRow = document.createElement('tr');
+                collapseRow.id = `collapse-${key}`;
+                collapseRow.classList.add('hidden', 'bg-gray-50', 'collapse-transition');
+                collapseRow.innerHTML = `
+                    <td colspan="6" class="px-6 py-4">
+                        <div class="border border-gray-300 p-4 bg-gray-100">
+                            <h4 class="text-sm font-semibold text-gray-700 mb-2">Detail Penelitian</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Akreditasi:</span>
+                                        <span class="text-gray-700 ml-2">${value.accreditation || '-'}</span>
+                                        </div>
+                                    </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Jurnal:</span>
+                                        ${value.journal_link ? `<a href="${value.journal_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Dokumen:</span>
+                                        ${value.doc_link ? `<a href="${value.doc_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                    </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Tahun Publikasi:</span>
+                                        <span class="text-gray-700 ml-2">${value.published?.year_published || '-'}</span>
+                                    </div>
+                                </div>
+                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600">Link Publikasi:</span>
+                                        ${value.published?.published_link ? `<a href="${value.published.published_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(collapseRow);
+            });
+            
+
+            
+            // Update pagination
+            updatePaginationInfo(startIndex + 1, endIndex, totalItems);
+            renderPageNumbers(totalPages);
+            updateNavigationButtons(totalPages);
+        }
+        
+        function updatePaginationInfo(start, end, total) {
+            const pageInfo = document.getElementById('page-info');
+            if (total === 0) {
+                pageInfo.textContent = 'Tidak ada data';
+            } else {
+                pageInfo.textContent = `Menampilkan ${start}-${Math.min(end, total)} dari ${total} data`;
+            }
+        }
+        
+        function renderPageNumbers(totalPages) {
+            const pageNumbersContainer = document.getElementById('page-numbers');
+            pageNumbersContainer.innerHTML = '';
+            
+            if (totalPages <= 1) {
+                return;
+            }
+            
+            // Tampilkan semua nomor halaman
+            for (let i = 1; i <= totalPages; i++) {
+                    addPageNumber(i);
+            }
+        }
+        
+        function addPageNumber(pageNum, type = 'number') {
+            const pageNumbersContainer = document.getElementById('page-numbers');
+            const pageBtn = document.createElement('button');
+            
+                pageBtn.textContent = pageNum;
+                pageBtn.className = `fresh-pagination-btn ${pageNum === currentPage ? 'active' : ''}`;
+                pageBtn.addEventListener('click', () => goToPage(pageNum));
+            
+            pageNumbersContainer.appendChild(pageBtn);
+        }
+        
+        function updateNavigationButtons(totalPages) {
+            const prevBtn = document.getElementById('prev-page');
+            const nextBtn = document.getElementById('next-page');
+            
+            prevBtn.disabled = currentPage <= 1;
+            nextBtn.disabled = currentPage >= totalPages;
+        }
+        
+        function goToPage(page) {
+            currentPage = page;
+            renderTableWithPagination(allData);
+        }
+        
+        function goToPreviousPage() {
+            if (currentPage > 1) {
+                goToPage(currentPage - 1);
+            }
+        }
+        
+        function goToNextPage() {
+            const totalPages = Math.ceil(Object.keys(allData).length / itemsPerPage);
+            if (currentPage < totalPages) {
+                goToPage(currentPage + 1);
+            }
+        }
+        
+        function changeItemsPerPage(newItemsPerPage) {
+            itemsPerPage = parseInt(newItemsPerPage);
+            currentPage = 1; // Reset to first page
+            renderTableWithPagination(allData);
+        }
+
+        // ===== SEARCH FUNCTIONS =====
+        function setupSearchListeners() {
+            const idSearch = document.getElementById('id-search');
+            const titleSearch = document.getElementById('title-search');
+            
+            // Search by ID
+            idSearch.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                performSearch(searchTerm, 'id');
+            });
+            
+            // Search by Title
+            titleSearch.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                performSearch(searchTerm, 'title');
+            });
+        }
+        
+        function performSearch(searchTerm, searchType) {
+            if (!allData) return;
+            
+            // Gunakan applyFilters untuk mengintegrasikan dengan filter lainnya
+            applyFilters();
+        }
+        
+        function updateSearchInfo(searchTerm, searchType, resultCount) {
+            const pageInfo = document.getElementById('page-info');
+            
+            if (searchTerm === '') {
+                // Tampilkan info normal jika tidak ada search
+                const totalItems = Object.keys(allData).length;
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                updatePaginationInfo(startIndex + 1, endIndex, totalItems);
+            } else if (searchType === 'combined') {
+                // Tampilkan info hasil filter dan search yang digabung
+                const idSearchTerm = document.getElementById('id-search').value.toLowerCase().trim();
+                const titleSearchTerm = document.getElementById('title-search').value.toLowerCase().trim();
+                
+                let searchInfo = [];
+                if (idSearchTerm) searchInfo.push(`ID: "${idSearchTerm}"`);
+                if (titleSearchTerm) searchInfo.push(`Judul: "${titleSearchTerm}"`);
+                
+                if (searchInfo.length > 0) {
+                    pageInfo.textContent = `Hasil pencarian ${searchInfo.join(', ')}: ${resultCount} data ditemukan`;
+                } else {
+                    // Hanya filter yang aktif
+                    pageInfo.textContent = `Hasil filter: ${resultCount} data ditemukan`;
+                }
+            } else {
+                // Tampilkan info hasil pencarian
+                const searchTypeText = searchType === 'id' ? 'ID' : 'Judul';
+                pageInfo.textContent = `Hasil pencarian "${searchTerm}" (${searchTypeText}): ${resultCount} data ditemukan`;
+            }
+        }
+        
+        // ===== MOBILE FILTER FUNCTIONS =====
+        function setupMobileFilterListeners() {
+            const mobileFilterToggle = document.getElementById('mobile-filter-toggle');
+            const mobileFilterSidebar = document.getElementById('mobile-filter-sidebar');
+            const mobileFilterClose = document.getElementById('mobile-filter-close');
+            const mobileFilterOverlay = document.getElementById('mobile-filter-overlay');
+            const mobileFilterApply = document.getElementById('mobile-filter-apply');
+            const mobileFilterIcon = document.getElementById('mobile-filter-icon');
+            
+            // Toggle sidebar
+            mobileFilterToggle.addEventListener('click', () => {
+                openMobileFilter();
+            });
+            
+            // Close sidebar
+            mobileFilterClose.addEventListener('click', () => {
+                closeMobileFilter();
+            });
+            
+            // Close on overlay click
+            mobileFilterOverlay.addEventListener('click', () => {
+                closeMobileFilter();
+            });
+            
+            // Apply filter (now just closes sidebar since filter is applied automatically)
+            mobileFilterApply.addEventListener('click', () => {
+                closeMobileFilter();
+            });
+            
+            // Setup real-time filter application for mobile
+            setupMobileRealTimeFilter();
+            
+            // Sync mobile filter with desktop filter
+            syncMobileFilterWithDesktop();
+        }
+        
+        function openMobileFilter() {
+            const sidebar = document.getElementById('mobile-filter-sidebar');
+            const overlay = document.getElementById('mobile-filter-overlay');
+            const icon = document.getElementById('mobile-filter-icon');
+            
+            sidebar.classList.remove('translate-x-full');
+            overlay.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+            
+            // Sync values from desktop filter
+            syncMobileFilterWithDesktop();
+        }
+        
+        function closeMobileFilter() {
+            const sidebar = document.getElementById('mobile-filter-sidebar');
+            const overlay = document.getElementById('mobile-filter-overlay');
+            const icon = document.getElementById('mobile-filter-icon');
+            
+            sidebar.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+        
+        function syncMobileFilterWithDesktop() {
+            // Sync search fields
+            const desktopIdSearch = document.getElementById('id-search');
+            const mobileIdSearch = document.getElementById('mobile-id-search');
+            const desktopTitleSearch = document.getElementById('title-search');
+            const mobileTitleSearch = document.getElementById('mobile-title-search');
+            
+            if (desktopIdSearch && mobileIdSearch) {
+                mobileIdSearch.value = desktopIdSearch.value;
+            }
+            if (desktopTitleSearch && mobileTitleSearch) {
+                mobileTitleSearch.value = desktopTitleSearch.value;
+            }
+            
+            // Sync year filter
+            const desktopYearFilter = document.getElementById('year-filter');
+            const mobileYearFilter = document.getElementById('mobile-year-filter');
+            if (desktopYearFilter && mobileYearFilter) {
+                mobileYearFilter.value = desktopYearFilter.value;
+            }
+            
+            // Sync accreditation filter
+            const desktopAccreditationFilter = document.getElementById('accreditation-filter');
+            const mobileAccreditationFilter = document.getElementById('mobile-accreditation-filter');
+            if (desktopAccreditationFilter && mobileAccreditationFilter) {
+                mobileAccreditationFilter.value = desktopAccreditationFilter.value;
+            }
+            
+            // Sync status checkboxes
+            const desktopStatusCheckboxes = document.querySelectorAll('.status-checkbox');
+            const mobileStatusCheckboxes = document.querySelectorAll('.mobile-status-checkbox');
+            
+            mobileStatusCheckboxes.forEach((mobileCheckbox, index) => {
+                if (desktopStatusCheckboxes[index]) {
+                    mobileCheckbox.checked = desktopStatusCheckboxes[index].checked;
+                }
+            });
+        }
+        
+        function applyMobileFilter() {
+            // Sync mobile filter values to desktop filter
+            const mobileIdSearch = document.getElementById('mobile-id-search');
+            const desktopIdSearch = document.getElementById('id-search');
+            const mobileTitleSearch = document.getElementById('mobile-title-search');
+            const desktopTitleSearch = document.getElementById('title-search');
+            
+            if (mobileIdSearch && desktopIdSearch) {
+                desktopIdSearch.value = mobileIdSearch.value;
+            }
+            if (mobileTitleSearch && desktopTitleSearch) {
+                desktopTitleSearch.value = mobileTitleSearch.value;
+            }
+            
+            // Sync year filter
+            const mobileYearFilter = document.getElementById('mobile-year-filter');
+            const desktopYearFilter = document.getElementById('year-filter');
+            if (mobileYearFilter && desktopYearFilter) {
+                desktopYearFilter.value = mobileYearFilter.value;
+            }
+            
+            // Sync accreditation filter
+            const mobileAccreditationFilter = document.getElementById('mobile-accreditation-filter');
+            const desktopAccreditationFilter = document.getElementById('accreditation-filter');
+            if (mobileAccreditationFilter && desktopAccreditationFilter) {
+                desktopAccreditationFilter.value = mobileAccreditationFilter.value;
+            }
+            
+            // Sync status checkboxes
+            const mobileStatusCheckboxes = document.querySelectorAll('.mobile-status-checkbox');
+            const desktopStatusCheckboxes = document.querySelectorAll('.status-checkbox');
+            
+            mobileStatusCheckboxes.forEach((mobileCheckbox, index) => {
+                if (desktopStatusCheckboxes[index]) {
+                    desktopStatusCheckboxes[index].checked = mobileCheckbox.checked;
+                }
+            });
+            
+            // Apply filters
+            applyFilters();
+        }
+        
+        function setupMobileRealTimeFilter() {
+            // Real-time search by ID
+            const mobileIdSearch = document.getElementById('mobile-id-search');
+            if (mobileIdSearch) {
+                mobileIdSearch.addEventListener('input', (e) => {
+                    // Sync to desktop filter
+                    const desktopIdSearch = document.getElementById('id-search');
+                    if (desktopIdSearch) {
+                        desktopIdSearch.value = e.target.value;
+                    }
+                    // Apply filter immediately
+                    applyFilters();
+                });
+            }
+            
+            // Real-time search by title
+            const mobileTitleSearch = document.getElementById('mobile-title-search');
+            if (mobileTitleSearch) {
+                mobileTitleSearch.addEventListener('input', (e) => {
+                    // Sync to desktop filter
+                    const desktopTitleSearch = document.getElementById('title-search');
+                    if (desktopTitleSearch) {
+                        desktopTitleSearch.value = e.target.value;
+                    }
+                    // Apply filter immediately
+                    applyFilters();
+                });
+            }
+            
+            // Real-time year filter
+            const mobileYearFilter = document.getElementById('mobile-year-filter');
+            if (mobileYearFilter) {
+                mobileYearFilter.addEventListener('change', (e) => {
+                    // Sync to desktop filter
+                    const desktopYearFilter = document.getElementById('year-filter');
+                    if (desktopYearFilter) {
+                        desktopYearFilter.value = e.target.value;
+                    }
+                    // Apply filter immediately
+                    applyFilters();
+                });
+            }
+            
+            // Real-time accreditation filter
+            const mobileAccreditationFilter = document.getElementById('mobile-accreditation-filter');
+            if (mobileAccreditationFilter) {
+                mobileAccreditationFilter.addEventListener('change', (e) => {
+                    // Sync to desktop filter
+                    const desktopAccreditationFilter = document.getElementById('accreditation-filter');
+                    if (desktopAccreditationFilter) {
+                        desktopAccreditationFilter.value = e.target.value;
+                    }
+                    // Apply filter immediately
+                    applyFilters();
+                });
+            }
+            
+            // Real-time status checkboxes
+            const mobileStatusCheckboxes = document.querySelectorAll('.mobile-status-checkbox');
+            mobileStatusCheckboxes.forEach((mobileCheckbox, index) => {
+                mobileCheckbox.addEventListener('change', (e) => {
+                    
+                    // Handle "Semua Status" checkbox logic
+                    if (e.target.value === '') {
+                        // "Semua Status" checkbox clicked
+                        const otherCheckboxes = document.querySelectorAll('.mobile-status-checkbox:not([value=""])');
+                        const allCheckbox = e.target;
+                        
+                        if (allCheckbox.checked) {
+                            // Check all other checkboxes when "Semua Status" is selected
+                            otherCheckboxes.forEach(cb => {
+                                cb.checked = true;
+                                // Sync to desktop
+                                const desktopCheckbox = document.querySelector(`.status-checkbox[value="${cb.value}"]`);
+                                if (desktopCheckbox) {
+                                    desktopCheckbox.checked = true;
+                                }
+                            });
+                        } else {
+                            // When "Semua Status" is unchecked, uncheck all other checkboxes
+                            otherCheckboxes.forEach(cb => {
+                                cb.checked = false;
+                                // Sync to desktop
+                                const desktopCheckbox = document.querySelector(`.status-checkbox[value="${cb.value}"]`);
+                                if (desktopCheckbox) {
+                                    desktopCheckbox.checked = false;
+                                }
+                            });
+                        }
+                    } else {
+                        // Other checkbox clicked
+                        const allCheckbox = document.querySelector('.mobile-status-checkbox[value=""]');
+                        const otherCheckboxes = document.querySelectorAll('.mobile-status-checkbox:not([value=""])');
+                        
+                        if (e.target.checked) {
+                            // Uncheck "Semua Status" when individual status is selected
+                            if (allCheckbox) {
+                                allCheckbox.checked = false;
+                                const desktopAllCheckbox = document.querySelector('.status-checkbox[value=""]');
+                                if (desktopAllCheckbox) {
+                                    desktopAllCheckbox.checked = false;
+                                }
+                            }
+                        } else {
+                            // Don't automatically check "Semua Status" when unchecking
+                            // Let user control which statuses they want to see
+                        }
+                        
+                        // Sync current checkbox to desktop
+                        const desktopCheckbox = document.querySelector(`.status-checkbox[value="${e.target.value}"]`);
+                        if (desktopCheckbox) {
+                            desktopCheckbox.checked = e.target.checked;
+                        }
+                    }
+                    
+                    // Update status filter text
+                    updateStatusFilterText();
+                    
+                    // Apply filter immediately
+                    applyFilters();
+                });
+            });
+            
+        }
+        
+        // ===== DEBUG FUNCTIONS =====
+
+
+    </script>
+</body>
+</html>
