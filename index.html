@@ -104,9 +104,8 @@
             /* Table styling */
         .table_component {
             width: 100%;
-            overflow-x: visible !important;
-            overflow-y: visible !important;
-}
+            overflow-x: auto;
+        }
         
         .fresh-table {
             border: 1px solid #dededf;
@@ -133,101 +132,73 @@
         
         .fresh-table {
             border-collapse: collapse;
-            border-spacing: 1px;
+            border-spacing: 0;
             text-align: left;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
         }
             
             /* Body styling */
         .fresh-body tr {
-            border: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
         }
         
         .fresh-body tr:hover {
-                background: #f8fafb;
-            }
+            background: #f9fafb;
+        }
+        
+        .fresh-body tr:last-child {
+            border-bottom: none;
+        }
             
-            .fresh-body td {
-                padding: 6px 6px;
-                border: none;
-                vertical-align: middle;
-                font-size: 12px;
-                height: 50px;
-                min-height: 50px;
-                background-color: #ffffff;
-                color: #000000;
-                border: 1px solid #e5e7eb;
-                box-sizing: border-box;
-            }
+        .fresh-body td {
+            padding: 12px 16px;
+            border: none;
+            vertical-align: middle;
+            font-size: 12px;
+            background-color: #ffffff;
+            color: #374151;
+            box-sizing: border-box;
+        }
             
             /* Row styling */
         .table-row {
             background: #ffffff;
-            margin: 2px 0;
-            border: 1px solid #e5e7eb;
-                height: 3.5rem;
-                min-height: 3.5rem;
-                max-height: 3.5rem;
         }
         
         .table-row:nth-child(even) {
-            background: #f8fafc;
+            background: #fafafa;
         }
         
         .table-row:nth-child(odd) {
             background: #ffffff;
-            }
+        }
             
-            .table-row:hover {
-                background-color: #f9fafb;
-            }
+        .table-row:hover {
+            background-color: #f9fafb;
+        }
             
         .table-row td {
-                padding: 0.75rem 1.5rem;
+            padding: 12px 16px;
             background-color: transparent;
             color: #374151;
-            font-weight: 600;
+            font-weight: 500;
             border: none;
-                height: 3.5rem;
-                min-height: 3.5rem;
-                max-height: 3.5rem;
-                box-sizing: border-box;
-                border-bottom: 1px solid #f3f4f6;
-            }
+            box-sizing: border-box;
+        }
             
 
         
             /* Collapse styling */
         .collapse-transition {
-                background-color: #f8fafc;
-            height: auto;
-            min-height: 0;
-            transition: all 0.3s ease;
-                overflow: hidden;
-                margin: 3px 4px;
-                border: 1px solid #e5e7eb;
+            background-color: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
         }
-        
-        .collapse-transition.hidden {
-            height: 0;
-            min-height: 0;
-            overflow: hidden;
-        }
-        
-            .collapse-transition.expanded {
-                background-color: #f1f5f9;
-                max-height: 500px;
-                opacity: 1;
-            }
             
         .collapse-transition td {
-            padding: 0.75rem 1.5rem;
+            padding: 16px;
             box-sizing: border-box;
-                height: auto;
-                min-height: auto;
-            }
+        }
             
             /* Badge styling */
             .fresh-badge {
@@ -236,105 +207,106 @@
                 font-weight: 500;
                 letter-spacing: 0.2px;
                 text-transform: uppercase;
-                border: none;
-                transition: all 0.2s ease;
+                border: 1px solid #e5e7eb;
+
                 display: inline-block;
                 line-height: 1.4;
-                border-radius: 12px;
+                border-radius: 4px;
                 margin: 0;
+                background: #ffffff;
+                color: #374151;
             }
             
             .fresh-badge.published {
-            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-            color: #166534;
-            border: 2px solid #86efac;
-            box-shadow: 0 4px 8px rgba(34, 197, 94, 0.2);
-        }
+                background: #f0fdf4;
+                color: #166534;
+                border-color: #bbf7d0;
+            }
+            
+            .fresh-badge.writing {
+                background: #f3e8ff;
+                color: #7c3aed;
+                border-color: #c4b5fd;
+            }
         
             .fresh-badge.review {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            color: #92400e;
-            border: 2px solid #fcd34d;
-            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2);
-        }
+                background: #fffbeb;
+                color: #92400e;
+                border-color: #fde68a;
+            }
         
             .fresh-badge.submit {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-            color: #1e40af;
-            border: 2px solid #93c5fd;
-            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
-        }
+                background: #eff6ff;
+                color: #1e40af;
+                border-color: #bfdbfe;
+            }
         
             .fresh-badge.declined {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            color: #991b1b;
-            border: 2px solid #fca5a5;
-            box-shadow: 0 4px 8px rgba(239, 68, 68, 0.2);
-        }
+                background: #fef2f2;
+                color: #991b1b;
+                border-color: #fecaca;
+            }
         
             /* Accreditation badges */
             .accreditation-badge {
-                color: #374151;
+                padding: 4px 8px;
                 font-size: 12px;
                 font-weight: 500;
                 text-transform: capitalize !important;
                 text-align: center;
+                border: 1px solid #e5e7eb;
+                border-radius: 4px;
+                background: #ffffff;
+                color: #374151;
+                display: inline-block;
             }
             
         .accreditation-sinta1 {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            background: #fffbeb;
             color: #92400e;
-            border: 2px solid #fcd34d;
-            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2);
+            border-color: #fde68a;
         }
         
         .accreditation-sinta2 {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            background: #eff6ff;
             color: #1e40af;
-            border: 2px solid #93c5fd;
-            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+            border-color: #bfdbfe;
         }
         
         .accreditation-sinta3 {
-            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            background: #f0fdf4;
             color: #166534;
-            border: 2px solid #86efac;
-            box-shadow: 0 4px 8px rgba(34, 197, 94, 0.2);
+            border-color: #bbf7d0;
         }
         
         .accreditation-sinta4 {
-            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            background: #faf5ff;
             color: #7c3aed;
-            border: 2px solid #c4b5fd;
-            box-shadow: 0 4px 8px rgba(139, 92, 246, 0.2);
+            border-color: #e9d5ff;
         }
         
         .accreditation-q1 {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            background: #fffbeb;
             color: #92400e;
-            border: 2px solid #fcd34d;
-            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2);
+            border-color: #fde68a;
         }
         
         .accreditation-q2 {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            background: #eff6ff;
             color: #1e40af;
-            border: 2px solid #93c5fd;
-            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+            border-color: #bfdbfe;
         }
         
         .accreditation-q3 {
-            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            background: #f0fdf4;
             color: #166534;
-            border: 2px solid #86efac;
-            box-shadow: 0 4px 8px rgba(34, 197, 94, 0.2);
+            border-color: #bbf7d0;
         }
         
         .accreditation-q4 {
-            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            background: #faf5ff;
             color: #7c3aed;
-            border: 2px solid #c4b5fd;
-            box-shadow: 0 4px 8px rgba(139, 92, 246, 0.2);
+            border-color: #e9d5ff;
         }
         
             /* Button styling */
@@ -342,31 +314,58 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-                padding: 3px;
-            border: none;
+            padding: 6px 8px;
+            border: 1px solid #e5e7eb;
             font-size: 0.75rem;
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
-            min-width: 1.5rem;
-            height: 1.5rem;
-                background: transparent;
-                color: #6b7280;
-                transition: all 0.2s ease;
-            }
-            
-            .fresh-button:hover {
-                background: transparent;
-                color: #374151;
-            }
-            
-            .fresh-button.view-btn i {
-                transition: transform 0.3s ease-in-out;
-            }
-            
-            .fresh-button.view-btn.expanded i {
-                transform: rotate(180deg);
-            }
+            min-width: auto;
+            height: auto;
+            background: #ffffff;
+            color: #374151;
+
+            border-radius: 4px;
+        }
+        
+        .fresh-button:hover {
+            background: #f9fafb;
+            border-color: #d1d5db;
+            color: #111827;
+        }
+        
+        .fresh-button.view-btn {
+            background: #eff6ff;
+            color: #1e40af;
+            border-color: #bfdbfe;
+        }
+        
+        .fresh-button.view-btn:hover {
+            background: #dbeafe;
+            border-color: #93c5fd;
+        }
+        
+        .fresh-button.edit-btn {
+            background: #f0fdf4;
+            color: #166534;
+            border-color: #bbf7d0;
+        }
+        
+        .fresh-button.edit-btn:hover {
+            background: #dcfce7;
+            border-color: #86efac;
+        }
+        
+        .fresh-button.delete-btn {
+            background: #fef2f2;
+            color: #991b1b;
+            border-color: #fecaca;
+        }
+        
+        .fresh-button.delete-btn:hover {
+            background: #fee2e2;
+            border-color: #fca5a5;
+        }
             
             /* Pagination styling */
         .fresh-pagination-btn {
@@ -383,7 +382,7 @@
             cursor: pointer;
             min-width: 1.5rem;
             height: 1.5rem;
-                transition: all 0.2s ease;
+
         }
         
         .fresh-pagination-btn:hover:not(:disabled) {
@@ -428,13 +427,13 @@
         .filter-select, .filter-button {
             display: block;
             width: 100%;
-            padding: 0.5rem 0.75rem;
+            padding: 0.5rem 0.30rem;
             background-color: white;
             border: 1px solid #d1d5db;
             font-size: 0.75rem;
             outline: none;
-            height: 2.5rem;
-            min-height: 2.5rem;
+            height: 1.9rem;
+            min-height: 1rem;
             box-sizing: border-box;
             line-height: 1.5;
                 border-radius: 0 !important;
@@ -470,6 +469,10 @@
             border-radius: 0;
         }
         
+        .filter-dropdown .text-xs {
+            font-size: 0.75rem !important;
+        }
+        
             /* Text styling */
             .text-wrap {
                 white-space: normal !important;
@@ -481,10 +484,29 @@
 
         .status-text {
             color: #374151;
-            font-size: 12px;
             font-weight: 500;
             text-transform: capitalize !important;
             text-align: center;
+        }
+
+        @media (max-width: 1024px) and (min-width: 641px) {
+            .sm\:text-sm {
+                font-size: 0.70rem;
+                line-height: 1.25rem;
+            }
+        }
+
+        /* Filter section font size */
+        .filter-section label {
+            font-size: 0.875rem !important;
+        }
+
+        .filter-section .text-xs {
+            font-size: 0.75rem !important;
+        }
+
+        .filter-section .text-gray-700 {
+            font-size: 0.75rem !important;
         }
 
             /* Input styling */
@@ -492,7 +514,7 @@
             border: 2px solid #e5e7eb;
             border-radius: 6px;
             padding: 6px 8px;
-            transition: all 0.2s ease;
+
             background: white;
         }
         
@@ -635,7 +657,7 @@
         }
         
         /* Responsive styles */
-            @media (min-width: 640px) {
+            @media (max-width: 1024px) and (min-width: 641px) {
                 .fresh-body td {
                     padding: 8px 8px;
                     height: 54px;
@@ -681,11 +703,32 @@
                 }
             }
             
-            @media (min-width: 768px) {
+            @media (max-width: 1024px) {
                 .fresh-body td {
                     padding: 10px 12px;
                     height: 58px;
                     min-height: 58px;
+                }
+                
+                /* Hanya kolom aksi yang dibuat vertical */
+                .fresh-body td.action-column {
+                    padding: 4px 8px !important;
+                    vertical-align: top;
+                }
+                
+                .fresh-body td.action-column .flex {
+                    flex-direction: column !important;
+                    gap: 2px;
+                    align-items: center;
+                }
+                
+                .fresh-body td.action-column .fresh-button {
+                    padding: 3px 6px !important;
+                    font-size: 0.65rem !important;
+                    margin: 0 !important;
+                    min-width: auto;
+                    width: 100%;
+                    max-width: 60px;
                 }
                 
                 .fresh-badge {
@@ -727,147 +770,7 @@
                 }
             }
             
-        @media (max-width: 768px) {
-            .header-banner {
-                padding: 1.5rem 2rem;
-                min-height: 150px;
-            }
-            
-            .brand-title {
-                font-size: 1.8rem;
-            }
-            
-            .brand-tagline {
-                font-size: 0.8rem;
-            }
-            
-            .hexagon-logo {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .logo-text {
-                font-size: 20px;
-            }
-            
-            .brain-graphic {
-                width: 150px;
-                height: 90px;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .header-banner {
-                padding: 1rem;
-                min-height: 120px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .header-left {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .brand-title {
-                font-size: 1.5rem;
-            }
-            
-            .brain-graphic {
-                width: 120px;
-                height: 72px;
-        }
-        
-            .container {
-                padding-left: 8px;
-                padding-right: 8px;
-            }
-            
-            .overflow-x-auto {
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .text-xs {
-                font-size: 0.75rem;
-            }
-            
-            .btn-transition {
-                    min-height: 44px;
-            }
-            
-            .modal-content {
-                margin: 1rem;
-                max-height: calc(100vh - 2rem);
-            }
-            
-            .grid-cols-1 {
-                grid-template-columns: 1fr;
-            }
-            
-            .space-y-2 > * + * {
-                margin-top: 0.5rem;
-            }
-            
-            th, td {
-                padding: 8px 4px;
-                font-size: 0.75rem;
-            }
-            
-            .px-2.py-1 {
-                padding: 4px 8px;
-                font-size: 0.7rem;
-            }
-        }
-            
-            @media (max-width: 475px) {
-                .fresh-body td {
-                    padding: 4px 4px;
-                    height: 44px;
-                    min-height: 44px;
-                }
-                
-                .fresh-badge {
-                    padding: 3px 6px;
-                    letter-spacing: 0.1px;
-                }
-                
-                .fresh-button {
-                    padding: 4px;
-                    width: 28px;
-                    height: 28px;
-                }
-                
-                .fresh-collapse {
-                    margin: 3px 4px;
-                }
-                
-                .fresh-card {
-                    padding: 8px;
-                }
-                
-                .fresh-input {
-                    padding: 5px 7px;
-                }
-                
-                .fresh-pagination-btn {
-                    padding: 6px 12px;
-                    font-size: 12px;
-                }
-                
-                .fresh-select {
-                    padding: 4px 8px;
-                    font-size: 12px;
-                }
-                
-                .fixed-table tr {
-                    height: 44px;
-                    min-height: 44px;
-                }
-            }
+
             
             /* Remove border radius from all elements */
             select, input {
@@ -881,35 +784,39 @@
 
 
 
+    <!-- Header -->
+    <header class="text-center py-4 bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <h1 class="text-xl sm:text-2xl md:text-3xl font-bold mb-1 tracking-wider text-gray-800 flex items-center justify-center gap-2">
+                <img src="img.png" alt="Logo Pustakana" class="inline-block w-8 h-8 sm:w-10 sm:h-10 align-middle" style="margin-right: 8px;">
+                Pustakana Research Tracing
+            </h1>
+        </div>
+    </header>
+
     <div class="container mx-auto p-2 sm:p-4 md:p-6 lg:p-8">
-        <!-- Header -->
-        <header class="text-center py-8 bg-white border-b border-gray-200">
-            <div class="container mx-auto px-4">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 tracking-wider text-gray-800">
-                    Pustakana Research Tracing
-                </h1>
-            </div>
-        </header>
 
         <!-- Filter Section -->
-        <div class="bg-gray-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 border border-gray-200">
-            <!-- Desktop Filter (hidden on mobile) -->
-            <div class="hidden sm:flex flex-col gap-3 sm:gap-4">
+        <div class="filter-section bg-gray-50 rounded-lg p-3 mx-4 mb-4 border border-gray-200">
+            <!-- Desktop Filter -->
+            <div class="flex flex-col gap-4 sm:gap-5">
                 <!-- Search Fields -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
-                        <label for="id-search" class="block text-xs font-medium text-gray-700 mb-1">Search ID</label>
+                        <label for="id-search" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Search ID</label>
                         <input type="text" id="id-search" placeholder="Cari berdasarkan ID..." class="filter-select">
                     </div>
                     <div>
-                        <label for="title-search" class="block text-xs font-medium text-gray-700 mb-1">Search Judul</label>
+                        <label for="title-search" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Search Judul</label>
                         <input type="text" id="title-search" placeholder="Cari berdasarkan judul..." class="filter-select">
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                <!-- Filter Controls -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                    <!-- Year Filter -->
                     <div>
-                        <label for="year-filter" class="block text-xs font-medium text-gray-700 mb-1">Filter Tahun</label>
+                        <label for="year-filter" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Filter Tahun</label>
                         <select id="year-filter" class="filter-select">
                             <option value="">Semua Tahun</option>
                             <option value="2025">2025</option>
@@ -920,49 +827,57 @@
                             <option value="2020">2020</option>
                         </select>
                     </div>
+                    
+                    <!-- Status Filter -->
                     <div>
-                        <label class="block text-xs font-medium text-gray-700 mb-1">Filter Status</label>
+                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Filter Status</label>
                         <div class="relative">
                             <button id="status-filter-btn" type="button" class="filter-button">
                                 <span id="status-filter-text" class="status-text">Semua Status</span>
-                                <i class="fas fa-chevron-down text-xs text-gray-400"></i>
+                                <i class="fas fa-chevron-down text-xs sm:text-sm text-gray-400"></i>
                             </button>
                             <div id="status-filter-dropdown" class="filter-dropdown hidden">
-                                <div class="p-2 space-y-1">
-                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
-                                        <input type="checkbox" value="" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
-                                        <span class="text-xs text-gray-700">Semua Status</span>
+                                <div class="p-3 space-y-1">
+                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
+                                        <input type="checkbox" value="" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500" checked="">
+                                        <span class="text-xs sm:text-sm text-gray-700">Semua Status</span>
                                     </label>
-                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
+                                        <input type="checkbox" value="Writing" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="text-xs sm:text-sm text-gray-700">Writing</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
                                         <input type="checkbox" value="Draft" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                        <span class="text-xs text-gray-700">Draft</span>
+                                        <span class="text-xs sm:text-sm text-gray-700">Draft</span>
                                     </label>
-                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
                                         <input type="checkbox" value="Submit" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                        <span class="text-xs text-gray-700">Submit</span>
+                                        <span class="text-xs sm:text-sm text-gray-700">Submit</span>
                                     </label>
-                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
                                         <input type="checkbox" value="Review" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                        <span class="text-xs text-gray-700">Review</span>
+                                        <span class="text-xs sm:text-sm text-gray-700">Review</span>
                                     </label>
-                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
                                         <input type="checkbox" value="Declined" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                        <span class="text-xs text-gray-700">Declined</span>
+                                        <span class="text-xs sm:text-sm text-gray-700">Declined</span>
                                     </label>
-                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
                                         <input type="checkbox" value="Accepted" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                        <span class="text-xs text-gray-700">Accepted</span>
+                                        <span class="text-xs sm:text-sm text-gray-700">Accepted</span>
                                     </label>
-                                    <label class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1">
+                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
                                         <input type="checkbox" value="Published" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                        <span class="text-xs text-gray-700">Published</span>
+                                        <span class="text-xs sm:text-sm text-gray-700">Published</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Accreditation Filter -->
                     <div>
-                        <label for="accreditation-filter" class="block text-xs font-medium text-gray-700 mb-1">Filter Akreditasi</label>
+                        <label for="accreditation-filter" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Filter Akreditasi</label>
                         <select id="accreditation-filter" class="filter-select">
                             <option value="">Semua Akreditasi</option>
                             <option value="SINTA 1">Sinta 1</option>
@@ -979,210 +894,87 @@
             </div>
         </div>
         
-        <!-- Mobile Filter Toggle Button (visible only on mobile) -->
-        <div class="sm:hidden mb-4">
-            <button id="mobile-filter-toggle" class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors">
-                <i class="fas fa-filter"></i>
-                <span>Filter & Search</span>
-                <i class="fas fa-chevron-right transition-transform" id="mobile-filter-icon"></i>
-            </button>
-        </div>
         
-        <!-- Mobile Filter Sidebar -->
-        <div id="mobile-filter-sidebar" class="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 sm:hidden">
-            <div class="flex flex-col h-full">
-                <!-- Header -->
-                <div class="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
-                    <h3 class="text-lg font-semibold text-gray-800">Filter & Search</h3>
-                    <button id="mobile-filter-close" class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
-                        <i class="fas fa-times text-lg"></i>
-                    </button>
-                </div>
-                
-                <!-- Filter Content -->
-                <div class="flex-1 overflow-y-auto p-4 space-y-4">
-                    <!-- Search Fields -->
-                    <div class="space-y-3">
-                        <h4 class="text-sm font-medium text-gray-700 border-b border-gray-200 pb-2">Search</h4>
-                        <div>
-                            <label for="mobile-id-search" class="block text-xs font-medium text-gray-700 mb-1">Search ID</label>
-                            <input type="text" id="mobile-id-search" placeholder="Cari berdasarkan ID..." class="filter-select w-full">
-                        </div>
-                        <div>
-                            <label for="mobile-title-search" class="block text-xs font-medium text-gray-700 mb-1">Search Judul</label>
-                            <input type="text" id="mobile-title-search" placeholder="Cari berdasarkan judul..." class="filter-select w-full">
-                        </div>
-                    </div>
-                    
-                    <!-- Year Filter -->
-                    <div class="space-y-3">
-                        <h4 class="text-sm font-medium text-gray-700 border-b border-gray-200 pb-2">Filter Tahun</h4>
-                        <div>
-                            <label for="mobile-year-filter" class="block text-xs font-medium text-gray-700 mb-1">Tahun</label>
-                            <select id="mobile-year-filter" class="filter-select w-full">
-                                <option value="">Semua Tahun</option>
-                                <option value="2025">2025</option>
-                                <option value="2024">2024</option>
-                                <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <!-- Status Filter -->
-                    <div class="space-y-3">
-                        <h4 class="text-sm font-medium text-gray-700 border-b border-gray-200 pb-2">Filter Status</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
-                                <input type="checkbox" value="" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
-                                <span class="text-sm text-gray-700">Semua Status</span>
-                            </label>
-                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
-                                <input type="checkbox" value="Draft" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                <span class="text-sm text-gray-700">Draft</span>
-                            </label>
-                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
-                                <input type="checkbox" value="Submit" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                <span class="text-sm text-gray-700">Submit</span>
-                            </label>
-                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
-                                <input type="checkbox" value="Review" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                <span class="text-sm text-gray-700">Review</span>
-                            </label>
-                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
-                                <input type="checkbox" value="Declined" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                <span class="text-sm text-gray-700">Declined</span>
-                            </label>
-                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
-                                <input type="checkbox" value="Accepted" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                <span class="text-sm text-gray-700">Accepted</span>
-                            </label>
-                            <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded">
-                                <input type="checkbox" value="Published" class="mobile-status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                <span class="text-sm text-gray-700">Published</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <!-- Accreditation Filter -->
-                    <div class="space-y-3">
-                        <h4 class="text-sm font-medium text-gray-700 border-b border-gray-200 pb-2">Filter Akreditasi</h4>
-                        <div>
-                            <label for="mobile-accreditation-filter" class="block text-xs font-medium text-gray-700 mb-1">Akreditasi</label>
-                            <select id="mobile-accreditation-filter" class="filter-select w-full">
-                                <option value="">Semua Akreditasi</option>
-                                <option value="SINTA 1">Sinta 1</option>
-                                <option value="SINTA 2">Sinta 2</option>
-                                <option value="SINTA 3">Sinta 3</option>
-                                <option value="SINTA 4">Sinta 4</option>
-                                <option value="Q1">Q1</option>
-                                <option value="Q2">Q2</option>
-                                <option value="Q3">Q3</option>
-                                <option value="Q4">Q4</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Footer Actions -->
-                <div class="p-4 border-t border-gray-200 bg-gray-50">
-                    <button id="mobile-filter-apply" class="w-full bg-gray-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-gray-600 transition-colors">
-                        Tutup
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Filter Overlay -->
-        <div id="mobile-filter-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 sm:hidden hidden"></div>
 
         <!-- Main Content: Table -->
         </div>
         
-                <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
-            
-                    <div class="p-2">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-2 mb-2 sm:mb-3">
-                            <h2 class="text-sm sm:text-base md:text-lg font-semibold">Research List</h2>
-                            <div class="flex gap-2">
-                                <button id="add-research-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-1.5 py-1 sm:px-2 sm:py-1.5 border border-transparent text-xs font-medium shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                    <i class="fas fa-plus mr-1 sm:mr-1.5 text-xs"></i>
-                                    <span class="hidden xs:inline">Tambah Penelitian Baru</span>
-                                    <span class="xs:hidden">Tambah</span>
-                                </button>
-                            </div>
-                        </div>
+        <div class="bg-white shadow-lg overflow-hidden p-3 mx-4">
+            <div class="p-2">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-2 mb-2 sm:mb-3">
+                    <h2 class="text-sm sm:text-base md:text-lg font-semibold">Research List</h2>
+                    <div class="flex gap-2">
+                        <button id="add-research-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-1.5 py-1 sm:px-2 sm:py-1.5 text-xs font-medium text-indigo-600 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <i class="fas fa-plus mr-1 sm:mr-1.5 text-xs"></i>
+                            <span class="inline">Tambah Penelitian Baru</span>
+                        </button>
                     </div>
-                    <div class="pb-2">
-                <div class="table_component relative">
-                    <table class="w-full table-fixed">
-                        <thead>
-                          <tr>
-                            <th class="w-12 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50 sticky left-0">ID</th>
-                            <th class="px-3 py-2 text-xs font-bold text-gray-600 bg-gray-50">Judul Penelitian</th>
-                            <th class="w-20 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50">Akreditasi</th>
-                            <th class="w-20 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50">Status</th>
-                            <th class="w-20 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50">Tahun</th>
-                            <th class="w-20 px-2 py-2 text-xs font-bold text-gray-600 bg-gray-50">Aksi</th>
-                          </tr>
+                </div>
+            </div>
+            
+            <div class="pb-2">
+                <div class="table_component" role="region" tabindex="0">
+                    <table class="w-full fresh-table fixed-table">
+                        <thead class="fresh-header">
+                            <tr class="bg-gray-50">
+                                <th scope="col" class="px-4 py-3 text-xs font-semibold text-gray-700 text-center border-b border-gray-200">ID</th>
+                                <th scope="col" class="px-4 py-3 text-xs font-semibold text-gray-700 border-b border-gray-200">Judul</th>
+                                <th scope="col" class="px-4 py-3 text-xs font-semibold text-gray-700 text-center border-b border-gray-200">Tahun Penelitian</th>
+                                <th scope="col" class="px-4 py-3 text-xs font-semibold text-gray-700 text-center border-b border-gray-200">Status</th>
+                                <th scope="col" class="px-4 py-3 text-xs font-semibold text-gray-700 text-center border-b border-gray-200">Akreditasi</th>
+                                <th scope="col" class="px-4 py-3 text-xs font-semibold text-gray-700 text-center border-b border-gray-200">Aksi</th>
+                            </tr>
                         </thead>
                                              <tbody id="research-table-body" class="fresh-body">
                          <!-- Data akan diisi oleh JavaScript -->
-                         <tr class="table-row">
+                         <!-- No data message (hidden by default) -->
+                         <tr class="table-row no-data-row hidden">
                              <td colspan="6" class="px-6 py-8 text-center text-gray-400">
-                                 <div id="loading-spinner" role="status">
-                                     <svg aria-hidden="true" class="inline w-5 h-5 text-gray-200 animate-spin fill-gray-400" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                         <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-                                         <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0492C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
-                                     </svg>
-                                     <span class="sr-only">Loading...</span>
-                                 </div>
-                                 <p id="no-data-message" class="hidden text-xs text-gray-400">Data penelitian tidak ditemukan. Tambahkan data baru menggunakan form di bawah.</p>
+                                 <p id="no-data-message" class="text-xs text-gray-400">Data penelitian tidak ditemukan. Tambahkan data baru menggunakan form di bawah.</p>
                              </td>
                          </tr>
                      </tbody>
                     </table>
                 </div>
+                </div>
                 
                 <!-- Pagination Navigation -->
-                <div id="pagination-container" class="mt-3 sm:mt-4 p-3 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
+                <div id="pagination-container" class="mt-3 flex flex-col sm:flex-row items-center justify-between gap-3 bg-gray-50 p-3 rounded-lg border">
                     <!-- Info Halaman -->
-                    <div class="text-xs text-gray-600 px-2 py-1">
-                        <span id="page-info">Menampilkan 1-8 dari 0 data</span>
+                    <div class="text-xs text-gray-600 font-medium">
+                        <span id="page-info">Menampilkan 1-10 dari 17 data</span>
                     </div>
                     
                     <!-- Navigasi Halaman -->
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-1">
                         <!-- Tombol Previous -->
-                        <button id="prev-page" class="fresh-pagination-btn disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2" disabled>
+                        <button id="prev-page" class="fresh-pagination-btn disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                             <i class="fas fa-chevron-left text-xs"></i>
-                            <span class="hidden sm:inline ml-1 text-xs">Prev</span>
+                        <span class="inline ml-1 text-xs">Prev</span>
                         </button>
                         
                         <!-- Nomor Halaman -->
-                        <div id="page-numbers" class="flex items-center gap-2">
+                        <div id="page-numbers" class="flex items-center gap-1">
                             <!-- Nomor halaman akan di-generate di sini -->
                         </div>
                         
                         <!-- Tombol Next -->
-                        <button id="next-page" class="fresh-pagination-btn disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2" disabled>
-                            <span class="hidden sm:inline mr-1 text-xs">Next</span>
+                        <button id="next-page" class="fresh-pagination-btn disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span class="inline mr-1 text-xs">Next</span>
                             <i class="fas fa-chevron-right text-xs"></i>
                         </button>
                     </div>
                     
                     <!-- Dropdown Items per Page -->
-                    <div class="flex items-center gap-2 px-2 py-1">
-                        <label class="text-xs text-gray-600">Per halaman:</label>
-                        <select id="items-per-page" class="fresh-select">
-                            <option value="8">8</option>
-                            <option value="16">16</option>
-                            <option value="24">24</option>
-                            <option value="32">32</option>
+                    <div class="flex items-center gap-1">
+                        <label class="text-xs text-gray-600 font-medium whitespace-nowrap">Per halaman:</label>
+                        <select id="items-per-page" class="fresh-select" style="width: 60px !important; min-width: 60px !important; max-width: 60px !important;">
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
                         </select>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1213,13 +1005,13 @@
                                     <label for="status" class="block text-xs font-medium text-gray-700">Status</label>
                                     <select id="status" name="status" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                                         <option value="">Pilih Status</option>
+                                        <option value="Writing">Writing</option>
                                         <option value="Draft">Draft</option>
                                         <option value="Submit">Submit</option>
                                         <option value="Review">Review</option>
                                         <option value="Declined">Declined</option>
                                         <option value="Accepted">Accepted</option>
-                                        <option
-                                        value="Published">Published</option>
+                                        <option value="Published">Published</option>
                                     </select>
                              </div>
                                                                                           <div>
@@ -1275,6 +1067,10 @@
                                 <label for="published_link" class="block text-xs font-medium text-gray-700">Link Publikasi</label>
                                 <input type="url" id="published_link" name="published_link" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="https://journal.com/...">
                             </div>
+                            <div>
+                                <label for="notes" class="block text-xs font-medium text-gray-700">Catatan</label>
+                                <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full px-2 py-1.5 bg-white border border-gray-300 rounded text-xs focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Catatan tambahan (opsional)"></textarea>
+                            </div>
                         </div>
                         <div class="flex flex-col sm:flex-row justify-end gap-2 sm:gap-3 pt-3 border-t">
                             <button type="button" id="cancel-btn" class="btn-transition w-full sm:w-auto inline-flex items-center justify-center px-3 py-2 sm:py-1.5 border border-red-300 text-xs font-medium text-red-700 bg-red-50 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
@@ -1313,6 +1109,21 @@
 
 
 
+
+    <!-- Document Preview Modal -->
+    <div id="popupOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" style="display: none;">
+        <div id="popup" class="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-[70vh] overflow-hidden relative" style="display: none;">
+            <div class="flex justify-between items-center p-3 border-b bg-white">
+                <h3 class="text-base font-semibold text-gray-900">Preview Dokumen</h3>
+                <button onclick="closePopup()" class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+            <div class="p-1 bg-gray-50 flex justify-center">
+                <iframe id="fileIframe" src="" width="80%" height="400px" frameborder="0" class="rounded shadow-sm bg-white"></iframe>
+            </div>
+        </div>
+    </div>
 
     <!-- PIN Authentication Modal -->
     <div id="pinModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
@@ -1414,8 +1225,10 @@
         
         // Pagination variables
         let currentPage = 1;
-        let itemsPerPage = 8;
+        let itemsPerPage = 10;
         let filteredData = [];
+        
+
         
         // Function to generate random 4-digit research ID
         function generateResearchId() {
@@ -1474,7 +1287,7 @@
                     </td>
                         <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-gray-300">
                                                     <span class="accreditation-badge">
-                            ${value.status === 'Draft' ? '-' : capitalizeAccreditation(value.accreditation)}
+                            ${value.status === 'Draft' || value.status === 'Writing' ? '-' : capitalizeAccreditation(value.accreditation)}
                         </span>
                         </td>
                         <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-gray-300">
@@ -1520,7 +1333,7 @@
                                 <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
                                     <div class="flex items-center">
                                         <span class="font-medium text-gray-600">Link Dokumen:</span>
-                                        ${value.doc_link ? `<a href="${value.doc_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                        ${value.doc_link ? `<button onclick="generateEmbed('${value.doc_link}')" class="text-blue-600 hover:text-blue-800 hover:underline ml-2 cursor-pointer">Preview</button>` : '<span class="text-gray-700 ml-2">-</span>'}
                                     </div>
                                 </div>
                                 <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
@@ -1577,11 +1390,7 @@
         // Status filter dropdown functionality - Sederhana dan efektif
         statusCheckboxes.forEach(checkbox => {
             checkbox.addEventListener('change', (e) => {
-                // Sync to mobile filter first
-                const mobileCheckbox = document.querySelector(`.mobile-status-checkbox[value="${e.target.value}"]`);
-                if (mobileCheckbox) {
-                    mobileCheckbox.checked = e.target.checked;
-                }
+
                 
                 // Then handle the change
                 handleStatusCheckboxChange.call(e.target);
@@ -1611,7 +1420,7 @@
                 // Akreditasi wajib jika status Published
                 accreditationField.required = true;
                 accreditationField.classList.add('border-red-300');
-            } else if (this.value === 'Draft' || this.value === 'Declined') {
+            } else if (this.value === 'Draft' || this.value === 'Writing' || this.value === 'Declined') {
                 yearPublishedContainer.classList.add('hidden');
                 publishedLinkContainer.classList.add('hidden');
                 journalLinkContainer.classList.add('hidden');
@@ -1687,15 +1496,26 @@
         // --- Search Event Listeners ---
         setupSearchListeners();
         
-        // --- Mobile Filter Event Listeners ---
-        setupMobileFilterListeners();
+
         
-        // --- PIN Authentication Functions ---
+                // --- PIN Authentication Functions ---
+        // Simple hash function for PIN
+        function simpleHash(str) {
+            let hash = 0;
+            if (str.length === 0) return hash;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash; // Convert to 32bit integer
+            }
+            return Math.abs(hash).toString();
+        }
+
         function requirePinAuth(action, key = null, data = null) {
             // Set pending action BEFORE showing modal
             pendingAction = action;
             pendingActionData = { key, data };
-            
+
             // Set modal title based on action
             switch (action) {
                 case 'add':
@@ -1730,14 +1550,17 @@
             e.preventDefault();
             const enteredPin = pinInput.value;
             
-            // Check if PIN is correct (direct comparison for now)
-            if (enteredPin === '27071997') {
+            // Hash the entered PIN and compare with stored hash
+            const enteredPinHash = simpleHash(enteredPin);
+            const correctPinHash = simpleHash('0000'); // Hash of correct PIN
+            
+            if (enteredPinHash === correctPinHash) {
                 // PIN is correct, proceed with action
                 hidePinModal();
                 executePendingAction();
             } else {
                 // PIN is incorrect
-                                        console.log('PIN salah! Silakan coba lagi.');
+                console.log('PIN salah! Silakan coba lagi.');
                 pinInput.value = '';
                 pinInput.focus();
             }
@@ -1763,7 +1586,9 @@
                     remove(itemRef)
                         .then(() => {
                             showToast('Research deleted successfully.', 'success');
-                            loadResearchData();
+                            setTimeout(() => {
+                                loadResearchData();
+                            }, 100);
                         })
                         .catch((error) => {
                             console.error("Error deleting document: ", error);
@@ -1821,6 +1646,7 @@
              researchForm.querySelector('#doc_link').value = data.doc_link || '';
              researchForm.querySelector('#year_published').value = data.published?.year_published || '';
              researchForm.querySelector('#published_link').value = data.published?.published_link || '';
+             researchForm.querySelector('#notes').value = data.notes || '';
              
              // Show/hide year published, published link, and journal link fields based on status
              const journalLinkContainer = document.getElementById('journal-link-container');
@@ -1834,7 +1660,7 @@
                     accreditationField.parentElement.classList.remove('hidden');
                  accreditationField.required = true;
                  accreditationField.classList.add('border-red-300');
-             } else if (data.status === 'Draft' || data.status === 'Declined') {
+             } else if (data.status === 'Draft' || data.status === 'Writing' || data.status === 'Declined') {
                  yearPublishedContainer.classList.add('hidden');
                  publishedLinkContainer.classList.add('hidden');
                  journalLinkContainer.classList.add('hidden');
@@ -1857,17 +1683,18 @@
             researchForm.reset();
             researchForm.querySelector('#edit-key').value = '';
             researchForm.querySelector('#research_id').value = '';
+            researchForm.querySelector('#notes').value = '';
             // Hide year published and published link fields by default
             yearPublishedContainer.classList.add('hidden');
             publishedLinkContainer.classList.add('hidden');
-            // Show journal link field by default (for new research)
-            document.getElementById('journal-link-container').classList.remove('hidden');
+            // Hide journal link field by default (for Writing status)
+            document.getElementById('journal-link-container').classList.add('hidden');
             
-            // Set default status to Draft and make accreditation not required
+            // Set default status to Writing and make accreditation not required
             const statusField = document.getElementById('status');
             const accreditationField = document.getElementById('accreditation');
-            statusField.value = 'Draft';
-                // Sembunyikan field Akreditasi untuk status Draft
+            statusField.value = 'Writing';
+                // Sembunyikan field Akreditasi untuk status Writing
                 accreditationField.parentElement.classList.add('hidden');
             accreditationField.required = false;
             accreditationField.classList.remove('border-red-300');
@@ -1906,9 +1733,10 @@
                 title: formData.get('title'),
                 accreditation: formData.get('accreditation'),
                 status: status,
-                journal_link: (status === 'Draft' || status === 'Declined') ? '' : formData.get('journal_link'),
+                journal_link: (status === 'Draft' || status === 'Writing' || status === 'Declined') ? '' : formData.get('journal_link'),
                 doc_link: formData.get('doc_link'),
                 implementation_year: parseInt(formData.get('implementation_year')),
+                notes: formData.get('notes') || '',
                 published: {
                     year_published: parseInt(formData.get('year_published')) || null,
                     published_link: formData.get('published_link') || ''
@@ -1922,7 +1750,9 @@
                         console.log('Penelitian berhasil diperbarui!');
                         hideResearchModal();
                         // Refresh tabel setelah update
-                        loadResearchData();
+                        setTimeout(() => {
+                            loadResearchData();
+                        }, 100);
                     })
                     .catch((error) => {
                         console.error("Error updating document: ", error);
@@ -1935,7 +1765,9 @@
                         console.log('Penelitian berhasil ditambahkan!');
                         hideResearchModal();
                         // Refresh tabel setelah tambah data baru
-                        loadResearchData();
+                        setTimeout(() => {
+                            loadResearchData();
+                        }, 100);
                     })
                     .catch((error) => {
                         console.error("Error adding document: ", error);
@@ -1981,20 +1813,12 @@
         function ensureValidStatusCheckboxState() {
             const allCheckbox = document.querySelector('.status-checkbox[value=""]');
             const otherCheckboxes = document.querySelectorAll('.status-checkbox:not([value=""])');
-            const mobileAllCheckbox = document.querySelector('.mobile-status-checkbox[value=""]');
-            const mobileOtherCheckboxes = document.querySelectorAll('.mobile-status-checkbox:not([value=""])');
-            
             // Only set initial state if no checkbox is selected
             const hasSelectedStatus = Array.from(otherCheckboxes).some(cb => cb.checked);
-            const mobileHasSelectedStatus = Array.from(mobileOtherCheckboxes).some(cb => cb.checked);
             
             // If no individual status is selected and "Semua Status" is not checked, check "Semua Status"
             if (!hasSelectedStatus && allCheckbox && !allCheckbox.checked) {
                 allCheckbox.checked = true;
-            }
-            
-            if (!mobileHasSelectedStatus && mobileAllCheckbox && !mobileAllCheckbox.checked) {
-                mobileAllCheckbox.checked = true;
             }
             
             // Update filter text
@@ -2079,21 +1903,13 @@
                     // Check all other checkboxes when "Semua Status" is selected
                     otherCheckboxes.forEach(cb => {
                         cb.checked = true;
-                        // Sync to mobile
-                        const mobileCheckbox = document.querySelector(`.mobile-status-checkbox[value="${cb.value}"]`);
-                        if (mobileCheckbox) {
-                            mobileCheckbox.checked = true;
-                        }
+
                     });
                 } else {
                     // When "Semua Status" is unchecked, uncheck all other checkboxes
                     otherCheckboxes.forEach(cb => {
                         cb.checked = false;
-                        // Sync to mobile
-                        const mobileCheckbox = document.querySelector(`.mobile-status-checkbox[value="${cb.value}"]`);
-                        if (mobileCheckbox) {
-                            mobileCheckbox.checked = false;
-                        }
+
                     });
                 }
             } else {
@@ -2102,11 +1918,7 @@
                     // Uncheck "Semua Status" when individual status is selected
                     if (allCheckbox) {
                         allCheckbox.checked = false;
-                        // Sync to mobile
-                        const mobileAllCheckbox = document.querySelector('.mobile-status-checkbox[value=""]');
-                        if (mobileAllCheckbox) {
-                            mobileAllCheckbox.checked = false;
-                        }
+
                     }
                 } else {
                     // Don't automatically check "Semua Status" when unchecking
@@ -2161,74 +1973,102 @@
         // --- Collapse Functions ---
         function toggleCollapse(key) {
             const collapseRow = document.getElementById(`collapse-${key}`);
-            const viewBtn = document.querySelector(`[data-key="${key}"].view-btn`);
             
             if (collapseRow) {
-                // Hide all other collapse rows first with smooth transition
+                // Hide all other collapse rows first
                 document.querySelectorAll('[id^="collapse-"]').forEach(row => {
                     if (row.id !== `collapse-${key}`) {
-                        if (!row.classList.contains('hidden')) {
-                            hideCollapseSmooth(row);
-                        }
+                        row.classList.add('hidden');
                     }
                 });
                 
-                // Toggle current collapse row with smooth transition
-                if (collapseRow.classList.contains('hidden')) {
-                    showCollapseSmooth(collapseRow, viewBtn);
-                } else {
-                    hideCollapseSmooth(collapseRow, viewBtn);
-                }
+                // Toggle current collapse row
+                collapseRow.classList.toggle('hidden');
+            } else {
+                // If collapse row doesn't exist, create it
+                createCollapseRow(key);
             }
         }
         
-        function showCollapseSmooth(collapseRow, viewBtn) {
-            collapseRow.classList.remove('hidden');
-            collapseRow.classList.add('expanded');
-            collapseRow.classList.remove('collapsing');
+        function createCollapseRow(key) {
+            const data = allData[key];
+            if (!data) return;
             
-            if (viewBtn) {
-                viewBtn.classList.add('expanded');
-            }
+            // Find the parent row
+            const parentRow = document.querySelector(`button[data-key="${key}"]`)?.closest('tr');
+            if (!parentRow) return;
             
-            // Trigger reflow for smooth animation
-            collapseRow.offsetHeight;
-        }
-        
-        function hideCollapseSmooth(collapseRow, viewBtn) {
-            collapseRow.classList.add('collapsing');
-            collapseRow.classList.remove('expanded');
+            // Create collapse row
+            const collapseRow = document.createElement('tr');
+            collapseRow.id = `collapse-${key}`;
+            collapseRow.classList.add('bg-gray-50', 'collapse-transition');
             
-            if (viewBtn) {
-                viewBtn.classList.remove('expanded');
-            }
+            collapseRow.innerHTML = `
+                <td colspan="6" class="px-6 py-4">
+                    <div class="bg-white border border-gray-200 rounded p-4">
+                        <h4 class="text-sm font-semibold text-gray-800 mb-3">Detail Penelitian</h4>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-2">
+                                <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600 w-24">Akreditasi:</span>
+                                        <span class="text-gray-800">${data.accreditation || '-'}</span>
+                                    </div>
+                                </div>
+                                <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600 w-24">Link Dokumen:</span>
+                                        ${data.doc_link ? `<button onclick="generateEmbed('${data.doc_link}')" class="text-blue-600 hover:text-blue-800 hover:underline cursor-pointer">Preview</button>` : '<span class="text-gray-500">-</span>'}
+                                    </div>
+                                </div>
+                                <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600 w-24">Link Jurnal:</span>
+                                        ${data.journal_link ? `<a href="${data.journal_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline">Buka Link</a>` : '<span class="text-gray-500">-</span>'}
+                                    </div>
+                                </div>
+                                <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600 w-24">Tahun Publikasi:</span>
+                                        <span class="text-gray-800">${data.published?.year_published || '-'}</span>
+                                    </div>
+                                </div>
+                                <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                    <div class="flex items-center">
+                                        <span class="font-medium text-gray-600 w-24">Link Publikasi:</span>
+                                        ${data.published?.published_link ? `<a href="${data.published.published_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline">Buka Link</a>` : '<span class="text-gray-500">-</span>'}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="font-medium text-gray-600 w-24 mt-1">Catatan:</span>
+                                <span class="text-gray-800 whitespace-pre-wrap">${data.notes || '-'}</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            `;
             
-            // Wait for transition to complete then hide
-            setTimeout(() => {
-                collapseRow.classList.add('hidden');
-                collapseRow.classList.remove('collapsing');
-            }, 300);
-        }
-        
-        function hideCollapse(key) {
-            const collapseRow = document.getElementById(`collapse-${key}`);
-            const viewBtn = document.querySelector(`[data-key="${key}"].view-btn`);
-            if (collapseRow) {
-                hideCollapseSmooth(collapseRow, viewBtn);
-            }
+            // Insert collapse row after parent row
+            parentRow.parentNode.insertBefore(collapseRow, parentRow.nextSibling);
         }
         
 
         
         function updateTableDisplay(data) {
-            tableBody.innerHTML = '';
+            // Show no data message if empty
+            const noDataRow = document.querySelector('.no-data-row');
             
             if (Object.keys(data).length === 0) {
-                const noResultsRow = `<tr><td colspan="6" class="px-6 py-12 text-center text-gray-500">
-                    <div class="text-sm text-gray-400">Tidak ada data yang sesuai dengan filter yang dipilih.</div>
-                </td></tr>`;
-                tableBody.innerHTML = noResultsRow;
+                if (noDataRow) {
+                    noDataRow.classList.remove('hidden');
+                }
                 return;
+            }
+            
+            // Hide no data row, show data
+            if (noDataRow) {
+                noDataRow.classList.add('hidden');
             }
             
             // Reset to first page when filtering
@@ -2239,26 +2079,26 @@
                 row.classList.add('hover:bg-gray-50', 'table-row');
                 
                 row.innerHTML = `
-                    <td class="w-16 min-w-[64px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center bg-white sticky left-0 z-10">${value.research_id || 'N/A'}</td>
-                    <td class="w-96 min-w-[384px] px-3 py-3 border-r border-gray-300">
-                        <div class="text-xs font-medium text-gray-800 text-wrap" title="${value.title || 'N/A'}">${value.title || 'N/A'}</div>
+                    <td class="px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center">${value.research_id || 'N/A'}</td>
+                    <td class="px-3 py-3 border-r border-gray-300">
+                        <div class="text-xs font-medium text-gray-800" title="${value.title || 'N/A'}">${value.title || 'N/A'}</div>
                     </td>
-                    <td class="w-20 min-w-[80px] px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
+                    <td class="px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
                         <span class="accreditation-badge">
-                            ${value.status === 'Draft' ? '-' : capitalizeAccreditation(value.accreditation)}
+                            ${value.status === 'Draft' || value.status === 'Writing' ? '-' : capitalizeAccreditation(value.accreditation)}
                         </span>
                     </td>
-                    <td class="w-20 min-w-[80px] px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
+                    <td class="px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
                         <span class="status-text">
                             ${value.status || 'N/A'}
                         </span>
                     </td>
-                    <td class="w-24 min-w-[96px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center">${value.implementation_year || 'N/A'}</td>
-                    <td class="w-24 min-w-[96px] px-3 py-3 whitespace-nowrap text-center text-xs font-medium">
+                    <td class="px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center">${value.implementation_year || 'N/A'}</td>
+                    <td class="px-2 py-2 whitespace-nowrap text-xs font-medium action-column">
                         <div class="flex items-center justify-center space-x-1">
-                            <button data-key="${key}" class="fresh-button view-btn text-gray-500" title="View"><i class="fas fa-eye"></i></button>
-                            <button data-key="${key}" class="fresh-button edit-btn text-gray-500" title="Edit"><i class="fas fa-pencil-alt"></i></button>
-                            <button data-key="${key}" class="fresh-button delete-btn text-gray-500" title="Delete"><i class="fas fa-trash"></i></button>
+                            <button data-key="${key}" class="fresh-button view-btn" title="View">View</button>
+                            <button data-key="${key}" class="fresh-button edit-btn" title="Edit">Edit</button>
+                            <button data-key="${key}" class="fresh-button delete-btn" title="Delete">Delete</button>
                         </div>
                     </td>
                 `;
@@ -2269,43 +2109,44 @@
                 collapseRow.id = `collapse-${key}`;
                 collapseRow.classList.add('hidden', 'bg-gray-50', 'collapse-transition');
                 collapseRow.innerHTML = `
-                    <td colspan="6" class="px-8 py-6">
-                        <div class="border-2 border-blue-200 rounded-2xl p-6 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg">
-                            <h4 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
-                                <i class="fas fa-info-circle text-blue-600 mr-3"></i>
-                                Detail Penelitian
-                            </h4>
-
-                            <div class="flex flex-wrap gap-2">
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Akreditasi:</span>
-                                        <span class="text-gray-700 ml-2">${value.accreditation || '-'}</span>
+                    <td colspan="6" class="px-6 py-4">
+                        <div class="bg-white border border-gray-200 rounded p-4">
+                            <h4 class="text-sm font-semibold text-gray-800 mb-3">Detail Penelitian</h4>
+                            <div class="space-y-3">
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Akreditasi:</span>
+                                            <span class="text-gray-800">${value.accreditation || '-'}</span>
                                         </div>
                                     </div>
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Link Jurnal:</span>
-                                        ${value.journal_link ? `<a href="${value.journal_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
-                                </div>
-                                </div>
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Link Dokumen:</span>
-                                        ${value.doc_link ? `<a href="${value.doc_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Link Dokumen:</span>
+                                            ${value.doc_link ? `<button onclick="generateEmbed('${value.doc_link}')" class="text-blue-600 hover:text-blue-800 hover:underline cursor-pointer">Preview</button>` : '<span class="text-gray-500">-</span>'}
+                                    </div>                                    
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Link Jurnal:</span>
+                                            ${value.journal_link ? `<a href="${value.journal_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline">Buka Link</a>` : '<span class="text-gray-500">-</span>'}
+                                        </div>
+                                    </div>
+
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Tahun Publikasi:</span>
+                                            <span class="text-gray-800">${value.published?.year_published || '-'}</span>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Link Publikasi:</span>
+                                            ${value.published?.published_link ? `<a href="${value.published.published_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline">Buka Link</a>` : '<span class="text-gray-500">-</span>'}
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Tahun Publikasi:</span>
-                                        <span class="text-gray-700 ml-2">${value.published?.year_published || '-'}</span>
-                                    </div>
-                                </div>
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Link Publikasi:</span>
-                                        ${value.published?.published_link ? `<a href="${value.published.published_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
-                                    </div>
+                                <div class="flex items-start">
+                                    <span class="font-medium text-gray-600 w-24 mt-1">Catatan:</span>
+                                    <span class="text-gray-800 whitespace-pre-wrap">${value.notes || '-'}</span>
                                 </div>
                             </div>
                         </div>
@@ -2321,6 +2162,11 @@
             // Firebase onValue listener akan otomatis update tabel
             // Jadi kita tidak perlu manual refresh
             console.log('Research data updated - table will refresh automatically');
+            
+            // Force re-render table with current data
+            if (allData) {
+                renderTableWithPagination(allData);
+            }
         }
         
         function showToast(message, type = 'success') {
@@ -2336,10 +2182,13 @@
         // --- Pagination Functions ---
         function renderTableWithPagination(data) {
             if (!data || Object.keys(data).length === 0) {
-                const emptyRow = `<tr><td colspan="6" class="px-6 py-8 text-center text-gray-400">
-                    <div class="text-sm text-gray-400">Tidak ada data</div>
-                </td></tr>`;
-                tableBody.innerHTML = emptyRow;
+                // Show no data message instead of empty row
+                const noDataRow = document.querySelector('.no-data-row');
+                
+                if (noDataRow) {
+                    noDataRow.classList.remove('hidden');
+                }
+                
                 updatePaginationInfo(0, 0, 0);
                 return;
             }
@@ -2388,8 +2237,23 @@
             const endIndex = startIndex + itemsPerPage;
             const currentPageData = filteredData.slice(startIndex, endIndex);
             
-            // Clear table
-            tableBody.innerHTML = '';
+            // Hide no data row
+            const noDataRow = document.querySelector('.no-data-row');
+            
+            if (noDataRow) {
+                noDataRow.classList.add('hidden');
+            }
+            
+            // Clear existing data rows and collapse rows (but keep no-data row)
+            const existingDataRows = document.querySelectorAll('.table-row:not(.no-data-row)');
+            const existingCollapseRows = document.querySelectorAll('[id^="collapse-"]');
+            existingDataRows.forEach(row => row.remove());
+            existingCollapseRows.forEach(row => row.remove());
+            
+            // Ensure all collapse rows are hidden
+            document.querySelectorAll('[id^="collapse-"]').forEach(row => {
+                row.classList.add('hidden');
+            });
             
             // Render current page data
             currentPageData.forEach(([key, value]) => {
@@ -2397,67 +2261,73 @@
                 row.classList.add('hover:bg-gray-50', 'table-row');
                 
                 row.innerHTML = `
-                    <td class="w-16 min-w-[64px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center bg-white sticky left-0 z-10">${value.research_id || 'N/A'}</td>
-                    <td class="w-96 min-w-[384px] px-3 py-3 border-r border-gray-300">
-                        <div class="text-xs font-medium text-gray-800 text-wrap" title="${value.title || 'N/A'}">${value.title || 'N/A'}</div>
+                    <td class="px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center" data-label="ID">${value.research_id || 'N/A'}</td>
+                    <td class="px-3 py-3 border-r border-gray-300" data-label="Judul">
+                        <div class="text-xs font-medium text-gray-800" title="${value.title || 'N/A'}">${value.title || 'N/A'}</div>
                     </td>
-                    <td class="w-20 min-w-[80px] px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
-                        <span class="accreditation-badge">
-                            ${value.status === 'Draft' ? '-' : capitalizeAccreditation(value.accreditation)}
-                        </span>
-                    </td>
-                    <td class="w-20 min-w-[80px] px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
+                    <td class="px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center" data-label="Tahun Penelitian">${value.implementation_year || 'N/A'}</td>
+                    <td class="px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center" data-label="Status">
                         <span class="status-text">${value.status || 'N/A'}</span>
                     </td>
-                    <td class="w-24 min-w-[96px] px-3 py-3 whitespace-nowrap text-xs text-gray-600 border-r border-gray-300 text-center">${value.implementation_year || 'N/A'}</td>
-                    <td class="w-24 min-w-[96px] px-3 py-3 whitespace-nowrap text-xs font-medium action-column">
+                    <td class="px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center" data-label="Akreditasi">
+                        <span class="accreditation-badge">
+                            ${value.status === 'Draft' || value.status === 'Writing' ? '-' : capitalizeAccreditation(value.accreditation)}
+                        </span>
+                    </td>
+                    <td class="px-2 py-2 whitespace-nowrap text-xs font-medium action-column" data-label="Aksi">
                         <div class="flex items-center justify-center space-x-1">
-                            <button data-key="${key}" class="fresh-button view-btn text-gray-500" title="View"><i class="fas fa-eye"></i></button>
-                            <button data-key="${key}" class="fresh-button edit-btn text-gray-500" title="Edit"><i class="fas fa-pencil-alt"></i></button>
-                            <button data-key="${key}" class="fresh-button delete-btn text-gray-500" title="Delete"><i class="fas fa-trash"></i></button>
+                            <button data-key="${key}" class="fresh-button view-btn" title="View">View</button>
+                            <button data-key="${key}" class="fresh-button edit-btn" title="Edit">Edit</button>
+                            <button data-key="${key}" class="fresh-button delete-btn" title="Delete">Delete</button>
                         </div>
                     </td>
                 `;
                 tableBody.appendChild(row);
                 
-                // Add collapse row for details
+                // Add collapse row for details immediately after the data row
                 const collapseRow = document.createElement('tr');
                 collapseRow.id = `collapse-${key}`;
                 collapseRow.classList.add('hidden', 'bg-gray-50', 'collapse-transition');
                 collapseRow.innerHTML = `
                     <td colspan="6" class="px-6 py-4">
-                        <div class="border border-gray-300 p-4 bg-gray-100">
-                            <h4 class="text-sm font-semibold text-gray-700 mb-2">Detail Penelitian</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Akreditasi:</span>
-                                        <span class="text-gray-700 ml-2">${value.accreditation || '-'}</span>
+                        <div class="bg-white border border-gray-200 rounded p-4">
+                            <h4 class="text-sm font-semibold text-gray-800 mb-3">Detail Penelitian</h4>
+                            <div class="space-y-3">
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Akreditasi:</span>
+                                            <span class="text-gray-800">${value.accreditation || '-'}</span>
                                         </div>
                                     </div>
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Link Jurnal:</span>
-                                        ${value.journal_link ? `<a href="${value.journal_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
-                                </div>
-                                </div>
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Link Dokumen:</span>
-                                        ${value.doc_link ? `<a href="${value.doc_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Link Dokumen:</span>
+                                            ${value.doc_link ? `<button onclick="generateEmbed('${value.doc_link}')" class="text-blue-600 hover:text-blue-800 hover:underline cursor-pointer">Preview</button>` : '<span class="text-gray-500">-</span>'}
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Link Jurnal:</span>
+                                            ${value.journal_link ? `<a href="${value.journal_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline">Buka Link</a>` : '<span class="text-gray-500">-</span>'}
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Tahun Publikasi:</span>
+                                            <span class="text-gray-800">${value.published?.year_published || '-'}</span>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 bg-gray-50 px-3 py-2">
+                                        <div class="flex items-center">
+                                            <span class="font-medium text-gray-600 w-24">Link Publikasi:</span>
+                                            ${value.published?.published_link ? `<a href="${value.published.published_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline">Buka Link</a>` : '<span class="text-gray-500">-</span>'}
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Tahun Publikasi:</span>
-                                        <span class="text-gray-700 ml-2">${value.published?.year_published || '-'}</span>
-                                    </div>
-                                </div>
-                                <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
-                                    <div class="flex items-center">
-                                        <span class="font-medium text-gray-600">Link Publikasi:</span>
-                                        ${value.published?.published_link ? `<a href="${value.published.published_link}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline ml-2">Disini</a>` : '<span class="text-gray-700 ml-2">-</span>'}
-                                    </div>
+                                <div class="flex items-start">
+                                    <span class="font-medium text-gray-600 w-24 mt-1">Catatan:</span>
+                                    <span class="text-gray-800 whitespace-pre-wrap">${value.notes || '-'}</span>
                                 </div>
                             </div>
                         </div>
@@ -2468,10 +2338,19 @@
             
 
             
+
+            
             // Update pagination
             updatePaginationInfo(startIndex + 1, endIndex, totalItems);
             renderPageNumbers(totalPages);
             updateNavigationButtons(totalPages);
+            
+            // Ensure all collapse rows are properly positioned and hidden
+            setTimeout(() => {
+                document.querySelectorAll('[id^="collapse-"]').forEach(row => {
+                    row.classList.add('hidden');
+                });
+            }, 50);
         }
         
         function updatePaginationInfo(start, end, total) {
@@ -2596,274 +2475,133 @@
             }
         }
         
-        // ===== MOBILE FILTER FUNCTIONS =====
-        function setupMobileFilterListeners() {
-            const mobileFilterToggle = document.getElementById('mobile-filter-toggle');
-            const mobileFilterSidebar = document.getElementById('mobile-filter-sidebar');
-            const mobileFilterClose = document.getElementById('mobile-filter-close');
-            const mobileFilterOverlay = document.getElementById('mobile-filter-overlay');
-            const mobileFilterApply = document.getElementById('mobile-filter-apply');
-            const mobileFilterIcon = document.getElementById('mobile-filter-icon');
-            
-            // Toggle sidebar
-            mobileFilterToggle.addEventListener('click', () => {
-                openMobileFilter();
-            });
-            
-            // Close sidebar
-            mobileFilterClose.addEventListener('click', () => {
-                closeMobileFilter();
-            });
-            
-            // Close on overlay click
-            mobileFilterOverlay.addEventListener('click', () => {
-                closeMobileFilter();
-            });
-            
-            // Apply filter (now just closes sidebar since filter is applied automatically)
-            mobileFilterApply.addEventListener('click', () => {
-                closeMobileFilter();
-            });
-            
-            // Setup real-time filter application for mobile
-            setupMobileRealTimeFilter();
-            
-            // Sync mobile filter with desktop filter
-            syncMobileFilterWithDesktop();
-        }
-        
-        function openMobileFilter() {
-            const sidebar = document.getElementById('mobile-filter-sidebar');
-            const overlay = document.getElementById('mobile-filter-overlay');
-            const icon = document.getElementById('mobile-filter-icon');
-            
-            sidebar.classList.remove('translate-x-full');
-            overlay.classList.remove('hidden');
-            icon.classList.add('rotate-180');
-            
-            // Sync values from desktop filter
-            syncMobileFilterWithDesktop();
-        }
-        
-        function closeMobileFilter() {
-            const sidebar = document.getElementById('mobile-filter-sidebar');
-            const overlay = document.getElementById('mobile-filter-overlay');
-            const icon = document.getElementById('mobile-filter-icon');
-            
-            sidebar.classList.add('translate-x-full');
-            overlay.classList.add('hidden');
-            icon.classList.remove('rotate-180');
-        }
-        
-        function syncMobileFilterWithDesktop() {
-            // Sync search fields
-            const desktopIdSearch = document.getElementById('id-search');
-            const mobileIdSearch = document.getElementById('mobile-id-search');
-            const desktopTitleSearch = document.getElementById('title-search');
-            const mobileTitleSearch = document.getElementById('mobile-title-search');
-            
-            if (desktopIdSearch && mobileIdSearch) {
-                mobileIdSearch.value = desktopIdSearch.value;
-            }
-            if (desktopTitleSearch && mobileTitleSearch) {
-                mobileTitleSearch.value = desktopTitleSearch.value;
-            }
-            
-            // Sync year filter
-            const desktopYearFilter = document.getElementById('year-filter');
-            const mobileYearFilter = document.getElementById('mobile-year-filter');
-            if (desktopYearFilter && mobileYearFilter) {
-                mobileYearFilter.value = desktopYearFilter.value;
-            }
-            
-            // Sync accreditation filter
-            const desktopAccreditationFilter = document.getElementById('accreditation-filter');
-            const mobileAccreditationFilter = document.getElementById('mobile-accreditation-filter');
-            if (desktopAccreditationFilter && mobileAccreditationFilter) {
-                mobileAccreditationFilter.value = desktopAccreditationFilter.value;
-            }
-            
-            // Sync status checkboxes
-            const desktopStatusCheckboxes = document.querySelectorAll('.status-checkbox');
-            const mobileStatusCheckboxes = document.querySelectorAll('.mobile-status-checkbox');
-            
-            mobileStatusCheckboxes.forEach((mobileCheckbox, index) => {
-                if (desktopStatusCheckboxes[index]) {
-                    mobileCheckbox.checked = desktopStatusCheckboxes[index].checked;
-                }
-            });
-        }
-        
-        function applyMobileFilter() {
-            // Sync mobile filter values to desktop filter
-            const mobileIdSearch = document.getElementById('mobile-id-search');
-            const desktopIdSearch = document.getElementById('id-search');
-            const mobileTitleSearch = document.getElementById('mobile-title-search');
-            const desktopTitleSearch = document.getElementById('title-search');
-            
-            if (mobileIdSearch && desktopIdSearch) {
-                desktopIdSearch.value = mobileIdSearch.value;
-            }
-            if (mobileTitleSearch && desktopTitleSearch) {
-                desktopTitleSearch.value = mobileTitleSearch.value;
-            }
-            
-            // Sync year filter
-            const mobileYearFilter = document.getElementById('mobile-year-filter');
-            const desktopYearFilter = document.getElementById('year-filter');
-            if (mobileYearFilter && desktopYearFilter) {
-                desktopYearFilter.value = mobileYearFilter.value;
-            }
-            
-            // Sync accreditation filter
-            const mobileAccreditationFilter = document.getElementById('mobile-accreditation-filter');
-            const desktopAccreditationFilter = document.getElementById('accreditation-filter');
-            if (mobileAccreditationFilter && desktopAccreditationFilter) {
-                desktopAccreditationFilter.value = mobileAccreditationFilter.value;
-            }
-            
-            // Sync status checkboxes
-            const mobileStatusCheckboxes = document.querySelectorAll('.mobile-status-checkbox');
-            const desktopStatusCheckboxes = document.querySelectorAll('.status-checkbox');
-            
-            mobileStatusCheckboxes.forEach((mobileCheckbox, index) => {
-                if (desktopStatusCheckboxes[index]) {
-                    desktopStatusCheckboxes[index].checked = mobileCheckbox.checked;
-                }
-            });
-            
-            // Apply filters
-            applyFilters();
-        }
-        
-        function setupMobileRealTimeFilter() {
-            // Real-time search by ID
-            const mobileIdSearch = document.getElementById('mobile-id-search');
-            if (mobileIdSearch) {
-                mobileIdSearch.addEventListener('input', (e) => {
-                    // Sync to desktop filter
-                    const desktopIdSearch = document.getElementById('id-search');
-                    if (desktopIdSearch) {
-                        desktopIdSearch.value = e.target.value;
-                    }
-                    // Apply filter immediately
-                    applyFilters();
-                });
-            }
-            
-            // Real-time search by title
-            const mobileTitleSearch = document.getElementById('mobile-title-search');
-            if (mobileTitleSearch) {
-                mobileTitleSearch.addEventListener('input', (e) => {
-                    // Sync to desktop filter
-                    const desktopTitleSearch = document.getElementById('title-search');
-                    if (desktopTitleSearch) {
-                        desktopTitleSearch.value = e.target.value;
-                    }
-                    // Apply filter immediately
-                    applyFilters();
-                });
-            }
-            
-            // Real-time year filter
-            const mobileYearFilter = document.getElementById('mobile-year-filter');
-            if (mobileYearFilter) {
-                mobileYearFilter.addEventListener('change', (e) => {
-                    // Sync to desktop filter
-                    const desktopYearFilter = document.getElementById('year-filter');
-                    if (desktopYearFilter) {
-                        desktopYearFilter.value = e.target.value;
-                    }
-                    // Apply filter immediately
-                    applyFilters();
-                });
-            }
-            
-            // Real-time accreditation filter
-            const mobileAccreditationFilter = document.getElementById('mobile-accreditation-filter');
-            if (mobileAccreditationFilter) {
-                mobileAccreditationFilter.addEventListener('change', (e) => {
-                    // Sync to desktop filter
-                    const desktopAccreditationFilter = document.getElementById('accreditation-filter');
-                    if (desktopAccreditationFilter) {
-                        desktopAccreditationFilter.value = e.target.value;
-                    }
-                    // Apply filter immediately
-                    applyFilters();
-                });
-            }
-            
-            // Real-time status checkboxes
-            const mobileStatusCheckboxes = document.querySelectorAll('.mobile-status-checkbox');
-            mobileStatusCheckboxes.forEach((mobileCheckbox, index) => {
-                mobileCheckbox.addEventListener('change', (e) => {
-                    
-                    // Handle "Semua Status" checkbox logic
-                    if (e.target.value === '') {
-                        // "Semua Status" checkbox clicked
-                        const otherCheckboxes = document.querySelectorAll('.mobile-status-checkbox:not([value=""])');
-                        const allCheckbox = e.target;
-                        
-                        if (allCheckbox.checked) {
-                            // Check all other checkboxes when "Semua Status" is selected
-                            otherCheckboxes.forEach(cb => {
-                                cb.checked = true;
-                                // Sync to desktop
-                                const desktopCheckbox = document.querySelector(`.status-checkbox[value="${cb.value}"]`);
-                                if (desktopCheckbox) {
-                                    desktopCheckbox.checked = true;
-                                }
-                            });
-                        } else {
-                            // When "Semua Status" is unchecked, uncheck all other checkboxes
-                            otherCheckboxes.forEach(cb => {
-                                cb.checked = false;
-                                // Sync to desktop
-                                const desktopCheckbox = document.querySelector(`.status-checkbox[value="${cb.value}"]`);
-                                if (desktopCheckbox) {
-                                    desktopCheckbox.checked = false;
-                                }
-                            });
-                        }
-                    } else {
-                        // Other checkbox clicked
-                        const allCheckbox = document.querySelector('.mobile-status-checkbox[value=""]');
-                        const otherCheckboxes = document.querySelectorAll('.mobile-status-checkbox:not([value=""])');
-                        
-                        if (e.target.checked) {
-                            // Uncheck "Semua Status" when individual status is selected
-                            if (allCheckbox) {
-                                allCheckbox.checked = false;
-                                const desktopAllCheckbox = document.querySelector('.status-checkbox[value=""]');
-                                if (desktopAllCheckbox) {
-                                    desktopAllCheckbox.checked = false;
-                                }
-                            }
-                        } else {
-                            // Don't automatically check "Semua Status" when unchecking
-                            // Let user control which statuses they want to see
-                        }
-                        
-                        // Sync current checkbox to desktop
-                        const desktopCheckbox = document.querySelector(`.status-checkbox[value="${e.target.value}"]`);
-                        if (desktopCheckbox) {
-                            desktopCheckbox.checked = e.target.checked;
-                        }
-                    }
-                    
-                    // Update status filter text
-                    updateStatusFilterText();
-                    
-                    // Apply filter immediately
-                    applyFilters();
-                });
-            });
-            
-        }
+
         
         // ===== DEBUG FUNCTIONS =====
 
-
     </script>
+
+    <!-- Document Preview Script -->
+    <script>
+        // ===== DOCUMENT PREVIEW FUNCTIONS =====
+        function generateEmbed(driveLink) {
+            // Bersihkan link dari karakter @ di awal jika ada
+            let cleanLink = driveLink.trim();
+            if (cleanLink.startsWith('@')) {
+                cleanLink = cleanLink.substring(1);
+            }
+            
+            let fileId = null;
+            let embedUrl = null;
+            
+            // Pattern 1: Google Drive open link format
+            // https://drive.google.com/open?id=FILE_ID&usp=drive_copy
+            const openMatch = cleanLink.match(/drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/);
+            if (openMatch) {
+                fileId = openMatch[1];
+                embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+            
+            // Pattern 2: Google Drive direct link format
+            // https://drive.google.com/file/d/FILE_ID/view
+            const directMatch = cleanLink.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+            if (directMatch) {
+                fileId = directMatch[1];
+                embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+            
+            // Pattern 3: Google Docs edit link format
+            // https://docs.google.com/document/d/FILE_ID/edit?usp=drive_link
+            const docsEditMatch = cleanLink.match(/docs\.google\.com\/document\/d\/([a-zA-Z0-9_-]+)\/edit/);
+            if (docsEditMatch) {
+                fileId = docsEditMatch[1];
+                embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+            
+            // Pattern 4: Google Docs sharing link format
+            // https://docs.google.com/document/d/FILE_ID/edit?usp=sharing
+            const docsSharingMatch = cleanLink.match(/docs\.google\.com\/document\/d\/([a-zA-Z0-9_-]+)\/edit\?usp=sharing/);
+            if (docsSharingMatch) {
+                fileId = docsSharingMatch[1];
+                embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+            
+            // Pattern 5: Google Sheets format
+            const sheetsMatch = cleanLink.match(/docs\.google\.com\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+            if (sheetsMatch) {
+                fileId = sheetsMatch[1];
+                embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+            
+            // Pattern 6: Google Slides format
+            const slidesMatch = cleanLink.match(/docs\.google\.com\/presentation\/d\/([a-zA-Z0-9_-]+)/);
+            if (slidesMatch) {
+                fileId = slidesMatch[1];
+                embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+            
+            if (fileId && embedUrl) {
+                // Set iframe src untuk menampilkan file
+                const iframe = document.getElementById("fileIframe");
+                if (iframe) {
+                    iframe.src = embedUrl;
+                }
+
+                // Tampilkan pop-up
+                const popup = document.getElementById("popup");
+                const overlay = document.getElementById("popupOverlay");
+                
+                if (popup && overlay) {
+                    overlay.style.display = "flex"; // Menggunakan flex untuk centering
+                    popup.style.display = "block";
+                }
+            } else {
+                alert("Link tidak valid. Format yang didukung:\n" +
+                      "• Google Drive: https://drive.google.com/open?id=FILE_ID\n" +
+                      "• Google Drive: https://drive.google.com/file/d/FILE_ID/view\n" +
+                      "• Google Docs: https://docs.google.com/document/d/FILE_ID/edit\n" +
+                      "• Google Sheets: https://docs.google.com/spreadsheets/d/FILE_ID\n" +
+                      "• Google Slides: https://docs.google.com/presentation/d/FILE_ID");
+            }
+        }
+
+        function closePopup() {
+            // Tutup pop-up
+            const popup = document.getElementById("popup");
+            const overlay = document.getElementById("popupOverlay");
+            const iframe = document.getElementById("fileIframe");
+            
+            if (popup && overlay) {
+                popup.style.display = "none";
+                overlay.style.display = "none";
+            }
+            
+            // Clear iframe src untuk menghemat bandwidth
+            if (iframe) {
+                iframe.src = "";
+            }
+        }
+
+        // Close popup when clicking overlay
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById("popupOverlay");
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closePopup();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="py-6 mt-8">
+        <div class="container mx-auto px-4">
+            <div class="border-t border-gray-200 pt-6">
+                <!-- Clean footer without content -->
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
