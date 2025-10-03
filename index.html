@@ -473,6 +473,63 @@
             font-size: 0.75rem !important;
         }
         
+        /* Simple checkbox styling - no special appearance when active */
+        .status-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 16px;
+            height: 16px;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            border: 1px solid #d1d5db;
+            border-radius: 3px;
+            background-color: #ffffff;
+            position: relative;
+        }
+        
+        .status-checkbox:checked {
+            background-color: #ffffff;
+            border-color: #d1d5db;
+        }
+        
+        .status-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 6px;
+            height: 10px;
+            border: solid #6b7280;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .status-checkbox:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        
+        .status-checkbox:hover {
+            border-color: #9ca3af;
+        }
+        
+        /* Search input styling for realtime feedback */
+        #id-search, #title-search {
+            transition: all 0.3s ease;
+        }
+        
+        #id-search:focus, #title-search:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        #id-search:not(:placeholder-shown), #title-search:not(:placeholder-shown) {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
+        
             /* Text styling */
             .text-wrap {
                 white-space: normal !important;
@@ -797,26 +854,26 @@
     <div class="container mx-auto p-2 sm:p-4 md:p-6 lg:p-8">
 
         <!-- Filter Section -->
-        <div class="filter-section bg-gray-50 rounded-lg p-3 mx-4 mb-4 border border-gray-200">
+        <div class="filter-section bg-gray-50 rounded-lg p-6 mx-6 mb-6 border border-gray-200">
             <!-- Desktop Filter -->
-            <div class="flex flex-col gap-4 sm:gap-5">
+            <div class="flex flex-col gap-6 sm:gap-8">
                 <!-- Search Fields -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                     <div>
-                        <label for="id-search" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Search ID</label>
-                        <input type="text" id="id-search" placeholder="Cari berdasarkan ID..." class="filter-select">
+                        <label for="id-search" class="block text-xs sm:text-sm font-medium text-gray-700 mb-3">Search ID</label>
+                        <input type="text" id="id-search" placeholder="Cari berdasarkan ID" class="filter-select">
                     </div>
                     <div>
-                        <label for="title-search" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Search Judul</label>
-                        <input type="text" id="title-search" placeholder="Cari berdasarkan judul..." class="filter-select">
+                        <label for="title-search" class="block text-xs sm:text-sm font-medium text-gray-700 mb-3">Search Judul</label>
+                        <input type="text" id="title-search" placeholder="Cari berdasarkan judul" class="filter-select">
                     </div>
                 </div>
                 
                 <!-- Filter Controls -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Year Filter -->
                     <div>
-                        <label for="year-filter" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Filter Tahun</label>
+                        <label for="year-filter" class="block text-xs sm:text-sm font-medium text-gray-700 mb-3">Filter Tahun</label>
                         <select id="year-filter" class="filter-select">
                             <option value="">Semua Tahun</option>
                             <option value="2025">2025</option>
@@ -830,7 +887,7 @@
                     
                     <!-- Status Filter -->
                     <div>
-                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Filter Status</label>
+                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-3">Filter Status</label>
                         <div class="relative">
                             <button id="status-filter-btn" type="button" class="filter-button">
                                 <span id="status-filter-text" class="status-text">Semua Status</span>
@@ -838,36 +895,37 @@
                             </button>
                             <div id="status-filter-dropdown" class="filter-dropdown hidden">
                                 <div class="p-3 space-y-1">
-                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
-                                        <input type="checkbox" value="" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500" checked="">
-                                        <span class="text-xs sm:text-sm text-gray-700">Semua Status</span>
+                                    <!-- Status checkboxes -->
+                                    <label class="flex items-center space-x-3">
+                                        <input type="checkbox" value="" class="status-checkbox" checked="">
+                                        <span class="text-xs sm:text-sm text-gray-700 font-medium">Semua Status</span>
                                     </label>
-                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
-                                        <input type="checkbox" value="Writing" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label class="flex items-center space-x-3">
+                                        <input type="checkbox" value="Writing" class="status-checkbox">
                                         <span class="text-xs sm:text-sm text-gray-700">Writing</span>
                                     </label>
-                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
-                                        <input type="checkbox" value="Draft" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label class="flex items-center space-x-3">
+                                        <input type="checkbox" value="Draft" class="status-checkbox">
                                         <span class="text-xs sm:text-sm text-gray-700">Draft</span>
                                     </label>
-                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
-                                        <input type="checkbox" value="Submit" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label class="flex items-center space-x-3">
+                                        <input type="checkbox" value="Submit" class="status-checkbox">
                                         <span class="text-xs sm:text-sm text-gray-700">Submit</span>
                                     </label>
-                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
-                                        <input type="checkbox" value="Review" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label class="flex items-center space-x-3">
+                                        <input type="checkbox" value="Review" class="status-checkbox">
                                         <span class="text-xs sm:text-sm text-gray-700">Review</span>
                                     </label>
-                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
-                                        <input type="checkbox" value="Declined" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label class="flex items-center space-x-3">
+                                        <input type="checkbox" value="Declined" class="status-checkbox">
                                         <span class="text-xs sm:text-sm text-gray-700">Declined</span>
                                     </label>
-                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
-                                        <input type="checkbox" value="Accepted" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label class="flex items-center space-x-3">
+                                        <input type="checkbox" value="Accepted" class="status-checkbox">
                                         <span class="text-xs sm:text-sm text-gray-700">Accepted</span>
                                     </label>
-                                    <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-50">
-                                        <input type="checkbox" value="Published" class="status-checkbox border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label class="flex items-center space-x-3">
+                                        <input type="checkbox" value="Published" class="status-checkbox">
                                         <span class="text-xs sm:text-sm text-gray-700">Published</span>
                                     </label>
                                 </div>
@@ -877,7 +935,7 @@
                     
                     <!-- Accreditation Filter -->
                     <div>
-                        <label for="accreditation-filter" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Filter Akreditasi</label>
+                        <label for="accreditation-filter" class="block text-xs sm:text-sm font-medium text-gray-700 mb-3">Filter Akreditasi</label>
                         <select id="accreditation-filter" class="filter-select">
                             <option value="">Semua Akreditasi</option>
                             <option value="SINTA 1">Sinta 1</option>
@@ -890,6 +948,7 @@
                             <option value="Q4">Q4</option>
                         </select>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -930,7 +989,7 @@
                          <!-- No data message (hidden by default) -->
                          <tr class="table-row no-data-row hidden">
                              <td colspan="6" class="px-6 py-8 text-center text-gray-400">
-                                 <p id="no-data-message" class="text-xs text-gray-400">Data penelitian tidak ditemukan. Tambahkan data baru menggunakan form di bawah.</p>
+                                 <p id="no-data-message" class="text-xs text-gray-400">Data tidak ditemukan</p>
                              </td>
                          </tr>
                      </tbody>
@@ -1287,7 +1346,7 @@
                     </td>
                         <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-gray-300">
                                                     <span class="accreditation-badge">
-                            ${value.status === 'Draft' || value.status === 'Writing' ? '-' : capitalizeAccreditation(value.accreditation)}
+                            ${value.status === 'Draft' || value.status === 'Writing' ? 'N/A' : (value.accreditation ? capitalizeAccreditation(value.accreditation) : 'N/A')}
                         </span>
                         </td>
                         <td class="w-32 px-3 py-3 whitespace-nowrap border-r border-gray-300">
@@ -1321,7 +1380,7 @@
                                 <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
                                     <div class="flex items-center">
                                         <span class="font-medium text-gray-600">Akreditasi:</span>
-                                        <span class="text-gray-700 ml-2">${value.accreditation || '-'}</span>
+                                        <span class="text-gray-700 ml-2">${value.accreditation || 'N/A'}</span>
                                             </div>
                                         </div>
                                 <div class="border border-gray-300 px-3 py-1.5 bg-gray-100">
@@ -1387,11 +1446,13 @@
         accreditationFilter.addEventListener('change', applyFilters);
         statusFilterBtn.addEventListener('click', toggleStatusDropdown);
         
+        
+        
+        
+        
         // Status filter dropdown functionality - Sederhana dan efektif
         statusCheckboxes.forEach(checkbox => {
             checkbox.addEventListener('change', (e) => {
-
-                
                 // Then handle the change
                 handleStatusCheckboxChange.call(e.target);
             });
@@ -1805,16 +1866,16 @@
                 // Hash the entered PIN using secure hash function
                 const enteredPinHash = await secureHash(enteredPin);
                 const correctPinHash = await secureHash('0000'); // Hash of correct PIN
-                
-                if (enteredPinHash === correctPinHash) {
-                    // PIN is correct, proceed with action
-                    hidePinModal();
-                    executePendingAction();
-                } else {
-                    // PIN is incorrect
-                    console.log('PIN salah! Silakan coba lagi.');
-                    pinInput.value = '';
-                    pinInput.focus();
+            
+            if (enteredPinHash === correctPinHash) {
+                // PIN is correct, proceed with action
+                hidePinModal();
+                executePendingAction();
+            } else {
+                // PIN is incorrect
+                console.log('PIN salah! Silakan coba lagi.');
+                pinInput.value = '';
+                pinInput.focus();
                 }
             } catch (error) {
                 console.error('Error during PIN verification:', error);
@@ -1854,7 +1915,7 @@
                         .then(() => {
                             showToast('Research deleted successfully.', 'success');
                             setTimeout(() => {
-                                loadResearchData();
+                            loadResearchData();
                             }, 100);
                         })
                         .catch((error) => {
@@ -2018,7 +2079,7 @@
                         hideResearchModal();
                         // Refresh tabel setelah update
                         setTimeout(() => {
-                            loadResearchData();
+                        loadResearchData();
                         }, 100);
                     })
                     .catch((error) => {
@@ -2033,7 +2094,7 @@
                         hideResearchModal();
                         // Refresh tabel setelah tambah data baru
                         setTimeout(() => {
-                            loadResearchData();
+                        loadResearchData();
                         }, 100);
                     })
                     .catch((error) => {
@@ -2080,6 +2141,8 @@
         function ensureValidStatusCheckboxState() {
             const allCheckbox = document.querySelector('.status-checkbox[value=""]');
             const otherCheckboxes = document.querySelectorAll('.status-checkbox:not([value=""])');
+            
+            
             // Only set initial state if no checkbox is selected
             const hasSelectedStatus = Array.from(otherCheckboxes).some(cb => cb.checked);
             
@@ -2090,6 +2153,8 @@
             
             // Update filter text
             updateStatusFilterText();
+            
+            
         }
         
         function applyFilters() {
@@ -2101,8 +2166,8 @@
             const titleSearchTerm = document.getElementById('title-search').value.toLowerCase().trim();
             
             // Get filter values
-            const yearFilter = document.getElementById('year-filter').value;
-            const accreditationFilter = document.getElementById('accreditation-filter').value;
+            const yearFilterValue = document.getElementById('year-filter').value;
+            const accreditationFilterValue = document.getElementById('accreditation-filter').value;
             const selectedStatuses = getSelectedStatuses();
             
             // Ensure we have valid data to filter
@@ -2130,12 +2195,12 @@
                 }
                 
                 // Filter by Year
-                if (yearFilter && value.implementation_year?.toString() !== yearFilter) {
+                if (yearFilterValue && value.implementation_year?.toString() !== yearFilterValue) {
                     matches = false;
                 }
                 
                 // Filter by Accreditation
-                if (accreditationFilter && value.accreditation !== accreditationFilter) {
+                if (accreditationFilterValue && value.accreditation !== accreditationFilterValue) {
                     matches = false;
                 }
                 
@@ -2143,6 +2208,7 @@
                 if (selectedStatuses.length > 0 && !selectedStatuses.includes(value.status)) {
                     matches = false;
                 }
+                
                 
                 if (matches) {
                     filteredData[key] = value;
@@ -2154,6 +2220,8 @@
             
             // Update search info
             updateSearchInfo(idSearchTerm || titleSearchTerm, 'combined', Object.keys(filteredData).length);
+            
+            
         }
         
         function toggleStatusDropdown() {
@@ -2170,13 +2238,11 @@
                     // Check all other checkboxes when "Semua Status" is selected
                     otherCheckboxes.forEach(cb => {
                         cb.checked = true;
-
                     });
                 } else {
                     // When "Semua Status" is unchecked, uncheck all other checkboxes
                     otherCheckboxes.forEach(cb => {
                         cb.checked = false;
-
                     });
                 }
             } else {
@@ -2185,20 +2251,28 @@
                     // Uncheck "Semua Status" when individual status is selected
                     if (allCheckbox) {
                         allCheckbox.checked = false;
-
                     }
                 } else {
-                    // Don't automatically check "Semua Status" when unchecking
-                    // Let user control which statuses they want to see
+                    // Check if all other checkboxes are unchecked, then check "Semua Status"
+                    const allUnchecked = Array.from(otherCheckboxes).every(cb => !cb.checked);
+                    if (allUnchecked && allCheckbox) {
+                        allCheckbox.checked = true;
+                    }
                 }
             }
             
-            // Update teks filter
+            // Update filter text
             updateStatusFilterText();
             
             // Apply filters immediately
             applyFilters();
+            
+            
         }
+        
+        
+        
+        
         
         function getSelectedStatuses() {
             const selectedStatuses = [];
@@ -2224,12 +2298,21 @@
             const allCheckbox = document.querySelector('.status-checkbox[value=""]');
             const selectedStatuses = getSelectedStatuses();
             
-            if (allCheckbox.checked) {
+            if (allCheckbox && allCheckbox.checked) {
                 statusFilterText.textContent = 'Semua Status';
             } else if (selectedStatuses.length === 0) {
                 statusFilterText.textContent = 'Tidak Ada Status Dipilih';
             } else if (selectedStatuses.length === 1) {
                 statusFilterText.textContent = selectedStatuses[0];
+            } else if (selectedStatuses.length <= 3) {
+                // Tampilkan maksimal 3 status, sisanya dengan "..."
+                const displayStatuses = selectedStatuses.slice(0, 3);
+                const remaining = selectedStatuses.length - 3;
+                if (remaining > 0) {
+                    statusFilterText.textContent = `${displayStatuses.join(', ')} +${remaining} lainnya`;
+                } else {
+                    statusFilterText.textContent = displayStatuses.join(', ');
+                }
             } else {
                 statusFilterText.textContent = `${selectedStatuses.length} Status Dipilih`;
             }
@@ -2245,13 +2328,13 @@
                 // Hide all other collapse rows first
                 document.querySelectorAll('[id^="collapse-"]').forEach(row => {
                     if (row.id !== `collapse-${key}`) {
-                        row.classList.add('hidden');
+                            row.classList.add('hidden');
                     }
                 });
                 
                 // Toggle current collapse row
                 collapseRow.classList.toggle('hidden');
-            } else {
+                } else {
                 // If collapse row doesn't exist, create it
                 createCollapseRow(key);
             }
@@ -2279,7 +2362,7 @@
                                 <div class="border border-gray-200 bg-gray-50 px-3 py-2">
                                     <div class="flex items-center">
                                         <span class="font-medium text-gray-600 w-24">Akreditasi:</span>
-                                        <span class="text-gray-800">${data.accreditation || '-'}</span>
+                                        <span class="text-gray-800">${data.accreditation || 'N/A'}</span>
                                     </div>
                                 </div>
                                 <div class="border border-gray-200 bg-gray-50 px-3 py-2">
@@ -2352,7 +2435,7 @@
                     </td>
                     <td class="px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
                         <span class="accreditation-badge">
-                            ${value.status === 'Draft' || value.status === 'Writing' ? '-' : capitalizeAccreditation(value.accreditation)}
+                            ${value.status === 'Draft' || value.status === 'Writing' ? 'N/A' : (value.accreditation ? capitalizeAccreditation(value.accreditation) : 'N/A')}
                         </span>
                     </td>
                     <td class="px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center">
@@ -2384,7 +2467,7 @@
                                     <div class="border border-gray-200 bg-gray-50 px-3 py-2">
                                         <div class="flex items-center">
                                             <span class="font-medium text-gray-600 w-24">Akreditasi:</span>
-                                            <span class="text-gray-800">${value.accreditation || '-'}</span>
+                                            <span class="text-gray-800">${value.accreditation || 'N/A'}</span>
                                         </div>
                                     </div>
                                         <div class="flex items-center">
@@ -2447,46 +2530,92 @@
         }
         
         // --- Pagination Functions ---
+        function checkIfFiltersActive() {
+            // Check if any filters are active
+            const idSearch = document.getElementById('id-search').value.trim();
+            const titleSearch = document.getElementById('title-search').value.trim();
+            const yearFilter = document.getElementById('year-filter').value;
+            const accreditationFilter = document.getElementById('accreditation-filter').value;
+            const selectedStatuses = getSelectedStatuses();
+            
+            return idSearch !== '' || 
+                   titleSearch !== '' || 
+                   yearFilter !== '' || 
+                   accreditationFilter !== '' || 
+                   (selectedStatuses.length > 0 && !selectedStatuses.includes(''));
+        }
+        
         function renderTableWithPagination(data) {
             if (!data || Object.keys(data).length === 0) {
-                // Show no data message instead of empty row
-                const noDataRow = document.querySelector('.no-data-row');
+                // Check if filters are active
+                const hasActiveFilters = checkIfFiltersActive();
                 
-                if (noDataRow) {
-                    noDataRow.classList.remove('hidden');
+                if (hasActiveFilters) {
+                    // If filters are active, show table with "Data tidak ditemukan" message
+                    const tableContainer = document.querySelector('.table_component');
+                    const paginationContainer = document.getElementById('pagination-container');
+                    
+                    if (tableContainer) {
+                        tableContainer.style.display = 'block';
+                    }
+                    
+                    if (paginationContainer) {
+                        paginationContainer.style.display = 'none';
+                    }
+                    
+                    // Clear existing data rows and collapse rows
+                    const existingDataRows = document.querySelectorAll('.table-row:not(.no-data-row)');
+                    const existingCollapseRows = document.querySelectorAll('[id^="collapse-"]');
+                    existingDataRows.forEach(row => row.remove());
+                    existingCollapseRows.forEach(row => row.remove());
+                    
+                    // Show no data message in table
+                    const noDataRow = document.querySelector('.no-data-row');
+                    if (noDataRow) {
+                        noDataRow.classList.remove('hidden');
+                        const noDataMessage = document.getElementById('no-data-message');
+                        noDataMessage.textContent = 'Data tidak ditemukan';
+                    }
+                } else {
+                    // If no filters active, hide table completely
+                    const tableContainer = document.querySelector('.table_component');
+                    const paginationContainer = document.getElementById('pagination-container');
+                    
+                    if (tableContainer) {
+                        tableContainer.style.display = 'none';
+                    }
+                    
+                    if (paginationContainer) {
+                        paginationContainer.style.display = 'none';
+                    }
+                    
+                    // Show no data message
+                    const noDataRow = document.querySelector('.no-data-row');
+                    if (noDataRow) {
+                        noDataRow.classList.remove('hidden');
+                        const noDataMessage = document.getElementById('no-data-message');
+                        noDataMessage.textContent = 'Data tidak ditemukan';
+                    }
                 }
                 
                 updatePaginationInfo(0, 0, 0);
                 return;
             }
             
-            // Apply filters if any are set
+            // Show table and pagination when there is data
+            const tableContainer = document.querySelector('.table_component');
+            const paginationContainer = document.getElementById('pagination-container');
+            
+            if (tableContainer) {
+                tableContainer.style.display = 'block';
+            }
+            
+            if (paginationContainer) {
+                paginationContainer.style.display = 'flex';
+            }
+            
+            // Convert data to array format for pagination
             filteredData = Object.entries(data);
-            
-            // Filter by year if selected
-            if (yearFilter.value) {
-                filteredData = filteredData.filter(([key, value]) => 
-                    value.implementation_year == yearFilter.value
-                );
-            }
-            
-            // Filter by accreditation if selected
-            if (accreditationFilter.value) {
-                filteredData = filteredData.filter(([key, value]) => 
-                    value.accreditation === accreditationFilter.value
-                );
-            }
-            
-            // Filter by status if selected
-            const selectedStatuses = getSelectedStatuses();
-            
-            // Jika ada status yang dipilih (tidak kosong), terapkan filter
-            if (selectedStatuses.length > 0) {
-                filteredData = filteredData.filter(([key, value]) => 
-                    selectedStatuses.includes(value.status)
-                );
-            }
-            // Jika tidak ada status yang dipilih (semua status), tampilkan semua data
             
             const totalItems = filteredData.length;
             const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -2538,7 +2667,7 @@
                     </td>
                     <td class="px-3 py-3 whitespace-nowrap border-r border-gray-300 text-center" data-label="Akreditasi">
                         <span class="accreditation-badge">
-                            ${value.status === 'Draft' || value.status === 'Writing' ? '-' : capitalizeAccreditation(value.accreditation)}
+                            ${value.status === 'Draft' || value.status === 'Writing' ? 'N/A' : (value.accreditation ? capitalizeAccreditation(value.accreditation) : 'N/A')}
                         </span>
                     </td>
                     <td class="px-2 py-2 whitespace-nowrap text-xs font-medium action-column" data-label="Aksi">
@@ -2564,7 +2693,7 @@
                                     <div class="border border-gray-200 bg-gray-50 px-3 py-2">
                                         <div class="flex items-center">
                                             <span class="font-medium text-gray-600 w-24">Akreditasi:</span>
-                                            <span class="text-gray-800">${value.accreditation || '-'}</span>
+                                            <span class="text-gray-800">${value.accreditation || 'N/A'}</span>
                                         </div>
                                     </div>
                                     <div class="border border-gray-200 bg-gray-50 px-3 py-2">
@@ -2664,7 +2793,10 @@
         
         function goToPage(page) {
             currentPage = page;
-            renderTableWithPagination(allData);
+            // Use filtered data if available, otherwise use all data
+            const dataToRender = filteredData && filteredData.length > 0 ? 
+                Object.fromEntries(filteredData) : allData;
+            renderTableWithPagination(dataToRender);
         }
         
         function goToPreviousPage() {
@@ -2674,7 +2806,9 @@
         }
         
         function goToNextPage() {
-            const totalPages = Math.ceil(Object.keys(allData).length / itemsPerPage);
+            const dataToCheck = filteredData && filteredData.length > 0 ? 
+                Object.fromEntries(filteredData) : allData;
+            const totalPages = Math.ceil(Object.keys(dataToCheck).length / itemsPerPage);
             if (currentPage < totalPages) {
                 goToPage(currentPage + 1);
             }
@@ -2683,7 +2817,10 @@
         function changeItemsPerPage(newItemsPerPage) {
             itemsPerPage = parseInt(newItemsPerPage);
             currentPage = 1; // Reset to first page
-            renderTableWithPagination(allData);
+            // Use filtered data if available, otherwise use all data
+            const dataToRender = filteredData && filteredData.length > 0 ? 
+                Object.fromEntries(filteredData) : allData;
+            renderTableWithPagination(dataToRender);
         }
 
         // ===== SEARCH FUNCTIONS =====
@@ -2691,23 +2828,37 @@
             const idSearch = document.getElementById('id-search');
             const titleSearch = document.getElementById('title-search');
             
-            // Search by ID
+            // Debounce function to limit search frequency
+            let searchTimeout;
+            
+            // Search by ID with debouncing
             idSearch.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase().trim();
-                performSearch(searchTerm, 'id');
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const searchTerm = e.target.value.toLowerCase().trim();
+                    performSearch(searchTerm, 'id');
+                }, 300); // 300ms delay
             });
             
-            // Search by Title
+            // Search by Title with debouncing
             titleSearch.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase().trim();
-                performSearch(searchTerm, 'title');
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const searchTerm = e.target.value.toLowerCase().trim();
+                    performSearch(searchTerm, 'title');
+                }, 300); // 300ms delay
             });
         }
         
         function performSearch(searchTerm, searchType) {
             if (!allData) return;
             
-            // Gunakan applyFilters untuk mengintegrasikan dengan filter lainnya
+            // Show loading state (optional)
+            const searchInput = searchType === 'id' ? 
+                document.getElementById('id-search') : 
+                document.getElementById('title-search');
+            
+            // Apply filters immediately when searching
             applyFilters();
         }
         
@@ -2724,16 +2875,24 @@
                 // Tampilkan info hasil filter dan search yang digabung
                 const idSearchTerm = document.getElementById('id-search').value.toLowerCase().trim();
                 const titleSearchTerm = document.getElementById('title-search').value.toLowerCase().trim();
+                const yearFilterValue = document.getElementById('year-filter').value;
+                const accreditationFilterValue = document.getElementById('accreditation-filter').value;
+                const selectedStatuses = getSelectedStatuses();
                 
                 let searchInfo = [];
                 if (idSearchTerm) searchInfo.push(`ID: "${idSearchTerm}"`);
                 if (titleSearchTerm) searchInfo.push(`Judul: "${titleSearchTerm}"`);
+                if (yearFilterValue) searchInfo.push(`Tahun: ${yearFilterValue}`);
+                if (accreditationFilterValue) searchInfo.push(`Akreditasi: ${accreditationFilterValue}`);
+                if (selectedStatuses.length > 0 && selectedStatuses.length < 7) {
+                    searchInfo.push(`Status: ${selectedStatuses.join(', ')}`);
+                }
                 
                 if (searchInfo.length > 0) {
-                    pageInfo.textContent = `Hasil pencarian ${searchInfo.join(', ')}: ${resultCount} data ditemukan`;
+                    pageInfo.textContent = `Hasil filter ${searchInfo.join(', ')}: ${resultCount} data ditemukan`;
                 } else {
                     // Hanya filter yang aktif
-                    pageInfo.textContent = `Hasil filter: ${resultCount} data ditemukan`;
+                    pageInfo.textContent = `Menampilkan ${resultCount} data`;
                 }
             } else {
                 // Tampilkan info hasil pencarian
